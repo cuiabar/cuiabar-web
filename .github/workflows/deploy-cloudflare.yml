@@ -19,7 +19,6 @@ env:
 
 jobs:
   deploy-pages:
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,7 +44,6 @@ jobs:
           command: pages deploy dist --project-name=cuiabar-site
 
   deploy-worker:
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
