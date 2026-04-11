@@ -1,6 +1,6 @@
 # Integrações e credenciais
 
-Atualizado em: 2026-04-10
+Atualizado em: 2026-04-11
 
 ## Política de segredos
 
@@ -41,6 +41,21 @@ O que não deve ficar versionado:
 - autenticação Google/CRM: `wrangler.jsonc`, `worker/services/google/`
 - Calendar: `worker/services/google/calendarService.ts`
 - SEO/search: `src/pages/PesquisaPage.tsx`, `src/lib/seo.ts`, `src/data/seoRoutes.json`
+- Google Business Profile OAuth:
+  - setup: `/oauth/google-business/setup`
+  - start: `/oauth/google-business/start`
+  - callback: `/api/google/business/callback`
+  - settings storage key: `google_business_oauth_connection`
+- Search Console:
+  - service account operacional confirmada em 2026-04-11
+  - propriedade acessível: `sc-domain:cuiabar.com`
+  - sitemap submetido por API: `https://cuiabar.com/sitemap.xml`
+  - propriedade adicional visível: `https://www.cuiabar.com/`
+
+Observação:
+
+- a chave privada da service account não deve permanecer em `Downloads` como fonte de operação;
+- o ideal é mover a credencial para um cofre seguro e usar apenas referência operacional na documentação.
 
 ### Blog/editorial
 

@@ -1,6 +1,6 @@
 # Status atual e pendências
 
-Atualizado em: 2026-04-10
+Atualizado em: 2026-04-11
 
 ## Estado geral
 
@@ -23,15 +23,20 @@ O projeto está funcional como base única para:
 - arquivos gerados do Worker passaram a ser tratados como não editáveis
 - GitHub privado adotado como base principal do repositório e da documentação técnica
 - migração para operação web-first iniciada e documentada em `docs/11-CODEX-WEB-MIGRACAO.md`
+- secret `CLOUDFLARE_API_TOKEN` configurado no GitHub e workflow remoto validado com sucesso
+- Search Console confirmado por API com acesso à propriedade `sc-domain:cuiabar.com`
+- sitemap principal `https://cuiabar.com/sitemap.xml` submetido por API em 2026-04-11
+- fluxo OAuth inicial do Google Business Profile preparado no Worker, aguardando autorizacao da conta gestora
 
 ## Pontos que ainda exigem acompanhamento
 
 - consolidar a política entre GitHub como fonte principal e Drive como backup complementar
 - revisar estratégia de secrets fora do repositório
-- configurar `CLOUDFLARE_API_TOKEN` no GitHub para deploy remoto automático
 - decidir separação lógica e operacional entre site, CRM, burger e blog
 - reduzir acoplamento entre múltiplos módulos dentro da mesma branch
 - revisar política de deploy para evitar confusão entre Pages e Worker
+- limpar entradas antigas/erradas de sitemap no Search Console ligadas a rotas do `expresso.cuiabar.com`
+- concluir autorizacao do Google Business Profile para gravar `refresh token` e iniciar automacoes do perfil
 
 ## Próximo passo estrutural recomendado
 

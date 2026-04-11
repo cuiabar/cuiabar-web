@@ -92,6 +92,14 @@ type GmailOAuthConnection = {
   source?: 'panel_oauth' | 'cloudflare_secret';
 };
 
+type GoogleBusinessOAuthConnection = {
+  email?: string;
+  refreshToken?: string;
+  scope?: string | null;
+  grantedAt?: string | null;
+  source?: 'panel_oauth' | 'cloudflare_secret';
+};
+
 type ContactProviderLinkRecord = {
   id: string;
   contact_id: string;
@@ -143,6 +151,7 @@ type GoogleAdsConnectorSettings = {
 
 const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 14;
 const GMAIL_OAUTH_STATE_COOKIE_NAME = 'cuiabar_gmail_oauth_state';
+const GOOGLE_BUSINESS_OAUTH_STATE_COOKIE_NAME = 'cuiabar_google_business_oauth_state';
 const RESERVED_TEMPLATE_VARIABLES = ['first_name', 'last_name', 'email', 'unsubscribe_url', 'campaign_name', 'reply_to'];
 const DEFAULT_IFOOD_STORE_URL =
   'https://www.ifood.com.br/delivery/campinas-sp/villa-cuiabar--executivos--pratos-do-dia-jardim-aurelia/1af0e396-a7c8-46e1-b1a5-dd06486bb4ad';
@@ -312,6 +321,50 @@ const storeGmailOAuthConnection = async (env: Env, connection: GmailOAuthConnect
   await writeSetting(env, 'gmail_oauth_connection', connection, null);
   await writeSetting(env, 'gmail_oauth_pending', connection, null);
 };
+
+const readGoogleBusinessOAuthConnection = async (env: Env) => {
+  const primary = await readSetting<GoogleBusinessOAuthConnection | null>(env, 'google_business_oauth_connection', null);
+  if (primary?.refreshToken) {
+    return primary;
+  }
+
+  const legacy = await readSetting<GoogleBusinessOAuthConnection | null>(env, 'google_business_oauth_pending', null);
+  return legacy?.refreshToken ? legacy : null;
+};
+
+const storeGoogleBusinessOAuthConnection = async (env: Env, connection: GoogleBusinessOAuthConnection) => {
+  await writeSetting(env, 'google_business_oauth_connection', connection, null);
+  await writeSetting(env, 'google_business_oauth_pending', connection, null);
+};
+
+const googleBusinessOauthSetupHtml = (env: Env) => `<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Google Business Profile OAuth</title>
+    <style>
+      body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:#f6f0e8;color:#20140f;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px}
+      .card{max-width:760px;background:#fff;padding:32px;border-radius:28px;box-shadow:0 28px 80px rgba(32,20,15,.12)}
+      .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff3eb;color:#9b3f21;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+      h1{margin:18px 0 12px;font-size:clamp(28px,4vw,42px)}
+      p{line-height:1.65}
+      code{font-family:ui-monospace,SFMono-Regular,monospace;background:#fff6ef;padding:2px 6px;border-radius:8px}
+      .button{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:16px;background:#9b3f21;color:#fff;text-decoration:none;font-weight:700}
+      .muted{color:#6b5a51}
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <span class="pill">google business profile</span>
+      <h1>Autorizar o Perfil da Empresa</h1>
+      <p>Use a conta Google que já gerencia o perfil do Cuiabar. O fluxo vai solicitar permissão e gravar o <code>refresh token</code> no CRM para futuras automações.</p>
+      <p><strong>Redirect URI configurada no Google Cloud:</strong> <code>${env.APP_BASE_URL.replace('crm.', '')}/api/google/business/callback</code></p>
+      <p class="muted">Se esta URI não for a mesma cadastrada no OAuth Client, o Google recusará a autorização.</p>
+      <a class="button" href="/oauth/google-business/start">Autorizar Google Business Profile</a>
+    </main>
+  </body>
+</html>`;
 
 const auditLog = async (
   env: Env,
@@ -2304,6 +2357,137 @@ export const createApp = () => {
       allowedEmails: [...parseEmailSet(c.env.GOOGLE_ALLOWED_EMAILS)],
     }),
   );
+
+  app.get('/oauth/google-business/setup', (c) => c.html(googleBusinessOauthSetupHtml(c.env)));
+
+  app.get('/oauth/google-business/start', (c) => {
+    if (!c.env.GOOGLE_BUSINESS_CLIENT_ID || !c.env.GOOGLE_BUSINESS_CLIENT_SECRET) {
+      throw new HttpError(400, 'As credenciais OAuth do Google Business Profile ainda nao foram configuradas no Worker.');
+    }
+
+    const requestOrigin = new URL(c.req.url).origin;
+    const requestHost = new URL(c.req.url).hostname;
+    const publicOrigin = requestOrigin.replace('://crm.', '://');
+    const redirectUri = `${publicOrigin}/api/google/business/callback`;
+    const state = randomToken(24);
+    const secure = new URL(c.req.url).protocol === 'https:';
+    const cookieDomain = requestHost.endsWith('.cuiabar.com') ? '.cuiabar.com' : undefined;
+
+    setCookie(c, GOOGLE_BUSINESS_OAUTH_STATE_COOKIE_NAME, state, {
+      httpOnly: true,
+      secure,
+      sameSite: 'Lax',
+      domain: cookieDomain,
+      path: '/',
+      maxAge: 60 * 10,
+    });
+
+    const authUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');
+    authUrl.searchParams.set('client_id', c.env.GOOGLE_BUSINESS_CLIENT_ID);
+    authUrl.searchParams.set('redirect_uri', redirectUri);
+    authUrl.searchParams.set('response_type', 'code');
+    authUrl.searchParams.set('scope', 'openid email profile https://www.googleapis.com/auth/business.manage');
+    authUrl.searchParams.set('access_type', 'offline');
+    authUrl.searchParams.set('prompt', 'consent');
+    authUrl.searchParams.set('include_granted_scopes', 'true');
+    authUrl.searchParams.set('state', state);
+
+    const loginHint = normalizeEmail(c.env.GOOGLE_MANAGER_EMAILS?.split(',')[0] || c.env.GOOGLE_ALLOWED_EMAILS?.split(',')[0] || '');
+    if (loginHint) {
+      authUrl.searchParams.set('login_hint', loginHint);
+    }
+
+    return c.redirect(authUrl.toString(), 302);
+  });
+
+  app.get('/api/google/business/callback', async (c) => {
+    const requestOrigin = new URL(c.req.url).origin;
+    const requestHost = new URL(c.req.url).hostname;
+    const redirectUri = `${requestOrigin}/api/google/business/callback`;
+    const expectedState = getCookie(c, GOOGLE_BUSINESS_OAUTH_STATE_COOKIE_NAME);
+    deleteCookie(c, GOOGLE_BUSINESS_OAUTH_STATE_COOKIE_NAME, {
+      path: '/',
+      domain: requestHost.endsWith('.cuiabar.com') ? '.cuiabar.com' : undefined,
+    });
+
+    const oauthError = c.req.query('error');
+    if (oauthError) {
+      const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Autorizacao cancelada</title><style>body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:#f8fafc;color:#0f172a;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px}.card{max-width:680px;background:#fff;padding:32px;border-radius:28px;box-shadow:0 30px 80px rgba(15,23,42,.10)}.error{color:#b91c1c}code{font-family:ui-monospace,SFMono-Regular,monospace}</style></head><body><main class="card"><h1 class="error">Autorizacao nao concluida</h1><p>O Google retornou <code>${oauthError}</code>.</p><p>Volte ao chat e me envie essa mensagem para eu ajustar o fluxo.</p></main></body></html>`;
+      return c.html(html, 400);
+    }
+
+    const state = c.req.query('state');
+    const code = c.req.query('code');
+    if (!expectedState || !state || state !== expectedState) {
+      throw new HttpError(400, 'Estado do OAuth invalido ou expirado. Tente novamente a partir da tela de setup.');
+    }
+    if (!code) {
+      throw new HttpError(400, 'Codigo de autorizacao ausente no callback do Google Business Profile.');
+    }
+    if (!c.env.GOOGLE_BUSINESS_CLIENT_ID || !c.env.GOOGLE_BUSINESS_CLIENT_SECRET) {
+      throw new HttpError(400, 'As credenciais OAuth do Google Business Profile ainda nao foram configuradas no Worker.');
+    }
+
+    const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        code,
+        client_id: c.env.GOOGLE_BUSINESS_CLIENT_ID,
+        client_secret: c.env.GOOGLE_BUSINESS_CLIENT_SECRET,
+        redirect_uri: redirectUri,
+        grant_type: 'authorization_code',
+      }),
+    });
+
+    const tokenPayload = (await tokenResponse.json()) as {
+      refresh_token?: string;
+      id_token?: string;
+      scope?: string;
+      error?: string;
+      error_description?: string;
+    };
+
+    if (!tokenResponse.ok) {
+      throw new HttpError(400, 'Google recusou a troca do codigo OAuth do Business Profile.', tokenPayload);
+    }
+
+    if (!tokenPayload.id_token) {
+      throw new HttpError(400, 'O Google nao retornou um id_token para validar a conta autorizada.');
+    }
+
+    const identity = await verifyGoogleIdToken(c.env, tokenPayload.id_token, c.env.GOOGLE_BUSINESS_CLIENT_ID);
+    const authorizedEmail = identity.email.toLowerCase();
+    const allowedBusinessEmails = parseEmailSet(c.env.GOOGLE_MANAGER_EMAILS || c.env.GOOGLE_ALLOWED_EMAILS);
+    if (allowedBusinessEmails.size > 0 && !allowedBusinessEmails.has(authorizedEmail)) {
+      throw new HttpError(403, `A autorizacao precisa ser feita com uma conta gestora do Cuiabar. Conta atual: ${authorizedEmail}.`);
+    }
+
+    if (!tokenPayload.refresh_token) {
+      throw new HttpError(
+        409,
+        'O Google nao retornou refresh token. Revogue o acesso anterior do app nesta conta e autorize novamente.',
+        { email: authorizedEmail, scope: tokenPayload.scope ?? null },
+      );
+    }
+
+    await storeGoogleBusinessOAuthConnection(c.env, {
+      email: authorizedEmail,
+      refreshToken: tokenPayload.refresh_token,
+      scope: tokenPayload.scope ?? null,
+      grantedAt: nowIso(),
+      source: 'panel_oauth',
+    });
+    await auditLog(c.env, c.req.raw, null, 'google_business.oauth.exchange', 'app_settings', 'google_business_oauth_connection', {
+      email: authorizedEmail,
+      scope: tokenPayload.scope ?? null,
+    });
+
+    const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Google Business autorizado</title><style>body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:#eef4f7;color:#0f172a;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px}.card{max-width:720px;background:#fff;padding:32px;border-radius:28px;box-shadow:0 30px 80px rgba(15,23,42,.10)}.ok{color:#166534}code{font-family:ui-monospace,SFMono-Regular,monospace}</style></head><body><main class="card"><h1 class="ok">Autorizacao concluida</h1><p>O Google Business Profile de <strong>${authorizedEmail}</strong> foi autorizado e o <code>refresh token</code> ficou salvo no CRM.</p><p>Volte ao chat e me responda <strong>autorizei</strong> para eu validar a conexao e seguir com a integracao do perfil.</p></main></body></html>`;
+    return c.html(html);
+  });
 
   app.get('/oauth/gmail/setup', (c) => c.html(gmailOauthSetupHtml(c.env)));
 

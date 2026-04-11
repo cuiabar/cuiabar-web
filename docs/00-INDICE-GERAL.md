@@ -38,6 +38,9 @@ Atualizado em: 2026-04-10
 - `11-CODEX-WEB-MIGRACAO.md`
   Estado da migração para operação web-first via GitHub/Codex Web.
 
+- `12-PROJETO-MODERNIZACAO-SEO-MOBILE-E-DISTRIBUICAO.md`
+  Plano recomendado para indexação, performance mobile, mídia na Cloudflare e integração com Google/Bing.
+
 ## Material complementar
 
 - `guias-legados/`
