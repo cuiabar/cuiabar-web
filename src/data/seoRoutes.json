@@ -1,0 +1,1363 @@
+{
+  "siteOrigin": "https://cuiabar.com",
+  "defaultImage": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+  "routes": {
+    "/": {
+      "title": "Villa Cuiabar | Restaurante no Jardim Aurélia com música ao vivo em Campinas",
+      "description": "Villa Cuiabar no Jardim Aurélia, em Campinas, com bar e restaurante no eixo da John Boyd Dunlop, espaço kids, música ao vivo, menu completo e reservas online no portal oficial.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar em Campinas com mesas montadas e iluminação acolhedora",
+      "type": "website",
+      "changefreq": "daily",
+      "priority": "1.0",
+      "keywords": [
+        "restaurante em Campinas",
+        "restaurante Jardim Aurélia",
+        "bar Jardim Aurélia",
+        "John Boyd Dunlop restaurante",
+        "espaço kids Campinas",
+        "música ao vivo em Campinas",
+        "reservas restaurante Campinas",
+        "shows em Campinas",
+        "Villa Cuiabar",
+        "Cuiabar Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Restaurant",
+          "@id": "https://cuiabar.com/#restaurant",
+          "name": "Villa Cuiabar",
+          "alternateName": "Cuiabar",
+          "description": "Bar e restaurante no Jardim Aurélia, em Campinas, com música ao vivo, espaço familiar, reservas online no portal oficial e operação corporativa com o ProRefeição.",
+          "url": "https://cuiabar.com/",
+          "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "image": [
+            "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+            "https://cuiabar.com/home/home-mascote-salao.jpg"
+          ],
+          "telephone": "+55 19 3305-8878",
+          "email": "cuiabar@cuiabar.net",
+          "priceRange": "$$",
+          "servesCuisine": [
+            "Brasileira",
+            "Mato-grossense",
+            "Churrasco",
+            "Hambúrgueres"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+            "addressLocality": "Campinas",
+            "addressRegion": "SP",
+            "postalCode": "13033-010",
+            "addressCountry": "BR"
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP",
+          "sameAs": [
+            "https://instagram.com/cuiabar",
+            "https://facebook.com/villacuiabar",
+            "https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a"
+          ],
+          "hasMenu": "https://cuiabar.com/menu",
+          "acceptsReservations": "https://reservas.cuiabar.com/",
+          "potentialAction": [
+            {
+              "@type": "OrderAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://expresso.cuiabar.com"
+              }
+            },
+            {
+              "@type": "ReserveAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://reservas.cuiabar.com/"
+              }
+            }
+          ],
+          "additionalType": "https://schema.org/BarOrPub",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -22.9010251,
+            "longitude": -47.09676
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Campinas"
+            },
+            {
+              "@type": "Place",
+              "name": "Jardim Aurélia"
+            },
+            {
+              "@type": "Place",
+              "name": "Avenida John Boyd Dunlop"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Friday",
+              "opens": "11:00",
+              "closes": "14:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Friday",
+              "opens": "18:00",
+              "closes": "23:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Saturday",
+              "opens": "11:00",
+              "closes": "15:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Saturday",
+              "opens": "18:00",
+              "closes": "23:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Sunday",
+              "opens": "11:00",
+              "closes": "16:00"
+            }
+          ],
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Música ao vivo",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Espaço kids e ambiente familiar",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Reservas online",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Bar completo",
+              "value": true
+            }
+          ],
+          "knowsAbout": [
+            "Jardim Aurélia",
+            "John Boyd Dunlop",
+            "música ao vivo",
+            "shows",
+            "espaço kids",
+            "reservas online",
+            "bar e restaurante em Campinas"
+          ],
+          "currenciesAccepted": "BRL"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://cuiabar.com/#organization",
+          "name": "Villa Cuiabar",
+          "url": "https://cuiabar.com/",
+          "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+55 19 3305-8878",
+              "contactType": "customer support",
+              "areaServed": "BR",
+              "availableLanguage": [
+                "pt-BR"
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://cuiabar.com/#website",
+          "name": "Villa Cuiabar",
+          "url": "https://cuiabar.com/",
+          "inLanguage": "pt-BR",
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como faço minha reserva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As reservas e confirmações são feitas no portal oficial reservas.cuiabar.com, com data, horário, quantidade de pessoas e preferências em um único fluxo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O presencial com música acontece às sextas, sábados e domingos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Tem espaço para ir com crianças?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O ambiente é familiar, com brinquedo para crianças e estrutura pensada para almoço e encontros com os pequenos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais dias têm atendimento noturno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O delivery à noite funciona de quarta a sábado."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/menu": {
+      "title": "Menu | Villa Cuiabar em Campinas",
+      "description": "Veja o cardápio do Villa Cuiabar com porções, pratos, burgers, massas, bebidas, drinks e acompanhamentos em Campinas.",
+      "image": "https://cuiabar.com/menu/bife-chorizo.png",
+      "imageAlt": "Prato Bife Chorizo do Villa Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.95",
+      "keywords": [
+        "cardápio Villa Cuiabar",
+        "menu restaurante Campinas",
+        "porções em Campinas",
+        "pratos executivos Campinas",
+        "drinks e cervejas Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Menu",
+          "name": "Cardápio Villa Cuiabar",
+          "description": "Cardápio completo do Villa Cuiabar com porções, pratos, massas, burgers, bebidas e drinks.",
+          "url": "https://cuiabar.com/menu",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
+    "/pesquisa": {
+      "title": "Pesquisa | Villa Cuiabar",
+      "description": "Ferramenta de pesquisa interna da Cuiabar para encontrar páginas, cardápio, vagas e informações do restaurante.",
+      "image": "https://cuiabar.com/logo-villa-cuiabar.png",
+      "imageAlt": "Logo do Villa Cuiabar",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.2",
+      "robots": "noindex,follow",
+      "includeInSitemap": false,
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Pesquisa Villa Cuiabar",
+          "url": "https://cuiabar.com/pesquisa",
+          "description": "Página de pesquisa interna do site Villa Cuiabar."
+        }
+      ]
+    },
+    "/links": {
+      "title": "Cuiabar | Links oficiais em Campinas",
+      "description": "Acesse os links oficiais da Cuiabar: canal no WhatsApp, atendimento, pedidos diretos, vagas e localização em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.82",
+      "keywords": [
+        "links Cuiabar",
+        "WhatsApp Cuiabar",
+        "pedido direto Cuiabar",
+        "localização Cuiabar"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Cuiabar | Links oficiais",
+          "url": "https://cuiabar.com/links",
+          "description": "Página oficial com os principais acessos da Cuiabar para pedidos, atendimento, canal de WhatsApp, vagas e localização.",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
+    "/agenda": {
+      "title": "Agenda de música ao vivo | Villa Cuiabar em Campinas",
+      "description": "Acompanhe a agenda oficial de música ao vivo do Villa Cuiabar, com páginas próprias para sexta, sábado e domingo no Jardim Aurélia, em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar preparado para música ao vivo em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.88",
+      "keywords": [
+        "agenda música ao vivo Campinas",
+        "shows em Campinas",
+        "bar com música ao vivo Jardim Aurélia",
+        "agenda John Boyd Dunlop",
+        "reserva para show Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Agenda de música ao vivo do Villa Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Sexta com música ao vivo",
+              "url": "https://cuiabar.com/agenda/sexta-musica-ao-vivo-campinas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Sábado de show ao vivo",
+              "url": "https://cuiabar.com/agenda/sabado-show-ao-vivo-jardim-aurelia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Domingo musical",
+              "url": "https://cuiabar.com/agenda/domingo-musical-jardim-aurelia"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo no Villa Cuiabar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A programação presencial com música ao vivo acontece às sextas, sábados e domingos, com páginas próprias para cada perfil de dia."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Onde faço a reserva para os dias de música?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A reserva oficial é feita em reservas.cuiabar.com, com data, horário, quantidade de pessoas e observações em um único fluxo."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/agenda/sexta-musica-ao-vivo-campinas": {
+      "title": "Sexta com música ao vivo em Campinas | Villa Cuiabar",
+      "description": "Conheça a programação recorrente de sexta com música ao vivo no Villa Cuiabar, no Jardim Aurélia, para jantar, bar completo e reservas em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Programação de sexta com música ao vivo no Villa Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.82",
+      "keywords": [
+        "sexta com música ao vivo Campinas",
+        "show sexta Campinas",
+        "bar sexta Jardim Aurélia"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "EventSeries",
+          "name": "Sexta com música ao vivo no Villa Cuiabar",
+          "description": "Programação recorrente de sexta no Villa Cuiabar para quem busca música ao vivo, jantar e reserva no Jardim Aurélia.",
+          "url": "https://cuiabar.com/agenda/sexta-musica-ao-vivo-campinas",
+          "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Villa Cuiabar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+              "addressLocality": "Campinas",
+              "addressRegion": "SP",
+              "postalCode": "13033-010",
+              "addressCountry": "BR"
+            }
+          },
+          "organizer": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "scheduleTimezone": "America/Sao_Paulo",
+            "byDay": [
+              "https://schema.org/Friday"
+            ]
+          }
+        }
+      ]
+    },
+    "/agenda/sabado-show-ao-vivo-jardim-aurelia": {
+      "title": "Sábado de show ao vivo no Jardim Aurélia | Villa Cuiabar",
+      "description": "Página oficial da programação recorrente de sábado com show ao vivo no Villa Cuiabar, com clima de encontro, bar e reservas em Campinas.",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "imageAlt": "Programação de sábado com show ao vivo no Villa Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.82",
+      "keywords": [
+        "show sábado Campinas",
+        "bar sábado Jardim Aurélia",
+        "música ao vivo sábado Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "EventSeries",
+          "name": "Sábado de show ao vivo no Villa Cuiabar",
+          "description": "Programação recorrente de sábado no Villa Cuiabar para quem quer show ao vivo, bar completo e reserva em Campinas.",
+          "url": "https://cuiabar.com/agenda/sabado-show-ao-vivo-jardim-aurelia",
+          "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Villa Cuiabar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+              "addressLocality": "Campinas",
+              "addressRegion": "SP",
+              "postalCode": "13033-010",
+              "addressCountry": "BR"
+            }
+          },
+          "organizer": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "scheduleTimezone": "America/Sao_Paulo",
+            "byDay": [
+              "https://schema.org/Saturday"
+            ]
+          }
+        }
+      ]
+    },
+    "/agenda/domingo-musical-jardim-aurelia": {
+      "title": "Domingo musical no Jardim Aurélia | Villa Cuiabar",
+      "description": "Página oficial da programação recorrente de domingo com música ao vivo, almoço e encontro em família no Villa Cuiabar, em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Domingo musical no Villa Cuiabar em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.81",
+      "keywords": [
+        "domingo musical Campinas",
+        "almoço com música ao vivo Campinas",
+        "restaurante domingo Jardim Aurélia"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "EventSeries",
+          "name": "Domingo musical no Villa Cuiabar",
+          "description": "Programação recorrente de domingo no Villa Cuiabar para almoço musical, famílias, reservas e encontros no Jardim Aurélia.",
+          "url": "https://cuiabar.com/agenda/domingo-musical-jardim-aurelia",
+          "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Villa Cuiabar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+              "addressLocality": "Campinas",
+              "addressRegion": "SP",
+              "postalCode": "13033-010",
+              "addressCountry": "BR"
+            }
+          },
+          "organizer": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "eventSchedule": {
+            "@type": "Schedule",
+            "repeatFrequency": "P1W",
+            "scheduleTimezone": "America/Sao_Paulo",
+            "byDay": [
+              "https://schema.org/Sunday"
+            ]
+          }
+        }
+      ]
+    },
+    "/burguer": {
+      "title": "Burger Cuiabar | Site oficial da hamburgueria em Campinas",
+      "description": "Página oficial do Burger Cuiabar com cardápio principal, presença própria em burger.cuiabar.com e links para iFood e 99Food em Campinas.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "imageAlt": "Hambúrguer clássico do Burger Cuiabar",
+      "siteName": "Burger Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.6",
+      "canonicalUrl": "https://burger.cuiabar.com/",
+      "robots": "noindex,follow",
+      "includeInSitemap": false,
+      "keywords": [
+        "hambúrguer em Campinas",
+        "hambúrguer Jardim Aurélia",
+        "burger no Jardim Aurélia",
+        "hambúrguer John Boyd Dunlop",
+        "burger Cuiabar",
+        "smash burger Campinas",
+        "iFood burger Cuiabar",
+        "combo hambúrguer Campinas",
+        "pedir burger no iFood Campinas",
+        "burger cuiabar 99food",
+        "burger.cuiabar.com"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Menu",
+          "name": "Cardápio Burger Cuiabar",
+          "description": "Cardápio principal do Burger Cuiabar com burgers preparados na chapa, combos e canais oficiais de pedido.",
+          "url": "https://burger.cuiabar.com/",
+          "inLanguage": "pt-BR",
+          "hasMenuSection": [
+            {
+              "@type": "MenuSection",
+              "name": "Lanches",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "X-Tradicional",
+                  "description": "Pão brioche, hambúrguer Texas sabor picanha, mussarela, alface americana e tomate.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "22.90",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Picanha Clássico",
+                  "description": "Pão brioche, hambúrguer de picanha 120g, mussarela, alface americana, tomate e baconnese.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "34.40",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Picanha Bacon",
+                  "description": "Pão brioche, hambúrguer de picanha 120g, cheddar, bacon, cebola na manteiga e baconnese.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "40.10",
+                    "priceCurrency": "BRL"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "MenuSection",
+              "name": "Combos",
+              "hasMenuItem": [
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo X-Tradicional completo",
+                  "description": "X-Tradicional com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "36.70",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo Picanha Clássico completo",
+                  "description": "Picanha Clássico com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "48.20",
+                    "priceCurrency": "BRL"
+                  }
+                },
+                {
+                  "@type": "MenuItem",
+                  "name": "Combo Picanha Bacon completo",
+                  "description": "Picanha Bacon com fritas e bebida lata.",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "53.90",
+                    "priceCurrency": "BRL"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "/burger-site": {
+      "title": "Burger Cuiabar | Hamburgueria em Campinas com iFood e 99Food",
+      "description": "Site oficial do Burger Cuiabar com presença própria em burger.cuiabar.com, cardápio principal e links oficiais para iFood e 99Food em Campinas.",
+      "image": "https://cuiabar.com/burguer/capa-burger-cuiabar.png",
+      "imageAlt": "Burger Cuiabar em destaque no site oficial",
+      "siteName": "Burger Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "canonicalUrl": "https://burger.cuiabar.com/",
+      "includeInSitemap": false,
+      "prerender": true,
+      "keywords": [
+        "burger cuiabar",
+        "hamburgueria em Campinas",
+        "burger campinas",
+        "burger.cuiabar.com",
+        "iFood burger cuiabar",
+        "99Food burger cuiabar",
+        "hambúrguer no Jardim Aurélia"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "FastFoodRestaurant",
+          "name": "Burger Cuiabar",
+          "description": "Hamburgueria do Cuiabar em Campinas, com presença própria em burger.cuiabar.com e pedidos oficiais no iFood e no 99Food.",
+          "url": "https://burger.cuiabar.com/",
+          "image": [
+            "https://cuiabar.com/burguer/capa-burger-cuiabar.png",
+            "https://cuiabar.com/burguer/burger-classico.png",
+            "https://cuiabar.com/burguer/burger-bacon.png"
+          ],
+          "telephone": "+55 19 3305-8878",
+          "servesCuisine": [
+            "Hambúrgueres",
+            "Smash burger",
+            "Fast food"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia",
+            "addressLocality": "Campinas",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://instagram.com/burgercuiabar",
+            "https://www.ifood.com.br/delivery/campinas-sp/burger-cuiabar----picanha-smash-vila-proost-de-souza/14734c59-f45a-41e2-80b0-f1914971f6e1?utm_medium=share",
+            "https://oia.99app.com/dlp9/cn3kx8?area=BR"
+          ],
+          "hasMenu": "https://burger.cuiabar.com/",
+          "potentialAction": [
+            {
+              "@type": "OrderAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://www.ifood.com.br/delivery/campinas-sp/burger-cuiabar----picanha-smash-vila-proost-de-souza/14734c59-f45a-41e2-80b0-f1914971f6e1?utm_medium=share"
+              }
+            },
+            {
+              "@type": "OrderAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://oia.99app.com/dlp9/cn3kx8?area=BR"
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Burger Cuiabar",
+          "url": "https://burger.cuiabar.com/",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    },
+    "/espetaria": {
+      "title": "Espetaria Cuiabar | Boteco raiz em Campinas",
+      "description": "Conheça a Espetaria Cuiabar, nova frente da casa com atmosfera de boteco brasileiro, clima acolhedor e projeto em preparação em Campinas.",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "imageAlt": "Entrada do salão do Villa Cuiabar com mascote da casa",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.78",
+      "keywords": [
+        "espetaria em Campinas",
+        "boteco em Campinas",
+        "Espetaria Cuiabar",
+        "bar brasileiro Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Espetaria Cuiabar",
+          "url": "https://cuiabar.com/espetaria",
+          "description": "Página institucional da Espetaria Cuiabar com apresentação da proposta e atmosfera da nova frente da casa."
+        }
+      ]
+    },
+    "/prorefeicao": {
+      "title": "ProRefeição | Refeição corporativa em Campinas",
+      "description": "Solução de refeição corporativa do Villa Cuiabar para empresas, clínicas, indústrias, obras e operações recorrentes em Campinas.",
+      "image": "https://cuiabar.com/prorefeicao/hero-parmegiana.png",
+      "imageAlt": "Refeição corporativa do ProRefeição com parmegiana, arroz e fritas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "keywords": [
+        "refeição corporativa Campinas",
+        "marmitas para empresa Campinas",
+        "alimentação corporativa Campinas",
+        "ProRefeição Cuiabar"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "ProRefeição",
+          "serviceType": "Refeição corporativa",
+          "provider": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar",
+            "url": "https://cuiabar.com/"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Campinas"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Empresas, clínicas, hospitais, obras e indústrias"
+          },
+          "url": "https://cuiabar.com/prorefeicao",
+          "description": "Atendimento de refeição corporativa para empresas e operações recorrentes com embalagens seladas e rotina organizada."
+        }
+      ]
+    },
+    "/reservas": {
+      "title": "Reservas | Restaurante no Jardim Aurélia com música ao vivo",
+      "description": "Faça sua reserva no Villa Cuiabar, no Jardim Aurélia, pelo portal oficial de reservas online para mesas, aniversários, grupos e noites com música ao vivo em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar pronto para receber reservas em Campinas",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "keywords": [
+        "reservas restaurante Campinas",
+        "reservar mesa Jardim Aurélia",
+        "reservar mesa Villa Cuiabar",
+        "aniversário em restaurante Campinas",
+        "música ao vivo Campinas",
+        "reservas John Boyd Dunlop"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Reservas Villa Cuiabar",
+          "url": "https://cuiabar.com/reservas",
+          "description": "Página oficial de reservas online do Villa Cuiabar, no Jardim Aurélia, com acesso ao portal reservas.cuiabar.com."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como faço minha reserva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As reservas e confirmações são feitas no portal oficial reservas.cuiabar.com, com data, horário, quantidade de pessoas e preferências em um único fluxo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O presencial com música acontece às sextas, sábados e domingos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais dias têm atendimento noturno?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O delivery à noite funciona de quarta a sábado."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/restaurante-jardim-aurelia-campinas": {
+      "title": "Restaurante no Jardim Aurélia | Villa Cuiabar em Campinas",
+      "description": "Descubra o Villa Cuiabar como restaurante no Jardim Aurélia, com acesso pela John Boyd Dunlop, espaço kids, bar completo, comida brasileira e reservas online em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar no Jardim Aurélia em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.86",
+      "keywords": [
+        "restaurante Jardim Aurélia",
+        "Jd. Aurélia restaurante",
+        "restaurante familiar Jardim Aurélia",
+        "espaço kids Campinas",
+        "reservas restaurante Jardim Aurélia"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Restaurante no Jardim Aurélia | Villa Cuiabar",
+          "url": "https://cuiabar.com/restaurante-jardim-aurelia-campinas",
+          "description": "Página local do Villa Cuiabar para buscas por restaurante no Jardim Aurélia, com reservas, espaço familiar e acesso pelo eixo da Dunlop."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "O Villa Cuiabar fica no Jardim Aurélia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. A casa fica na Avenida Brigadeiro Rafael Tobias de Aguiar, em Campinas, com acesso fácil para quem circula pelo Jardim Aurélia e pelo corredor da Dunlop."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Tem espaço para ir com crianças?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Temos ambiente familiar com brinquedo para crianças, o que ajuda bastante em almoços de fim de semana, aniversários e encontros em família."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como fazer reserva?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A reserva oficial é feita em reservas.cuiabar.com, com data, horário, quantidade de pessoas e observações em um fluxo único."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/bar-jardim-aurelia-musica-ao-vivo": {
+      "title": "Bar no Jardim Aurélia com música ao vivo | Villa Cuiabar",
+      "description": "Conheça o Villa Cuiabar como bar no Jardim Aurélia com música ao vivo, shows, porções, drinks e reservas para noites presenciais em Campinas.",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "imageAlt": "Ambiente do Villa Cuiabar preparado para noites com música ao vivo em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.84",
+      "keywords": [
+        "bar Jardim Aurélia",
+        "música ao vivo Campinas",
+        "shows em Campinas",
+        "bar com reservas Campinas",
+        "bar John Boyd Dunlop"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Bar no Jardim Aurélia com música ao vivo | Villa Cuiabar",
+          "url": "https://cuiabar.com/bar-jardim-aurelia-musica-ao-vivo",
+          "description": "Página local do Villa Cuiabar para buscas por bar no Jardim Aurélia, com música ao vivo, shows e reservas em Campinas."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quando tem música ao vivo no Villa Cuiabar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O presencial com música ao vivo acontece às sextas, sábados e domingos, com agenda divulgada nos canais oficiais da casa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Precisa reservar para os shows?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não é obrigatório em todos os dias, mas a reserva online é a melhor forma de garantir mesa em noites mais disputadas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O ambiente serve só para bar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O Villa Cuiabar funciona como bar e restaurante, com menu completo, bar, atendimento presencial e estrutura para famílias."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/restaurante-perto-do-enxuto-dunlop": {
+      "title": "Restaurante perto do Enxuto Dunlop e Atacadão Dunlop | Villa Cuiabar",
+      "description": "Veja o Villa Cuiabar como restaurante perto do Enxuto Dunlop, do Atacadão Dunlop e de todo o eixo da John Boyd Dunlop, com almoço, jantar, delivery e reservas em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Salão do Villa Cuiabar para quem procura restaurante perto do Enxuto Dunlop",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.83",
+      "keywords": [
+        "restaurante perto do Enxuto Dunlop",
+        "restaurante perto do Atacadão Dunlop",
+        "restaurante John Boyd Dunlop",
+        "almoço Dunlop Campinas",
+        "reservas Dunlop Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Restaurante perto do Enxuto Dunlop e Atacadão Dunlop | Villa Cuiabar",
+          "url": "https://cuiabar.com/restaurante-perto-do-enxuto-dunlop",
+          "description": "Página local do Villa Cuiabar para buscas por restaurante perto do Enxuto Dunlop, Atacadão Dunlop e eixo da John Boyd Dunlop."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "O Villa Cuiabar fica perto do Enxuto Dunlop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. A casa está em uma região de acesso prático para quem circula pelo eixo da John Boyd Dunlop e procura refeição perto do Enxuto Dunlop."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Também vale para quem está perto do Atacadão Dunlop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. A localização atende bem quem está na área comercial da Dunlop e quer uma opção de almoço, jantar ou reserva em Campinas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Dá para reservar antes de chegar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O portal oficial reservas.cuiabar.com permite organizar a chegada antes de sair da Dunlop ou do bairro."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/vagas": {
+      "title": "Vagas | Villa Cuiabar em Campinas",
+      "description": "Confira vagas abertas no Villa Cuiabar e envie sua candidatura online para Aux. Cozinha e Copa / Aux. Limpeza em Campinas.",
+      "image": "https://cuiabar.com/vagas/garcom-atendente.jpg",
+      "imageAlt": "Elaine em ambiente de atendimento no Villa Cuiabar",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.7",
+      "keywords": [
+        "vagas em restaurante Campinas",
+        "trabalhe no Villa Cuiabar",
+        "auxiliar de cozinha Campinas",
+        "copa e limpeza Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Vagas abertas no Villa Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Aux. Cozinha"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Copa / Aux. Limpeza"
+            }
+          ],
+          "url": "https://cuiabar.com/vagas"
+        }
+      ]
+    },
+    "/pedidos-online": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Acesse os canais oficiais de pedidos do Villa Cuiabar: site próprio, iFood, 99Food e o destaque do Burger Cuiabar no iFood.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Ambiente do Villa Cuiabar em Campinas",
+      "type": "website",
+      "changefreq": "monthly",
+      "priority": "0.75",
+      "keywords": [
+        "pedido online Cuiabar",
+        "delivery Campinas",
+        "iFood Villa Cuiabar",
+        "Expresso Cuiabar"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Pedidos online Villa Cuiabar",
+          "url": "https://cuiabar.com/pedidos-online",
+          "description": "Canais oficiais para pedidos online do Villa Cuiabar."
+        }
+      ]
+    },
+    "/bio": {
+      "title": "Links oficiais | Cuiabar",
+      "description": "Atalho para a página de links oficiais da Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/links",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/acessos": {
+      "title": "Links oficiais | Cuiabar",
+      "description": "Atalho para a página de links oficiais da Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/links",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/burger": {
+      "title": "Burger Cuiabar | Site oficial da hamburgueria em Campinas",
+      "description": "Atalho para o site oficial do Burger Cuiabar em burger.cuiabar.com.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "canonicalUrl": "https://burger.cuiabar.com/",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/burguer-cuiabar": {
+      "title": "Burger Cuiabar | Site oficial da hamburgueria em Campinas",
+      "description": "Atalho para o site oficial do Burger Cuiabar em burger.cuiabar.com.",
+      "image": "https://cuiabar.com/burguer/burger-classico.png",
+      "canonicalUrl": "https://burger.cuiabar.com/",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/blog": {
+      "title": "Blog local | Villa Cuiabar em Campinas",
+      "description": "Conteúdos locais do Villa Cuiabar sobre Jardim Aurélia, John Boyd Dunlop, música ao vivo, espaço kids, reservas e intenção de busca em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "includeInSitemap": true,
+      "imageAlt": "Conteúdos locais do Villa Cuiabar em Campinas",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.78",
+      "keywords": [
+        "blog restaurante Campinas",
+        "Jardim Aurélia restaurante",
+        "música ao vivo Campinas",
+        "espaço kids Campinas",
+        "John Boyd Dunlop restaurante"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Conteúdos locais do Villa Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Onde comer no Jardim Aurélia",
+              "url": "https://cuiabar.com/blog/onde-comer-no-jardim-aurelia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Música ao vivo na John Boyd Dunlop",
+              "url": "https://cuiabar.com/blog/musica-ao-vivo-na-john-boyd-dunlop"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Restaurante com espaço kids em Campinas",
+              "url": "https://cuiabar.com/blog/restaurante-com-espaco-kids-em-campinas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Onde jantar perto do Enxuto Dunlop",
+              "url": "https://cuiabar.com/blog/onde-jantar-perto-do-enxuto-dunlop"
+            }
+          ]
+        }
+      ]
+    },
+    "/blog/onde-comer-no-jardim-aurelia": {
+      "title": "Onde comer no Jardim Aurélia | Villa Cuiabar em Campinas",
+      "description": "Guia local do Villa Cuiabar para quem procura onde comer no Jardim Aurélia, com bar, restaurante, reservas e ambiente familiar em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "includeInSitemap": true,
+      "imageAlt": "Guia local sobre onde comer no Jardim Aurélia",
+      "type": "article",
+      "changefreq": "monthly",
+      "priority": "0.74",
+      "keywords": [
+        "onde comer no Jardim Aurélia",
+        "restaurante Jardim Aurélia",
+        "bar Jardim Aurélia"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Onde comer no Jardim Aurélia: restaurante, bar e reservas em Campinas",
+          "description": "Guia local do Villa Cuiabar para quem procura restaurante no Jardim Aurélia com bar, reservas e ambiente familiar.",
+          "url": "https://cuiabar.com/blog/onde-comer-no-jardim-aurelia",
+          "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+          "datePublished": "2026-03-23",
+          "dateModified": "2026-03-23",
+          "inLanguage": "pt-BR",
+          "author": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar"
+          },
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "keywords": [
+            "onde comer no Jardim Aurélia",
+            "restaurante Jardim Aurélia",
+            "bar Jardim Aurélia"
+          ],
+          "about": [
+            "Jardim Aurélia",
+            "restaurante em Campinas",
+            "reservas"
+          ],
+          "mainEntityOfPage": "https://cuiabar.com/blog/onde-comer-no-jardim-aurelia"
+        }
+      ]
+    },
+    "/blog/musica-ao-vivo-na-john-boyd-dunlop": {
+      "title": "Música ao vivo na John Boyd Dunlop | Villa Cuiabar",
+      "description": "Conteúdo local do Villa Cuiabar sobre música ao vivo em Campinas para quem circula pelo eixo da John Boyd Dunlop.",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "includeInSitemap": true,
+      "imageAlt": "Conteúdo local sobre música ao vivo na John Boyd Dunlop",
+      "type": "article",
+      "changefreq": "monthly",
+      "priority": "0.74",
+      "keywords": [
+        "música ao vivo John Boyd Dunlop",
+        "show Campinas",
+        "bar com música ao vivo Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Música ao vivo em Campinas no eixo da John Boyd Dunlop",
+          "description": "Conteúdo local do Villa Cuiabar para quem procura música ao vivo e programação ao vivo no eixo da John Boyd Dunlop.",
+          "url": "https://cuiabar.com/blog/musica-ao-vivo-na-john-boyd-dunlop",
+          "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+          "datePublished": "2026-03-23",
+          "dateModified": "2026-03-23",
+          "inLanguage": "pt-BR",
+          "author": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar"
+          },
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "keywords": [
+            "música ao vivo John Boyd Dunlop",
+            "show Campinas",
+            "bar com música ao vivo Campinas"
+          ],
+          "about": [
+            "John Boyd Dunlop",
+            "música ao vivo",
+            "show em Campinas"
+          ],
+          "mainEntityOfPage": "https://cuiabar.com/blog/musica-ao-vivo-na-john-boyd-dunlop"
+        }
+      ]
+    },
+    "/blog/restaurante-com-espaco-kids-em-campinas": {
+      "title": "Restaurante com espaço kids em Campinas | Villa Cuiabar",
+      "description": "Guia do Villa Cuiabar sobre o que observar em um restaurante com espaço kids em Campinas, com foco em conforto, família e operação real.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "includeInSitemap": true,
+      "imageAlt": "Conteúdo local sobre restaurante com espaço kids em Campinas",
+      "type": "article",
+      "changefreq": "monthly",
+      "priority": "0.73",
+      "keywords": [
+        "restaurante com espaço kids Campinas",
+        "restaurante familiar Campinas",
+        "almoço com crianças Campinas"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Restaurante com espaço kids em Campinas: o que realmente vale observar",
+          "description": "Guia do Villa Cuiabar sobre o que faz um restaurante com espaço kids funcionar de verdade para famílias em Campinas.",
+          "url": "https://cuiabar.com/blog/restaurante-com-espaco-kids-em-campinas",
+          "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+          "datePublished": "2026-03-23",
+          "dateModified": "2026-03-23",
+          "inLanguage": "pt-BR",
+          "author": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar"
+          },
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "keywords": [
+            "restaurante com espaço kids Campinas",
+            "restaurante familiar Campinas",
+            "almoço com crianças Campinas"
+          ],
+          "about": [
+            "espaço kids",
+            "família",
+            "restaurante em Campinas"
+          ],
+          "mainEntityOfPage": "https://cuiabar.com/blog/restaurante-com-espaco-kids-em-campinas"
+        }
+      ]
+    },
+    "/blog/onde-jantar-perto-do-enxuto-dunlop": {
+      "title": "Onde jantar perto do Enxuto Dunlop | Villa Cuiabar",
+      "description": "Guia local do Villa Cuiabar para quem busca onde jantar perto do Enxuto Dunlop e do Atacadão Dunlop, em Campinas.",
+      "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+      "includeInSitemap": true,
+      "imageAlt": "Conteúdo local sobre onde jantar perto do Enxuto Dunlop",
+      "type": "article",
+      "changefreq": "monthly",
+      "priority": "0.73",
+      "keywords": [
+        "onde jantar perto do Enxuto Dunlop",
+        "restaurante perto do Atacadão Dunlop",
+        "restaurante John Boyd Dunlop"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "Onde jantar perto do Enxuto Dunlop e do Atacadão Dunlop",
+          "description": "Guia local do Villa Cuiabar para quem busca restaurante perto do Enxuto Dunlop, Atacadão Dunlop e corredor da John Boyd Dunlop.",
+          "url": "https://cuiabar.com/blog/onde-jantar-perto-do-enxuto-dunlop",
+          "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
+          "datePublished": "2026-03-23",
+          "dateModified": "2026-03-23",
+          "inLanguage": "pt-BR",
+          "author": {
+            "@type": "Organization",
+            "name": "Villa Cuiabar"
+          },
+          "publisher": {
+            "@id": "https://cuiabar.com/#organization"
+          },
+          "keywords": [
+            "onde jantar perto do Enxuto Dunlop",
+            "restaurante perto do Atacadão Dunlop",
+            "restaurante John Boyd Dunlop"
+          ],
+          "about": [
+            "Enxuto Dunlop",
+            "Atacadão Dunlop",
+            "John Boyd Dunlop"
+          ],
+          "mainEntityOfPage": "https://cuiabar.com/blog/onde-jantar-perto-do-enxuto-dunlop"
+        }
+      ]
+    },
+    "/marmita": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Atalho para os pedidos online do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/pedidos-online",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/online-ordering": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/pedidos-online",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/services-5": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/pedidos-online",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/delivery": {
+      "title": "Pedidos online | Villa Cuiabar em Campinas",
+      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/pedidos-online",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/asianrestaurant": {
+      "title": "Villa Cuiabar | Restaurante em Campinas",
+      "description": "Atalho legado para a pagina principal do Villa Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    },
+    "/canal": {
+      "title": "Links oficiais | Cuiabar",
+      "description": "Atalho legado para a pagina de links oficiais da Cuiabar.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "canonicalPath": "/links",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
+    }
+  }
+}

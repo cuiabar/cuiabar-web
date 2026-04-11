@@ -1,0 +1,108 @@
+import type { BlogPost, FaqItem, Feature, MenuHighlight, Testimonial } from './types';
+
+export const differentiators: Feature[] = [
+  { title: 'Espaço familiar', description: 'Ambiente pensado para almoço em família e encontros descontraídos.', icon: '👨‍👩‍👧‍👦' },
+  { title: 'Brinquedo para crianças', description: 'Mais conforto para quem vai com os pequenos.', icon: '🛝' },
+  { title: 'Bar completo', description: 'Drinks, cervejas e acompanhamentos para qualquer ocasião.', icon: '🍹' },
+  { title: 'Preço justo', description: 'Pratos bem servidos com custo-benefício honesto.', icon: '💸' },
+  { title: 'Espaço aberto', description: 'Clima leve para curtir o presencial com mais conforto.', icon: '🌿' },
+  { title: 'Atendimento de primeira', description: 'Equipe próxima, rápida e preparada para receber bem.', icon: '⭐' },
+];
+
+export const menuHighlights: MenuHighlight[] = [
+  {
+    name: 'Bife Chorizo',
+    category: 'Corte nobre',
+    description: 'Contrafilé alto e marmorizado, servido com mandioca frita da casa.',
+    price: 'R$ 56,00',
+    image: 'https://static.wixstatic.com/media/f30eee_089ca416fa0f43868ce21b3a0abf46d8~mv2.png',
+  },
+  {
+    name: 'Costela Cuiabar',
+    category: 'Especial da casa',
+    description: 'Costela bovina sem osso, assada no bafo e servida com mandioca frita.',
+    price: 'R$ 41,00',
+    image: 'https://static.wixstatic.com/media/f30eee_f034abb51d4d498eb80fcd74901bafbd~mv2.png',
+  },
+  {
+    name: 'Pancetinha',
+    category: 'Petisco',
+    description: 'Torresmo de rolo carnudo, assado e depois frito, com fritas e barbecue.',
+    price: 'R$ 42,00',
+    image: 'https://static.wixstatic.com/media/f30eee_b9aa5997e2aa4a0bac11814ce1e355f9~mv2.png',
+  },
+  {
+    name: 'Parmignon',
+    category: 'Parmegiana',
+    description: 'Parmegiana de mignon com arroz e fritas.',
+    price: 'R$ 59,00',
+    image: 'https://static.wixstatic.com/media/f30eee_725e61a60a9a4e8e91766fb2975411a2~mv2.png',
+  },
+];
+
+export const blogPosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'Onde comer comida brasileira em Campinas: guia local',
+    excerpt: 'Descubra sabores autênticos e pratos imperdíveis para uma experiência regional completa.',
+    category: 'Comida Brasileira',
+    readTime: '6 min',
+    date: '2026-01-12',
+    image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80',
+    slug: 'onde-comer-comida-brasileira-em-campinas',
+  },
+  {
+    id: '2',
+    title: 'Música ao vivo em Campinas: noites para curtir no Cuiabar',
+    excerpt: 'Veja como combinar gastronomia e música ao vivo em uma noite memorável.',
+    category: 'Música ao Vivo',
+    readTime: '4 min',
+    date: '2026-01-20',
+    image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80',
+    slug: 'musica-ao-vivo-em-campinas-no-cuiabar',
+  },
+  {
+    id: '3',
+    title: 'Delivery em Campinas: como manter qualidade até sua mesa',
+    excerpt: 'Entenda os cuidados do Cuiabar para garantir sabor, temperatura e apresentação no delivery.',
+    category: 'Delivery',
+    readTime: '5 min',
+    date: '2026-02-02',
+    image: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=900&q=80',
+    slug: 'delivery-em-campinas-com-qualidade',
+  },
+  {
+    id: '4',
+    title: 'Refeição corporativa em Campinas: benefícios para sua empresa',
+    excerpt: 'Conheça o ProRefeição e veja como simplificar a alimentação do seu time.',
+    category: 'ProRefeição',
+    readTime: '7 min',
+    date: '2026-02-14',
+    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=900&q=80',
+    slug: 'refeicao-corporativa-em-campinas',
+  },
+];
+
+export const reservationFaqs: FaqItem[] = [
+  {
+    question: 'Como faço minha reserva?',
+    answer: 'As reservas sao feitas no portal oficial reservas.cuiabar.com, com data, horario, quantidade de pessoas e preferencias em um unico fluxo.',
+  },
+  {
+    question: 'Quando tem música ao vivo?',
+    answer: 'O presencial com música acontece às sextas, sábados e domingos.',
+  },
+  {
+    question: 'Quais dias têm atendimento noturno?',
+    answer: 'O delivery à noite funciona de quarta a sábado.',
+  },
+];
+
+export const testimonials: Testimonial[] = [];
+
+export const proBenefits = [
+  'Almoços e jantares frescos com padrão para equipes, hóspedes, visitantes e pacientes',
+  'Atendimento para escritórios, fábricas, obras, clínicas, hospitais e casas de repouso',
+  'Operação contínua com qualidade, variedade e organização todos os dias',
+  'Pontualidade, previsibilidade e pagamento facilitado para a rotina da empresa',
+];

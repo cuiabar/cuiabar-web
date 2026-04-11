@@ -1,0 +1,1233 @@
+[
+  {
+    "name": "Abertura de Trabalhos",
+    "description": "",
+    "items": [
+      {
+        "name": "Calabresa c/fritas",
+        "description": "400g",
+        "price": "R$ 47,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Fritas Clássica",
+        "description": "",
+        "price": "",
+        "variants": [
+          {
+            "name": "300g",
+            "price": "R$ 27"
+          },
+          {
+            "name": "500g",
+            "price": "R$ 31,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Contra Acebolado",
+        "description": "400g",
+        "price": "R$ 57",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Fritas América",
+        "description": "cheddar + bacon",
+        "price": "",
+        "variants": [
+          {
+            "name": "350g",
+            "price": "R$ 35"
+          },
+          {
+            "name": "550g",
+            "price": "R$ 44"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Provolone Milanesa",
+        "description": "300g",
+        "price": "R$ 48,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Anel Cebola",
+        "description": "",
+        "price": "",
+        "variants": [
+          {
+            "name": "300g",
+            "price": "R$ 29,9"
+          },
+          {
+            "name": "500g",
+            "price": "R$ 36"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Torresmo pururuca",
+        "description": "",
+        "price": "",
+        "variants": [
+          {
+            "name": "200g",
+            "price": "R$ 29,9"
+          },
+          {
+            "name": "300g",
+            "price": "R$ 38"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Petisco Bacalhau",
+        "description": "300g",
+        "price": "R$ 29,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Mandioca Frita",
+        "description": "",
+        "price": "",
+        "variants": [
+          {
+            "name": "300g",
+            "price": "R$ 26,9"
+          },
+          {
+            "name": "500g",
+            "price": "R$ 31,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Frango Milanesa",
+        "description": "500g",
+        "price": "R$ 42,9",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Os Queridinhos da Cozinha",
+    "description": "",
+    "items": [
+      {
+        "name": "Sobrecoxa Crocante",
+        "description": "500g filézinho empanado c/ panko",
+        "price": "R$ 45,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Panceta do Chefe",
+        "description": "500g; barbecue + limão",
+        "price": "R$ 46,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Isca de Tilápia",
+        "description": "500g empanada",
+        "price": "R$ 64,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Costela c/ Mandioca",
+        "description": "500g mandioca frita + pão de alho",
+        "price": "R$ 63,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Isca de Mignon",
+        "description": "450g; Catupiry à parte",
+        "price": "R$ 72,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Linguiça Cuiabana",
+        "description": "500g fritas ou mandioca frita",
+        "price": "R$ 65,90",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Fritinhos do Amor",
+    "description": "",
+    "items": [
+      {
+        "name": "Bolinho de Mandioca",
+        "description": "carne louca + queijo",
+        "price": "",
+        "variants": [
+          {
+            "name": "3un",
+            "price": "R$ 23,9"
+          },
+          {
+            "name": "6un",
+            "price": "R$ 38,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Bolinho Cuiabar",
+        "description": "cabotiá + carne seca",
+        "price": "",
+        "variants": [
+          {
+            "name": "3un",
+            "price": "R$ 27,9"
+          },
+          {
+            "name": "6un",
+            "price": "R$ 45,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Coxinha Tradicional",
+        "description": "frango desfiado",
+        "price": "",
+        "variants": [
+          {
+            "name": "4un",
+            "price": "R$ 20"
+          },
+          {
+            "name": "8un",
+            "price": "R$ 30,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Pérolas de Canastra",
+        "description": "250g",
+        "price": "R$ 27,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Croquete Especial",
+        "description": "carne + bacon",
+        "price": "",
+        "variants": [
+          {
+            "name": "4un",
+            "price": "R$ 29"
+          },
+          {
+            "name": "8un",
+            "price": "R$ 37,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Bolinho Tilapia",
+        "description": "tempero da casa, 6un",
+        "price": "R$ 35,90",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Bolinho de Jiló",
+        "description": "cream cheese + provolone",
+        "price": "",
+        "variants": [
+          {
+            "name": "3un",
+            "price": "R$ 23"
+          },
+          {
+            "name": "6un",
+            "price": "R$ 33,9"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Camarão Especial",
+        "description": "empanado + Catupiry®, 5un",
+        "price": "R$ 45",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Pastéis",
+    "description": "",
+    "items": [
+      {
+        "name": "Carne c/Queijo",
+        "description": "mini 6un",
+        "price": "R$ 32",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Queijo",
+        "description": "mini 6un",
+        "price": "R$ 26",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Carne",
+        "description": "mini 6un",
+        "price": "R$ 29",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Vento",
+        "description": "mini 6un",
+        "price": "R$ 20",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Queijo",
+        "description": "grande feira 100g",
+        "price": "R$ 15",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Presunto/queijo",
+        "description": "grande feira 100g",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Carne Queijo",
+        "description": "grande feira 100g",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Pernil/Queijo",
+        "description": "grande feira 100g",
+        "price": "R$ 17",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Frango Catupiry",
+        "description": "grande feira 100g",
+        "price": "R$ 19",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Costela Queijo",
+        "description": "grande feira 100g",
+        "price": "R$ 22",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Lanches",
+    "description": "",
+    "items": [
+      {
+        "name": "Contrafilé",
+        "description": "queijo + alface + tomate",
+        "price": "R$ 38,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Costela",
+        "description": "queijo + vinagrete + azeitona + rúcula",
+        "price": "R$ 39,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Mignon",
+        "description": "queijo + alface + tomate",
+        "price": "R$ 44,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Cuiabano",
+        "description": "queijo + vinagrete + rúcula",
+        "price": "R$ 39,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Frango",
+        "description": "queijo + tomate + alface",
+        "price": "R$ 29,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Picanha",
+        "description": "queijo + tomate + rúcula",
+        "price": "R$ 52",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Iscas Supremas",
+    "description": "onion rings + fritas + catupiry + pão de alho, 400g in natura de carne",
+    "items": [
+      {
+        "name": "Mignon Suprema",
+        "description": "",
+        "price": "R$ 90",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Cuiabar Supremo",
+        "description": "contrafilé + frango",
+        "price": "R$ 95,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Contrafilé Supremo",
+        "description": "",
+        "price": "R$ 79,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Tilápia Suprema",
+        "description": "",
+        "price": "R$ 85",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "CERVEJAS 600ml",
+    "description": "",
+    "items": [
+      {
+        "name": "Original",
+        "description": "",
+        "price": "R$ 17",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Spaten",
+        "description": "",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Antarctica",
+        "description": "",
+        "price": "R$ 15",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Amstel",
+        "description": "",
+        "price": "R$ 15",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Heineken",
+        "description": "",
+        "price": "R$ 20",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Corona",
+        "description": "",
+        "price": "R$ 22",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Stella",
+        "description": "",
+        "price": "R$ 19",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Malzbier",
+        "description": "",
+        "price": "R$ 12",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "REFRESCOS",
+    "description": "",
+    "items": [
+      {
+        "name": "Água",
+        "description": "",
+        "price": "R$ 5",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "H2Oh!",
+        "description": "",
+        "price": "R$ 9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Energético",
+        "description": "",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Refri KS",
+        "description": "",
+        "price": "R$ 6,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Coca-Cola",
+        "description": "",
+        "price": "R$ 8",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Guaraná",
+        "description": "",
+        "price": "R$ 8",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Pepsi",
+        "description": "",
+        "price": "R$ 5,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Fanta",
+        "description": "",
+        "price": "R$ 7,5",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Tônica",
+        "description": "",
+        "price": "R$ 7,5",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Copo 390ml",
+        "description": "Acerola, Abacaxi, Detox, Goiaba, Abacaxi c/ Hortelã, Kiwi, Laranja, Limão, Mamão, Manga, Maracujá, Melancia, Morango",
+        "price": "",
+        "variants": [
+          {
+            "name": "2 frutas",
+            "price": "R$ 2"
+          },
+          {
+            "name": "leite",
+            "price": "R$ 2"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Jarrinha 900ml",
+        "description": "Acerola, Abacaxi, Detox, Goiaba, Abacaxi c/ Hortelã, Kiwi, Laranja, Limão, Mamão, Manga, Maracujá, Melancia, Morango",
+        "price": "",
+        "variants": [
+          {
+            "name": "2 frutas",
+            "price": "R$ 2"
+          },
+          {
+            "name": "leite",
+            "price": "R$ 2"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Soda Italiana",
+        "description": "maracujá, maça verde, melancia, morango, frutas vermelhas",
+        "price": "R$ 14",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "LONG NECK&#x27;S 330ML",
+    "description": "",
+    "items": [
+      {
+        "name": "Heineken",
+        "description": "",
+        "price": "R$ 12",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Corona",
+        "description": "",
+        "price": "R$ 13",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Stella",
+        "description": "",
+        "price": "R$ 11",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "ESPECIAL",
+    "description": "",
+    "items": [
+      {
+        "name": "Baden Baden",
+        "description": "",
+        "price": "R$ 24",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Drinks Clássicos",
+    "description": "",
+    "items": [
+      {
+        "name": "Piña Colada",
+        "description": "rum, leite de coco e abacaxi",
+        "price": "R$ 25",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Espanhola",
+        "description": "vinho, leite cond., 1 fruta",
+        "price": "R$ 27",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Mimosa",
+        "description": "espumante e sc laranja",
+        "price": "R$ 24",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Sex on the beach",
+        "description": "vodka, licor e sc laranja",
+        "price": "R$ 32",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Aperol Spritz",
+        "description": "espumante, Aperol e água cg",
+        "price": "R$ 26",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Caipirinha",
+    "description": "",
+    "items": [
+      {
+        "name": "Caipirinha",
+        "description": "cachaça, limão e açúcar. 1 frutas p/ os drinks a baixo morango; caju; maracujá; limão; melancia; f. vermelhas; abacaxi",
+        "price": "R$ 17",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Caipifruta",
+        "description": "cachaça + 1 fruta",
+        "price": "R$ 22",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Caipiroska",
+        "description": "vodka + 1 fruta",
+        "price": "R$ 29",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Saquerinha",
+        "description": "saquê + 1 fruta",
+        "price": "R$ 24",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Chopp",
+    "description": "",
+    "items": [
+      {
+        "name": "Brahma Chopp",
+        "description": "",
+        "price": "",
+        "variants": [
+          {
+            "name": "copo",
+            "price": "R$ 13"
+          },
+          {
+            "name": "caneca",
+            "price": "R$ 15"
+          }
+        ],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Fogão Cuiabano",
+    "description": "estes pratos já acompanham arroz branco, farofa artesanal, feijão; exceto se especificado no item. g in natura",
+    "items": [
+      {
+        "name": "Bife Ancho",
+        "description": "O famoso filé de costela - bife argentino de corte médio, rico em sabor e maciez. Grelhado no azeite e servido com fritas.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 180g",
+            "price": "R$ 52"
+          },
+          {
+            "name": "serve 2 390g",
+            "price": "R$ 99"
+          }
+        ],
+        "image": "/menu/bife-ancho.png"
+      },
+      {
+        "name": "Bife Chorizo",
+        "description": "Corte argentino de contrafilé alto e marmorizado, conhecido pela suculência. Com mandioca frita da casa",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 56"
+          },
+          {
+            "name": "serve 2 400g",
+            "price": "R$ 108"
+          }
+        ],
+        "image": "/menu/bife-chorizo.png"
+      },
+      {
+        "name": "Filé Mignon",
+        "description": "Grelhado no azeite e finalizado com o toque da casa. Acompanha brócolis e molho à sua escolha: madeira ou branco",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 180g",
+            "price": "R$ 65"
+          }
+        ],
+        "image": "/menu/file-mignon.png"
+      },
+      {
+        "name": "Picanha Carreteira",
+        "description": "Corte nobre e suculento, grelhado e servido com arroz carreteiro e queijo coalho dourado.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 185g",
+            "price": "R$ 76"
+          },
+          {
+            "name": "serve 2 400g",
+            "price": "R$ 149"
+          }
+        ],
+        "image": "/menu/picanha-carreteira.png"
+      },
+      {
+        "name": "Fraldinha Assada",
+        "description": "Corte macio e cheio de sabor, assado lentamente e finalizado com chimichurri da casa. Acompanha mandioca frita.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 48"
+          }
+        ],
+        "image": "/menu/fraldinha-assada.png"
+      },
+      {
+        "name": "Costela Cuiabar",
+        "description": "Costela bovina sem osso, assada no bafo até desmanchar. Servida com mandioca frita e o toque rústico que é marca da casa.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 41"
+          },
+          {
+            "name": "c/ molho 3Q",
+            "price": "R$ 45"
+          }
+        ],
+        "image": "/menu/costela-cuiabar.png"
+      },
+      {
+        "name": "Tilápia Fresca",
+        "description": "Filé grelhado no fio do azeite, leve e saboroso. Acompanha legumes salteados e o frescor de quem come bem.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 45"
+          }
+        ],
+        "image": "/menu/tilapia-fresca.png"
+      },
+      {
+        "name": "Lombo de Salmão",
+        "description": "Clássico e elegante. Grelhado no azeite com toque de alho/cebola, servido com arroz à grega e legumes no ponto certo.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 71"
+          }
+        ],
+        "image": "/menu/lombo-de-salmao.png"
+      },
+      {
+        "name": "Linguiça Cuiabana®",
+        "description": "Produção artesanal do Cuiabar: só pernil, especiarias e queijo coalho, sem pimenta. Grelhada e servida com fritas",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 42"
+          }
+        ],
+        "image": "/menu/linguica-cuiabana.png"
+      },
+      {
+        "name": "Filé à Vilalva",
+        "description": "frango empanado e gratinado com presunto, queijo, palmito, ervilha e requeijão. Coberto de palha e acompanhado de fritas.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 190g",
+            "price": "R$ 39,9"
+          }
+        ],
+        "image": "/menu/file-a-vilalva.png"
+      },
+      {
+        "name": "Pancetinha",
+        "description": "Torresmo de rolo carnudo, assado e depois frito pra ficar crocante de verdade. Vem com fritas e molho barbecue.",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 200g",
+            "price": "R$ 42"
+          },
+          {
+            "name": "serve 2 400g",
+            "price": "R$ 79"
+          }
+        ],
+        "image": "/menu/pancetinha.png"
+      }
+    ]
+  },
+  {
+    "name": "AMORAO PRIMEIRO QUEIJO",
+    "description": "",
+    "items": [
+      {
+        "name": "Parchicken",
+        "description": "parmegiana de frango com arroz e fritas",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 190g",
+            "price": "R$ 44,9"
+          },
+          {
+            "name": "serve 2 380g",
+            "price": "R$ 82,9"
+          },
+          {
+            "name": "serve 3 580g",
+            "price": "R$ 126"
+          }
+        ],
+        "image": "/menu/parchicken.png"
+      },
+      {
+        "name": "Parmignon",
+        "description": "parmegiana de mignon com arroz e fritas",
+        "price": "",
+        "variants": [
+          {
+            "name": "serve 1 190g",
+            "price": "R$ 59"
+          },
+          {
+            "name": "serve 2 380g",
+            "price": "R$ 116"
+          },
+          {
+            "name": "serve 3 600g",
+            "price": "R$ 168"
+          }
+        ],
+        "image": "/menu/parmignon.png"
+      }
+    ]
+  },
+  {
+    "name": "Pra quem troca o pão por paixão",
+    "description": "",
+    "items": [
+      {
+        "name": "Risoto Milanês",
+        "description": "açafrão-da-terra com salmão grelhado e alcaparras. Leve e com o toque dourado da casa.",
+        "price": "R$ 53",
+        "variants": [],
+        "image": "/menu/risoto-milanes.png"
+      },
+      {
+        "name": "Risoto Funghi",
+        "description": "com cogumelos (não os mágicos) defumados, mignon em tiras e toque de molho madeira. Sabor intenso.",
+        "price": "R$ 48,9",
+        "variants": [],
+        "image": "/menu/risoto-funghi.png"
+      },
+      {
+        "name": "Risoto Cuiabano",
+        "description": "cremoso com linguiça artesanal da casa e toque de mix de pimentas. Picante na medida – cuidado, vicia!",
+        "price": "R$ 45",
+        "variants": [],
+        "image": "/menu/linguica-cuiabana.png"
+      },
+      {
+        "name": "Risoto de Costela",
+        "description": "Base de ervas frescas c/ costela assada no bafo. Rústico, suculento e cheio de sabor.",
+        "price": "R$ 47",
+        "variants": [],
+        "image": "/menu/risoto-de-costela.png"
+      },
+      {
+        "name": "Nhoque Ripiene",
+        "description": "recheados com orégano e mussarela, regadas ao molho branco e servidas com iscas de mignon. Cremoso e irresistível.",
+        "price": "R$ 47",
+        "variants": [],
+        "image": "/menu/nhoque-ripiene.png"
+      },
+      {
+        "name": "Talharim 4Q",
+        "description": "molho cremoso de mussarela, gorgonzola, parmesão e Catupiry, com mignon grelhado. Um clássico que nunca erra.",
+        "price": "R$ 49",
+        "variants": [],
+        "image": "/menu/talharim-4q.png"
+      }
+    ]
+  },
+  {
+    "name": "PRATOS FAMÍLIA",
+    "description": "c/ salada de rúcula e cebola",
+    "items": [
+      {
+        "name": "Picanha Família",
+        "description": "650g; arroz biro-biro, feijão tropeiro, farofa, vinagrete e fritas.",
+        "price": "R$ 225,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Tilápia Família",
+        "description": "600g; arroz c/ brócolis, feijão cuiabar, farofa, vinagrete, pirão e fritas",
+        "price": "R$ 169,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Costela Família",
+        "description": "700g; arroz carreteiro, feijão tropeiro, farofa, vinagrete e mandioca frita.",
+        "price": "R$ 185",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "PRAS CRIANÇAS",
+    "description": "e adultos Disfarçados grelhado e fatiado. acompanha arroz, feijão e batata frita",
+    "items": [
+      {
+        "name": "Picanha Kids",
+        "description": "",
+        "price": "R$ 39,90",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Frango Kids",
+        "description": "",
+        "price": "R$ 29,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Mignon Kids",
+        "description": "",
+        "price": "R$ 34,9",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Saladas Frescas",
+    "description": "tamanho →",
+    "items": [
+      {
+        "name": "Sld Clássica",
+        "description": "rúcula e cebola",
+        "price": "",
+        "variants": [
+          {
+            "name": "-",
+            "price": "R$ 24"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Sld Churrasco",
+        "description": "rúcula, cebola e palmito",
+        "price": "",
+        "variants": [
+          {
+            "name": "-",
+            "price": "R$ 32"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Sld Mista",
+        "description": "alface + tomate + cebola + rúcula + palmito",
+        "price": "",
+        "variants": [
+          {
+            "name": "-",
+            "price": "R$ 39"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Sld Mista",
+        "description": "alface, tomate, cebola e rúcula",
+        "price": "",
+        "variants": [
+          {
+            "name": "-",
+            "price": "R$ 35"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Sld Simples",
+        "description": "alface e tomate",
+        "price": "",
+        "variants": [
+          {
+            "name": "-",
+            "price": "R$ 22"
+          }
+        ],
+        "image": ""
+      },
+      {
+        "name": "Sld Caprese",
+        "description": "tomate, mussarela búfala e pesto",
+        "price": "R$ 29,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Sld Ceaser",
+        "description": "alfaces, creme de iogurte, croutons e franguinho em iscas",
+        "price": "R$ 35",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  },
+  {
+    "name": "Complementos",
+    "description": "",
+    "items": [
+      {
+        "name": "Arroz Branco G",
+        "description": "500g",
+        "price": "R$ 11",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Arroz Branco P",
+        "description": "300g",
+        "price": "R$ 8,5",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Arroz/feijão exe",
+        "description": "150g",
+        "price": "R$ 5",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Arroz Carreteiro",
+        "description": "500g",
+        "price": "R$ 23",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Banana Milanesa",
+        "description": "2un",
+        "price": "R$ 12,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Legumes Cozidos",
+        "description": "200g",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Vinagrete",
+        "description": "200g",
+        "price": "R$ 9,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Pão Francês",
+        "description": "un",
+        "price": "R$ 3",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Arroz Biro-Biro",
+        "description": "500g",
+        "price": "R$ 21",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Arroz à Grega",
+        "description": "500g",
+        "price": "R$ 18",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Feijão Clássico",
+        "description": "400ml",
+        "price": "R$ 9,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Feijão Cuiabar",
+        "description": "400ml c/ torresmo e cebolinha",
+        "price": "R$ 13",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "tropeiro/pirão",
+        "description": "300g",
+        "price": "R$ 16,9",
+        "variants": [],
+        "image": ""
+      },
+      {
+        "name": "Requeijão",
+        "description": "200ml",
+        "price": "R$ 15",
+        "variants": [],
+        "image": ""
+      }
+    ]
+  }
+]
