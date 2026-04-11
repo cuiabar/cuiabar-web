@@ -35,6 +35,9 @@ Atualizado em: 2026-04-10
 - `10-ESTRATEGIA-DE-BRANCHES-E-MODULOS.md`
   Plano recomendado para separar trabalho por frentes sem quebrar o repositório único.
 
+- `11-CODEX-WEB-MIGRACAO.md`
+  Estado da migração para operação web-first via GitHub/Codex Web.
+
 ## Material complementar
 
 - `guias-legados/`

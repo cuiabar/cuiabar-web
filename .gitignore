@@ -14,7 +14,10 @@ dist-blog
 .env
 .env.*
 blog-options/*/.env
+blog-options/**/.env
 blog-options/blogger/out/
+.dev.vars
+.dev.vars.*
 .blog-editor-keepalive.pid
 tmp-menu-source.html
 tmp-menu.json

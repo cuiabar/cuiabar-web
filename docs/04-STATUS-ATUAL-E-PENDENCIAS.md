@@ -22,11 +22,13 @@ O projeto está funcional como base única para:
 - artefatos de debug e QA saíram da raiz para `ops-artifacts/`
 - arquivos gerados do Worker passaram a ser tratados como não editáveis
 - GitHub privado adotado como base principal do repositório e da documentação técnica
+- migração para operação web-first iniciada e documentada em `docs/11-CODEX-WEB-MIGRACAO.md`
 
 ## Pontos que ainda exigem acompanhamento
 
 - consolidar a política entre GitHub como fonte principal e Drive como backup complementar
 - revisar estratégia de secrets fora do repositório
+- configurar `CLOUDFLARE_API_TOKEN` no GitHub para deploy remoto automático
 - decidir separação lógica e operacional entre site, CRM, burger e blog
 - reduzir acoplamento entre múltiplos módulos dentro da mesma branch
 - revisar política de deploy para evitar confusão entre Pages e Worker

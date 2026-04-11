@@ -85,3 +85,15 @@ A partir desta organização:
 - o repositório GitHub privado é a fonte principal de código e documentação versionada
 - o Drive deve ser tratado apenas como backup complementar e acervo de apoio
 - segredos não devem ser mantidos em GitHub nem em documentação aberta do Drive
+
+## Deploy remoto via GitHub
+
+O repositório já possui workflow preparado em:
+
+- `.github/workflows/deploy-cloudflare.yml`
+
+Para ativar publicação remota por push em `main`, falta configurar no GitHub:
+
+- secret `CLOUDFLARE_API_TOKEN`
+
+Com isso, o projeto pode ser operado por GitHub/Codex Web sem depender da máquina local para deploy rotineiro.
