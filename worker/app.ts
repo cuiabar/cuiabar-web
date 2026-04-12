@@ -361,7 +361,7 @@ const googleBusinessOauthSetupHtml = (env: Env) => `<!doctype html>
       <p>Use a conta Google que já gerencia o perfil do Cuiabar. O fluxo vai solicitar permissão e gravar o <code>refresh token</code> no CRM para futuras automações.</p>
       <p><strong>Redirect URI configurada no Google Cloud:</strong> <code>${env.APP_BASE_URL}/api/google/business/callback</code></p>
       <p class="muted">Se esta URI não for a mesma cadastrada no OAuth Client, o Google recusará a autorização.</p>
-      <a class="button" href="/oauth/google-business/start">Autorizar Google Business Profile</a>
+      <a class="button" href="/go/google-business-auth">Autorizar Google Business Profile</a>
     </main>
   </body>
 </html>`;
@@ -2358,9 +2358,7 @@ export const createApp = () => {
     }),
   );
 
-  app.get('/oauth/google-business/setup', (c) => c.html(googleBusinessOauthSetupHtml(c.env)));
-
-  app.get('/oauth/google-business/start', (c) => {
+  const createGoogleBusinessAuthRedirectResponse = (c: any) => {
     if (!c.env.GOOGLE_BUSINESS_CLIENT_ID || !c.env.GOOGLE_BUSINESS_CLIENT_SECRET) {
       throw new HttpError(400, 'As credenciais OAuth do Google Business Profile ainda nao foram configuradas no Worker.');
     }
@@ -2397,7 +2395,13 @@ export const createApp = () => {
     }
 
     return c.redirect(authUrl.toString(), 302);
-  });
+  };
+
+  app.get('/oauth/google-business/setup', (c) => c.html(googleBusinessOauthSetupHtml(c.env)));
+
+  app.get('/oauth/google-business/start', (c) => createGoogleBusinessAuthRedirectResponse(c));
+
+  app.get('/go/google-business-auth', (c) => createGoogleBusinessAuthRedirectResponse(c));
 
   app.get('/api/google/business/callback', async (c) => {
     const requestOrigin = new URL(c.req.url).origin;
