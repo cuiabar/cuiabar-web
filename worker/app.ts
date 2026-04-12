@@ -329,7 +329,20 @@ const readGoogleBusinessOAuthConnection = async (env: Env) => {
   }
 
   const legacy = await readSetting<GoogleBusinessOAuthConnection | null>(env, 'google_business_oauth_pending', null);
-  return legacy?.refreshToken ? legacy : null;
+  if (legacy?.refreshToken) {
+    return legacy;
+  }
+
+  if (env.GOOGLE_BUSINESS_REFRESH_TOKEN) {
+    return {
+      refreshToken: env.GOOGLE_BUSINESS_REFRESH_TOKEN,
+      grantedAt: null,
+      scope: 'https://www.googleapis.com/auth/business.manage',
+      source: 'cloudflare_secret',
+    };
+  }
+
+  return null;
 };
 
 const storeGoogleBusinessOAuthConnection = async (env: Env, connection: GoogleBusinessOAuthConnection) => {

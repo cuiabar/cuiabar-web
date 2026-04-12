@@ -36,7 +36,8 @@ O projeto está funcional como base única para:
 - reduzir acoplamento entre múltiplos módulos dentro da mesma branch
 - revisar política de deploy para evitar confusão entre Pages e Worker
 - limpar entradas antigas/erradas de sitemap no Search Console ligadas a rotas do `expresso.cuiabar.com`
-- concluir autorizacao do Google Business Profile para gravar `refresh token` e iniciar automacoes do perfil
+- OAuth do Google Business Profile concluido; `refresh token` e credenciais atualizados no Worker
+- pendencia atual do Google Business Profile: quota do projeto Google retorna `Requests per minute = 0`, bloqueando leitura da API ate ajuste no Google Cloud
 
 ## Próximo passo estrutural recomendado
 
