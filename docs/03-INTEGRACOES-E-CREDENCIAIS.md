@@ -56,6 +56,7 @@ Observação:
 
 - a chave privada da service account não deve permanecer em `Downloads` como fonte de operação;
 - o ideal é mover a credencial para um cofre seguro e usar apenas referência operacional na documentação.
+- arquitetura oficial do cofre: `docs/13-ARQUITETURA-DE-SEGREDOS-E-COFRE.md`
 
 ### Blog/editorial
 

@@ -41,6 +41,9 @@ Atualizado em: 2026-04-10
 - `12-PROJETO-MODERNIZACAO-SEO-MOBILE-E-DISTRIBUICAO.md`
   Plano recomendado para indexação, performance mobile, mídia na Cloudflare e integração com Google/Bing.
 
+- `13-ARQUITETURA-DE-SEGREDOS-E-COFRE.md`
+  Arquitetura oficial de cofre-mãe, runtime, CI/CD, rotação e uso seguro de credenciais.
+
 ## Material complementar
 
 - `guias-legados/`

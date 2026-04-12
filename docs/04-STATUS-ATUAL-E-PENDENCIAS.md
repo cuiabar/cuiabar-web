@@ -32,6 +32,7 @@ O projeto está funcional como base única para:
 
 - consolidar a política entre GitHub como fonte principal e Drive como backup complementar
 - revisar estratégia de secrets fora do repositório
+- implantar Google Secret Manager como cofre-mãe oficial
 - decidir separação lógica e operacional entre site, CRM, burger e blog
 - reduzir acoplamento entre múltiplos módulos dentro da mesma branch
 - revisar política de deploy para evitar confusão entre Pages e Worker
