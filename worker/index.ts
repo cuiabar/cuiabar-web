@@ -165,11 +165,11 @@ class SetAttributeRewriter {
   }
 }
 
-class SetTextRewriter {
+class SetInnerContentRewriter {
   constructor(private readonly value: string) {}
 
-  text(text: Text) {
-    text.replace(this.value);
+  element(element: Element) {
+    element.setInnerContent(this.value);
   }
 }
 
@@ -208,7 +208,7 @@ const rewriteCrmHtmlResponse = (response: Response, url: URL) => {
   const transformed = new HTMLRewriter()
     .on('html', new SetAttributeRewriter('data-app', 'crm'))
     .on('body', new SetAttributeRewriter('data-app', 'crm'))
-    .on('title', new SetTextRewriter('CRM Cuiabar | Portal interno'))
+    .on('title', new SetInnerContentRewriter('CRM Cuiabar | Portal interno'))
     .on('meta[name="description"]', new SetMetaContentRewriter('Portal interno do Cuiabar para CRM, campanhas, contatos, reservas e configuracoes operacionais.'))
     .on('meta[name="robots"]', new SetMetaContentRewriter(CRM_ROBOTS_TAG))
     .on('meta[property="og:title"]', new SetMetaContentRewriter('CRM Cuiabar | Portal interno'))
