@@ -48,12 +48,27 @@
 }
 
 body {
-  @apply m-0 bg-cream font-body text-cocoa antialiased;
+  @apply m-0 font-body antialiased;
+}
+
+html:not([data-app='crm']) body {
+  @apply bg-cream text-cocoa;
   background-image:
     radial-gradient(circle at top right, rgba(178, 146, 88, 0.14), transparent 28%),
     radial-gradient(circle at left center, rgba(172, 84, 39, 0.14), transparent 32%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(249, 243, 234, 0.94));
   background-attachment: fixed;
+}
+
+html[data-app='crm'] {
+  color: #e2e8f0;
+  background: #020617;
+}
+
+html[data-app='crm'] body {
+  background: #020617;
+  background-image: none;
+  color: #e2e8f0;
 }
 
 .container-shell {

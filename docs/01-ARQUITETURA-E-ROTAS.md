@@ -1,6 +1,6 @@
 # Arquitetura e rotas
 
-Atualizado em: 2026-04-10
+Atualizado em: 2026-04-13
 
 ## Módulos do repositório
 
@@ -82,3 +82,15 @@ Este repositório hoje concentra quatro frentes principais:
 - CRM: `src/crm/`, `worker/`, `worker/whatsapp-intelligence/`
 - reservas: `src/reservations/`, `worker/reservations/`, `migrations/0004_reservations.sql`
 - blog: `src/blog/`, `blog-options/`, scripts editoriais
+
+## Observações de entrega por host
+
+- `crm.cuiabar.com` usa o mesmo bundle frontend do monorepo, mas o HTML base do host deve ser reescrito no Worker para responder como portal interno:
+  - `<html data-app="crm">`
+  - metadados próprios do CRM
+  - `x-robots-tag` com `noindex`
+  - `cache-control` sem armazenamento para o HTML
+
+- regra de manutenção:
+  - o host do CRM não deve reaproveitar metadados, canonical, pixels ou shell pública do site institucional como resposta final de HTML;
+  - o runtime React continua selecionando o app por hostname em `src/main.tsx`, mas o boundary entre site público e CRM também precisa existir no nível da resposta HTTP do Worker.

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Navigate, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { crmRequest } from './api';
 import { Button } from './components';
 import { CrmContext } from './context';
@@ -145,7 +145,6 @@ const CrmShell = ({
 };
 
 export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
-  const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [bootstrap, setBootstrap] = useState<BootstrapStatus | null>(null);
   const [session, setSession] = useState<SessionPayload | null>(null);
@@ -171,7 +170,7 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
         setSession({ ok: true, authenticated: false, user: null, csrfToken: null });
       })
       .finally(() => setLoading(false));
-  }, [location.pathname]);
+  }, []);
 
   const contextValue = useMemo(
     () => ({

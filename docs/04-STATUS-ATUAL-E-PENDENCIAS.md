@@ -1,6 +1,6 @@
 # Status atual e pendências
 
-Atualizado em: 2026-04-11
+Atualizado em: 2026-04-13
 
 ## Estado geral
 
@@ -28,6 +28,11 @@ O projeto está funcional como base única para:
 - sitemap principal `https://cuiabar.com/sitemap.xml` submetido por API em 2026-04-11
 - fluxo OAuth inicial do Google Business Profile preparado no Worker, aguardando autorizacao da conta gestora
 - scaffold inicial de WhatsApp Intelligence criado em `worker/whatsapp-intelligence/` com webhook, Llama e trilha de auditoria em D1
+- sprint 1 de estabilizacao do CRM executado:
+  - `crm.cuiabar.com` agora deve responder com HTML reescrito como portal interno, sem metadados da home publica
+  - `x-robots-tag` reforcado para o host do CRM
+  - HTML do CRM marcado com `data-app="crm"` para isolar estilo base
+  - recarga completa de sessao a cada troca de rota removida do `CrmApp`
 
 ## Pontos que ainda exigem acompanhamento
 
