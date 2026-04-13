@@ -40,6 +40,10 @@ Este repositório hoje concentra quatro frentes principais:
 - `functions/`
   Cloudflare Pages Functions e middleware do site estático.
 
+
+- `worker/whatsapp-intelligence/`
+  Worker dedicado para automacoes de WhatsApp com Llama, auditoria e bridge para gateway Baileys.
+
 - `migrations/`
   Banco D1 e evolução de schema.
 
@@ -75,6 +79,6 @@ Este repositório hoje concentra quatro frentes principais:
 - SEO público: `src/data/seo.ts`, `src/data/seoRoutes.json`, `src/lib/seo.ts`
 - analytics/pixels: `src/lib/analytics.ts`, `src/components/AnalyticsTracker.tsx`, `functions/api/meta-conversions.js`
 - burger: `src/pages/BurguerCuiabarPage.tsx`, `src/burger/`, `public/burguer/`
-- CRM: `src/crm/`, `worker/`
+- CRM: `src/crm/`, `worker/`, `worker/whatsapp-intelligence/`
 - reservas: `src/reservations/`, `worker/reservations/`, `migrations/0004_reservations.sql`
 - blog: `src/blog/`, `blog-options/`, scripts editoriais

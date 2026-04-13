@@ -1,0 +1,25 @@
+name = "cuiabar-whatsapp-intelligence"
+main = "src/index.ts"
+compatibility_date = "2026-04-13"
+
+[ai]
+binding = "AI"
+
+[[durable_objects.bindings]]
+name = "BAILEYS_SESSION"
+class_name = "BaileysSessionDO"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cuiabar_crm"
+database_id = "1c8de55c-c5f4-4985-8c5b-5ac1a010214d"
+
+
+[vars]
+ENVIRONMENT = "production"
+CRM_INTERNAL_API_BASE = "https://crm.cuiabar.com"
+BAILEYS_GATEWAY_BASE_URL = "https://baileys-gateway.cuiabar.com"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["BaileysSessionDO"]

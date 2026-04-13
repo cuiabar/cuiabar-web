@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { crmRequest } from './api';
-import { CrmContext } from './context';
 import { Button } from './components';
+import { CrmContext } from './context';
 import { AuditPage } from './pages/AuditPage';
 import { BootstrapPage } from './pages/BootstrapPage';
 import { CampaignsPage } from './pages/CampaignsPage';
@@ -27,6 +27,30 @@ const withBase = (basePath: string, path = '') => {
   return path ? `${normalizedBase}${normalizedPath}` || '/' : normalizedBase || '/';
 };
 
+const ensureCrmFont = () => {
+  if (document.querySelector('link[data-crm-font="inter"]')) {
+    return;
+  }
+
+  const preconnect = document.createElement('link');
+  preconnect.rel = 'preconnect';
+  preconnect.href = 'https://fonts.googleapis.com';
+  preconnect.dataset.crmFont = 'inter';
+
+  const preconnectCross = document.createElement('link');
+  preconnectCross.rel = 'preconnect';
+  preconnectCross.href = 'https://fonts.gstatic.com';
+  preconnectCross.crossOrigin = 'anonymous';
+  preconnectCross.dataset.crmFont = 'inter';
+
+  const stylesheet = document.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+  stylesheet.dataset.crmFont = 'inter';
+
+  document.head.append(preconnect, preconnectCross, stylesheet);
+};
+
 const CrmShell = ({
   basePath,
   session,
@@ -41,47 +65,66 @@ const CrmShell = ({
   const navigate = useNavigate();
   const isManager = hasRole(session.user?.roles ?? [], 'gerente');
   const items = [
-    { label: 'Dashboard', to: withBase(basePath) },
-    { label: 'Contatos', to: withBase(basePath, 'contacts') },
-    { label: 'Reservas', to: withBase(basePath, 'reservations') },
-    { label: 'Listas', to: withBase(basePath, 'lists') },
-    { label: 'Segmentos', to: withBase(basePath, 'segments') },
-    { label: 'Templates', to: withBase(basePath, 'templates') },
-    { label: 'Campanhas', to: withBase(basePath, 'campaigns') },
-    { label: 'Relatorios', to: withBase(basePath, 'reports') },
-    { label: 'Entregabilidade', to: withBase(basePath, 'deliverability') },
-    ...(isManager ? [{ label: 'Usuarios', to: withBase(basePath, 'users') }, { label: 'Auditoria', to: withBase(basePath, 'audit') }, { label: 'Configuracoes', to: withBase(basePath, 'settings') }] : []),
+    { icon: '🏠', label: 'Dashboard', to: withBase(basePath) },
+    { icon: '👥', label: 'Contatos', to: withBase(basePath, 'contacts') },
+    { icon: '📅', label: 'Reservas', to: withBase(basePath, 'reservations') },
+    { icon: '🗂️', label: 'Listas', to: withBase(basePath, 'lists') },
+    { icon: '🧩', label: 'Segmentos', to: withBase(basePath, 'segments') },
+    { icon: '📝', label: 'Templates', to: withBase(basePath, 'templates') },
+    { icon: '📣', label: 'Campanhas', to: withBase(basePath, 'campaigns') },
+    { icon: '📊', label: 'Relatórios', to: withBase(basePath, 'reports') },
+    { icon: '📬', label: 'Entregabilidade', to: withBase(basePath, 'deliverability') },
+    ...(isManager
+      ? [
+          { icon: '🛡️', label: 'Usuários', to: withBase(basePath, 'users') },
+          { icon: '🧾', label: 'Auditoria', to: withBase(basePath, 'audit') },
+          { icon: '⚙️', label: 'Configurações', to: withBase(basePath, 'settings') },
+        ]
+      : []),
   ];
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.12),transparent_20%),linear-gradient(135deg,#020617,#0f172a_55%,#111827)] text-white">
-      <div className="mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 xl:grid-cols-[280px,1fr]">
-        <aside className="border-b border-white/10 bg-slate-950/75 p-5 xl:border-b-0 xl:border-r">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#020617_0%,#0b1220_45%,#0f172a_100%)] text-white [font-family:Inter,system-ui,-apple-system,Segoe_UI,Roboto,Helvetica,Arial,sans-serif]">
+      <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-sky-600 focus:px-3 focus:py-2 focus:text-white" href="#crm-main-content">
+        Pular para conteúdo
+      </a>
+      <div className="mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 xl:grid-cols-[260px,1fr]">
+        <aside className="border-b border-white/10 bg-slate-950/72 p-5 xl:sticky xl:top-0 xl:h-screen xl:border-b-0 xl:border-r">
           <button className="text-left" onClick={() => navigate(withBase(basePath))}>
-            <p className="text-xs uppercase tracking-[0.3em] text-amber-300">crm.cuiabar.com</p>
-            <h1 className="mt-3 text-2xl font-semibold">Cuiabar CRM</h1>
+            <p className="text-xs uppercase tracking-[0.24em] text-sky-300">crm.cuiabar.com</p>
+            <h1 className="mt-2 text-2xl font-semibold text-white">Cuiabar CRM</h1>
           </button>
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
             <p className="text-sm font-medium text-white">{session.user?.displayName}</p>
-            <p className="mt-1 text-xs text-slate-400">{session.user?.email}</p>
-            <p className="mt-3 text-xs text-slate-500">Uso interno. Enviar apenas para contatos com consentimento.</p>
+            <p className="mt-1 break-all text-xs text-slate-300">{session.user?.email}</p>
+            <p className="mt-3 text-xs text-slate-400">Uso interno. Envie apenas para contatos com consentimento.</p>
           </div>
-          <nav className="mt-6 space-y-2">
+
+          <nav className="mt-5 grid grid-cols-2 gap-2 xl:grid-cols-1" aria-label="Navegação CRM">
             {items.map((item) => (
               <NavLink
                 key={item.to}
                 className={({ isActive }) =>
-                  `block rounded-2xl px-4 py-3 text-sm transition ${isActive ? 'bg-amber-300 text-slate-950' : 'bg-white/5 text-slate-200 hover:bg-white/10'}`
+                  `group flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm transition ${
+                    isActive ? 'bg-sky-500 text-white shadow-sm' : 'bg-white/5 text-slate-200 hover:bg-white/10'
+                  }`
                 }
                 to={item.to}
               >
-                {item.label}
+                <span aria-hidden="true" className="text-base leading-none">
+                  {item.icon}
+                </span>
+                <span className="font-medium">{item.label}</span>
               </NavLink>
             ))}
           </nav>
-          <div className="mt-8">
+
+          <div className="mt-6 flex gap-2 xl:flex-col">
+            <a href="https://cuiabar.com" target="_blank" rel="noreferrer" className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/15 px-3 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10">
+              Site público ↗
+            </a>
             <Button
-              className="w-full"
+              className="flex-1"
               variant="ghost"
               onClick={async () => {
                 await onLogout();
@@ -93,7 +136,9 @@ const CrmShell = ({
           </div>
         </aside>
 
-        <main className="p-4 md:p-8">{children}</main>
+        <main id="crm-main-content" className="p-4 md:p-6 xl:p-8">
+          {children}
+        </main>
       </div>
     </div>
   );
@@ -104,6 +149,10 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
   const [loading, setLoading] = useState(true);
   const [bootstrap, setBootstrap] = useState<BootstrapStatus | null>(null);
   const [session, setSession] = useState<SessionPayload | null>(null);
+
+  useEffect(() => {
+    ensureCrmFont();
+  }, []);
 
   const refreshSession = async () => {
     const [bootstrapResponse, sessionResponse] = await Promise.all([
@@ -141,7 +190,11 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
   const setupPath = withBase(basePath, 'setup');
 
   if (loading || !bootstrap || !session) {
-    return <div className="grid min-h-screen place-items-center bg-slate-950 text-sm text-slate-300">Carregando CRM...</div>;
+    return (
+      <div className="grid min-h-screen place-items-center bg-slate-950 text-sm text-slate-300 [font-family:Inter,system-ui,-apple-system,Segoe_UI,Roboto,Helvetica,Arial,sans-serif]">
+        Carregando CRM...
+      </div>
+    );
   }
 
   const protectedElement = (page: React.ReactNode, managerOnly = false) => {

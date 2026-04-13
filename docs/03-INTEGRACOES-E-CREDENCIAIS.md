@@ -58,6 +58,23 @@ Observação:
 - o ideal é mover a credencial para um cofre seguro e usar apenas referência operacional na documentação.
 - arquitetura oficial do cofre: `docs/13-ARQUITETURA-DE-SEGREDOS-E-COFRE.md`
 
+
+### WhatsApp Intelligence (Llama + CRM interno)
+
+- worker dedicado: `worker/whatsapp-intelligence/`
+- endpoint inbound: `POST /webhook/baileys`
+- durable object de sessao/saida: `BaileysSessionDO`
+- tabelas operacionais: `customers`, `wa_inbound_events`, `wa_conversations`, `wa_action_logs`, `wa_reservation_requests`
+- segredos esperados (somente em ambiente):
+  - `WEBHOOK_SHARED_SECRET`
+  - `CRM_INTERNAL_SECRET`
+  - `BAILEYS_GATEWAY_TOKEN`
+
+Observacao:
+
+- `create_reservation_request` gera fila de solicitacoes para conciliacao com o fluxo oficial de reservas;
+- evitar escrita direta na tabela `reservations` fora do contrato ja validado no backend principal.
+
 ### Blog/editorial
 
 - React blog app: `src/blog/`
