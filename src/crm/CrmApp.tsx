@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Navigate, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
+import { ATENDE_HOST_LABEL, ATENDE_PRODUCT_NAME, ATENDE_PRODUCT_TAGLINE } from '../atende/branding';
 import { crmRequest } from './api';
 import { CrmContext } from './context';
 import { Button } from './components';
-import { AuditPage } from './pages/AuditPage';
 import { BootstrapPage } from './pages/BootstrapPage';
 import { CampaignsPage } from './pages/CampaignsPage';
 import { ContactsPage } from './pages/ContactsPage';
@@ -23,6 +23,8 @@ import { WhatsAppContactsPage } from './pages/whatsapp/WhatsAppContactsPage';
 import { WhatsAppConversationsPage } from './pages/whatsapp/WhatsAppConversationsPage';
 import { WhatsAppHubPage } from './pages/whatsapp/WhatsAppHubPage';
 import { WhatsAppTemplatesPage } from './pages/whatsapp/WhatsAppTemplatesPage';
+import { MeuCuiabarAuditPage } from '../meucuiabar/pages/MeuCuiabarAuditPage';
+import { MeuCuiabarHubPage } from '../meucuiabar/pages/MeuCuiabarHubPage';
 import type { BootstrapStatus, SessionPayload } from './types';
 
 const hasRole = (roles: string[], role: string) => roles.includes(role);
@@ -88,8 +90,10 @@ const CrmShell = ({
     ...(isManager ? [
       { label: '', to: '', icon: '', divider: true },
       { label: 'Usuarios', to: withBase(basePath, 'users'), icon: 'users' },
-      { label: 'Auditoria', to: withBase(basePath, 'audit'), icon: 'audit' },
       { label: 'Configuracoes', to: withBase(basePath, 'settings'), icon: 'settings' },
+      { label: '', to: '', icon: '', divider: true },
+      { label: 'MeuCuiabar', to: withBase(basePath, 'meucuiabar'), icon: 'settings' },
+      { label: 'Auditoria interna', to: withBase(basePath, 'meucuiabar/auditoria'), icon: 'audit' },
     ] : []),
   ];
 
@@ -98,13 +102,14 @@ const CrmShell = ({
       <div className="mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 xl:grid-cols-[280px,1fr]">
         <aside className="border-b border-white/10 bg-slate-950/75 p-5 xl:border-b-0 xl:border-r">
           <button className="text-left" onClick={() => navigate(withBase(basePath))}>
-            <p className="text-xs uppercase tracking-[0.3em] text-amber-300">crm.cuiabar.com</p>
-            <h1 className="mt-3 text-2xl font-semibold">Cuiabar CRM</h1>
+            <p className="text-xs uppercase tracking-[0.3em] text-amber-300">{ATENDE_HOST_LABEL}</p>
+            <h1 className="mt-3 text-2xl font-semibold">{ATENDE_PRODUCT_NAME}</h1>
+            <p className="mt-2 text-sm text-slate-400">{ATENDE_PRODUCT_TAGLINE}</p>
           </button>
           <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
             <p className="text-sm font-medium text-white">{session.user?.displayName}</p>
             <p className="mt-1 text-xs text-slate-400">{session.user?.email}</p>
-            <p className="mt-3 text-xs text-slate-500">Uso interno. Enviar apenas para contatos com consentimento.</p>
+            <p className="mt-3 text-xs text-slate-500">Uso interno. Atendimento e relacionamento so para contatos com base legal e consentimento.</p>
           </div>
           <nav className="mt-6 space-y-1.5">
             {items.map((item, idx) =>
@@ -146,7 +151,6 @@ const CrmShell = ({
 };
 
 export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
-  const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [bootstrap, setBootstrap] = useState<BootstrapStatus | null>(null);
   const [session, setSession] = useState<SessionPayload | null>(null);
@@ -168,7 +172,7 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
         setSession({ ok: true, authenticated: false, user: null, csrfToken: null });
       })
       .finally(() => setLoading(false));
-  }, [location.pathname]);
+  }, []);
 
   const contextValue = useMemo(
     () => ({
@@ -187,7 +191,7 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
   const setupPath = withBase(basePath, 'setup');
 
   if (loading || !bootstrap || !session) {
-    return <div className="grid min-h-screen place-items-center bg-slate-950 text-sm text-slate-300">Carregando CRM...</div>;
+    return <div className="grid min-h-screen place-items-center bg-slate-950 text-sm text-slate-300">Carregando Cuiabar Atende...</div>;
   }
 
   const protectedElement = (page: React.ReactNode, managerOnly = false) => {
@@ -236,7 +240,9 @@ export const CrmApp = ({ basePath = '' }: { basePath?: string }) => {
         <Route path={withBase(basePath, 'whatsapp/ai-training')} element={protectedElement(<WhatsAppAITrainingPage />)} />
         <Route path={withBase(basePath, 'whatsapp/templates')} element={protectedElement(<WhatsAppTemplatesPage />)} />
         <Route path={withBase(basePath, 'users')} element={protectedElement(<UsersPage />, true)} />
-        <Route path={withBase(basePath, 'audit')} element={protectedElement(<AuditPage />, true)} />
+        <Route path={withBase(basePath, 'meucuiabar')} element={protectedElement(<MeuCuiabarHubPage basePath={basePath} />, true)} />
+        <Route path={withBase(basePath, 'meucuiabar/auditoria')} element={protectedElement(<MeuCuiabarAuditPage />, true)} />
+        <Route path={withBase(basePath, 'audit')} element={<Navigate to={withBase(basePath, 'meucuiabar/auditoria')} replace />} />
         <Route path={withBase(basePath, 'settings')} element={protectedElement(<SettingsPage />, true)} />
         <Route path="*" element={<Navigate to={requireSetup ? setupPath : isAuthenticated ? withBase(basePath) : loginPath} replace />} />
       </Routes>

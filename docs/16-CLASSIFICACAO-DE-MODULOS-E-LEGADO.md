@@ -159,12 +159,21 @@ Responsabilidade:
 
 ### Estado atual
 
-`MeuCuiabar` ainda nao possui um modulo dedicado estabilizado no repositorio.
+`MeuCuiabar` agora possui um primeiro bloco dedicado no repositorio.
 
 Isso significa:
 
-- nao existe hoje uma pasta-fonte consolidada exclusiva de `MeuCuiabar`
-- o produto esta definido na arquitetura, mas ainda depende de extracao progressiva do legado
+- existe uma superficie inicial em `src/meucuiabar/`
+- o produto continua dependendo de extracao progressiva do legado para ganhar profundidade real
+
+### Fonte principal classificada em `MeuCuiabar`
+
+- `src/meucuiabar/pages/MeuCuiabarHubPage.tsx`
+- `src/meucuiabar/pages/MeuCuiabarAuditPage.tsx`
+
+Observacao:
+
+- a auditoria interna saiu do namespace direto de `src/crm/pages/` e passa a marcar o primeiro bloco real de `MeuCuiabar`.
 
 ### Destino correto para novas extracoes de `MeuCuiabar`
 
@@ -286,6 +295,10 @@ Nao editar como origem de manutencao:
 - `ops-artifacts/`
 - `KIT-PORTABILIDADE/`
 - arquivos `.js` e `.d.ts` gerados ao lado de `.ts` em `worker/` e `worker/whatsapp/`
+
+Estado atual:
+
+- os `.js` e `.d.ts` gerados dentro de `worker/` foram removidos do versionamento e ficam bloqueados por `.gitignore`
 
 ### Casos que exigem cuidado especial
 

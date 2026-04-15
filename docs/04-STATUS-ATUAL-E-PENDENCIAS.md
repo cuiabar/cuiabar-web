@@ -47,6 +47,9 @@ Com tres linhas de produto:
 - padrao de branches por linha de produto e por core compartilhado
 - branches-base oficiais abertas no remoto
 - classificacao operacional do legado em andamento, com matriz publicada em `docs/16-CLASSIFICACAO-DE-MODULOS-E-LEGADO.md`
+- primeiro bloco real de `MeuCuiabar` aberto em `src/meucuiabar/`, com hub proprio e auditoria interna
+- identidade visual e textual do shell principal reposicionada para `Cuiabar Atende`
+- arquivos `.js` e `.d.ts` gerados dentro de `worker/` removidos do versionamento
 
 ## Topologia Git atual
 
@@ -70,7 +73,7 @@ Estado da classificacao:
 
 - `Cuiabar Web` ja possui superficie estavel e identificavel
 - `Cuiabar Atende` ja possui superficie estavel e identificavel
-- `MeuCuiabar` ainda nao tem modulo dedicado estabilizado e fica como linha reservada para extracao progressiva
+- `MeuCuiabar` ja tem o primeiro bloco extraido, mas ainda depende de novas extracoes para virar linha operacional completa
 
 ## O que merece acompanhamento
 
@@ -83,6 +86,7 @@ Estado da classificacao:
 - preencher segredos reais do bridge interno e da Cloudflare AI
 - acompanhar saude do autostart/watchdog do Baileys em producao
 - criar IDs formais persistentes para `bridge_instance_id` e `machine_instance_id` se isso virar requisito de auditoria
+- decidir o proximo bloco concreto de extracao para `MeuCuiabar` alem da auditoria interna
 
 ## Decisao importante
 

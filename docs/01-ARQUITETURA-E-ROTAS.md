@@ -1,6 +1,6 @@
 # Arquitetura e rotas
 
-Atualizado em: 2026-04-14
+Atualizado em: 2026-04-15
 
 ## Sistema e produtos
 
@@ -70,6 +70,9 @@ migrations/
 - `src/crm/`
   Interface principal do `Cuiabar Atende` e area administrativa compartilhada.
 
+- `src/meucuiabar/`
+  Primeiro bloco extraido de `MeuCuiabar`, dedicado a governanca operacional e auditoria interna.
+
 - `src/reservations/`
   Frontend do portal de reservas, ligado ao `Cuiabar Atende`.
 
@@ -137,6 +140,9 @@ Arquivos mais importantes para operacao:
 - `crm.cuiabar.com`
   Portal principal do `Cuiabar Atende`.
 
+- `crm.cuiabar.com/meucuiabar*`
+  Primeira superficie interna de `MeuCuiabar`, ainda hospedada sob o shell autenticado do portal interno.
+
 - `reservas.cuiabar.com`
   Portal de reservas do `Cuiabar Atende`.
 
@@ -163,3 +169,4 @@ Arquivos mais importantes para operacao:
 - A configuracao atual de deploy e local/manual via Wrangler, nao por integracao GitHub -> Cloudflare.
 - O modulo de WhatsApp usa um bridge Baileys local para transporte, KV para sessao/cache e Workers AI com fallback para REST da Cloudflare.
 - Para nao quebrar o CRM atual de e-mail marketing, o atendimento WhatsApp grava primeiro em `customer_profiles` e so vincula a `contacts` quando houver match seguro ou e-mail conhecido.
+- `MeuCuiabar` foi aberto inicialmente como modulo proprio em `src/meucuiabar/`, mas ainda compartilha autenticacao e shell do host `crm.cuiabar.com`.

@@ -36,8 +36,8 @@ export const BootstrapPage = ({ onCompleted }: { onCompleted: () => Promise<void
       <Panel className="w-full max-w-2xl space-y-6 border-amber-300/20 bg-slate-950/80 p-8">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-amber-300">Primeira configuracao</p>
-          <h1 className="mt-3 text-3xl font-semibold text-white">Criar gerente inicial do CRM</h1>
-          <p className="mt-2 text-sm text-slate-300">Use o token de bootstrap definido como secret no Cloudflare para liberar o primeiro acesso administrativo.</p>
+          <h1 className="mt-3 text-3xl font-semibold text-white">Criar gerente inicial do Cuiabar Atende</h1>
+          <p className="mt-2 text-sm text-slate-300">Use o token de bootstrap definido como secret no Cloudflare para liberar o primeiro acesso administrativo do modulo de atendimento e relacionamento.</p>
         </div>
 
         <form className="grid gap-4 md:grid-cols-2" onSubmit={handleSubmit}>

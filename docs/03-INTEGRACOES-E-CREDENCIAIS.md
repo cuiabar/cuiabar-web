@@ -1,6 +1,6 @@
 # Integracoes e credenciais
 
-Atualizado em: 2026-04-13
+Atualizado em: 2026-04-15
 
 ## Onde consultar os segredos
 
@@ -45,6 +45,13 @@ Arquivos principais:
 - `src/lib/analytics.ts`
 - `src/components/AnalyticsTracker.tsx`
 - `index.html`
+
+Bindings e secrets esperados no Worker:
+
+- `META_GRAPH_API_VERSION`
+- `META_PIXEL_ID`
+- `META_ACCESS_TOKEN`
+- `META_CAPI_TOKEN`
 
 ### WhatsApp / atendimento AI
 
@@ -103,6 +110,48 @@ Documentos de apoio:
 - `GOOGLE-CALENDAR-SETUP.md`
 - `GMAIL-OAUTH-SETUP.md`
 - `EMAIL-SETUP.md`
+
+Bindings e secrets recorrentes no Worker:
+
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `GOOGLE_REFRESH_TOKEN`
+- `GOOGLE_CALENDAR_ID`
+- `GOOGLE_ADS_API_VERSION`
+- `GOOGLE_ADS_CUSTOMER_ID`
+- `GOOGLE_ADS_LOGIN_CUSTOMER_ID`
+- `GOOGLE_ADS_DEVELOPER_TOKEN`
+- `GOOGLE_ADS_CLIENT_ID`
+- `GOOGLE_ADS_CLIENT_SECRET`
+- `GOOGLE_ADS_REFRESH_TOKEN`
+
+### Blog editorial
+
+Usado para:
+- editor protegido em `blog.cuiabar.com/editor`
+- upload e entrega de midia do blog
+- automacao editorial e operacao de assets
+
+Bindings e secrets esperados no Worker:
+
+- `BLOG_EDITOR_UPSTREAM_URL`
+- `BLOG_EDITOR_TOKEN`
+- `BLOG_EDITOR_ALLOWED_EMAILS`
+- `BLOG_MEDIA_PUBLIC_BASE_URL`
+- binding R2 `BLOG_MEDIA`
+
+### Zoho
+
+Usado para:
+- OAuth e integracoes operacionais com Zoho
+
+Bindings e secrets esperados no Worker:
+
+- `ZOHO_ACCOUNTS_DOMAIN`
+- `ZOHO_API_DOMAIN`
+- `ZOHO_CLIENT_ID`
+- `ZOHO_CLIENT_SECRET`
+- `ZOHO_REFRESH_TOKEN`
 
 ### Bing
 

@@ -9,7 +9,7 @@ export const BurgerApp = () => (
     <ScrollManager />
     <main>
       <Routes>
-        <Route path="/" element={<BurguerCuiabarPage seoPath="/burger-site" domainMode="subdomain" />} />
+        <Route path="/" element={<BurguerCuiabarPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </main>

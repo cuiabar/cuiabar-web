@@ -18,3 +18,5 @@ tmp-menu.json
 .codex-*
 vite.config.js
 vite.config.d.ts
+worker/**/*.js
+worker/**/*.d.ts

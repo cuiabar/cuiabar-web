@@ -89,7 +89,9 @@ export const LoginPage = ({ onLoggedIn }: { onLoggedIn: () => Promise<void> }) =
 
       <div className="relative mx-auto flex min-h-[calc(100vh-3rem)] max-w-3xl items-center justify-center">
         <div className="w-full max-w-[420px] rounded-[36px] border border-white/80 bg-white/92 px-8 py-10 text-center shadow-[0_36px_110px_-70px_rgba(15,23,42,0.4)] backdrop-blur">
-          <h1 className="font-['Moranga'] text-[3rem] leading-[0.95] text-slate-950 sm:text-[3.4rem]">CRM Cuiabar®</h1>
+          <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Cuiabar Atende</p>
+          <h1 className="mt-3 font-['Moranga'] text-[3rem] leading-[0.95] text-slate-950 sm:text-[3.4rem]">Portal interno</h1>
+          <p className="mt-4 text-sm text-slate-500">CRM, reservas, WhatsApp, marketing e fidelidade em uma unica camada operacional.</p>
           <div className="mt-8 flex justify-center">
             <div className="w-full max-w-[360px] min-h-[48px]" ref={buttonRef} />
           </div>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { crmRequest } from '../api';
-import { LoadingSpinner, Pagination, PageHeader, Panel, Table } from '../components';
-import { useCrm } from '../context';
-import type { AuditLogEntry } from '../types';
+import { crmRequest } from '../../crm/api';
+import { LoadingSpinner, Pagination, PageHeader, Panel, Table } from '../../crm/components';
+import { useCrm } from '../../crm/context';
+import type { AuditLogEntry } from '../../crm/types';
 
-export const AuditPage = () => {
+export const MeuCuiabarAuditPage = () => {
   const { csrfToken } = useCrm();
   const [logs, setLogs] = useState<AuditLogEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -12,8 +12,8 @@ export const AuditPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const pageSize = 50;
 
-  const load = (p = page) => {
-    const query = new URLSearchParams({ page: String(p), pageSize: String(pageSize) });
+  const load = (currentPage = page) => {
+    const query = new URLSearchParams({ page: String(currentPage), pageSize: String(pageSize) });
     crmRequest<{ ok: true; logs: AuditLogEntry[]; pagination: { page: number; totalPages: number } }>(`/api/audit-logs?${query}`, {}, csrfToken)
       .then((response) => {
         setLogs(response.logs);
@@ -31,7 +31,10 @@ export const AuditPage = () => {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Auditoria" description="Log centralizado de login, alteracoes de dados, importacoes, campanhas, configuracoes e descadastros." />
+      <PageHeader
+        title="MeuCuiabar • Auditoria"
+        description="Trilha interna de eventos administrativos, alteracoes de dados, importacoes, campanhas, configuracoes e descadastros."
+      />
       <Panel>
         <Table>
           <thead className="bg-white/5 text-xs uppercase tracking-[0.2em] text-slate-400">
@@ -62,7 +65,7 @@ export const AuditPage = () => {
             <p className="text-sm text-slate-400">Nenhuma entrada de auditoria encontrada.</p>
           </div>
         ) : null}
-        <Pagination page={page} totalPages={totalPages} onPageChange={(p) => { setPage(p); setLoading(true); }} />
+        <Pagination page={page} totalPages={totalPages} onPageChange={(nextPage) => { setPage(nextPage); setLoading(true); }} />
       </Panel>
     </div>
   );

@@ -30,7 +30,7 @@ const RootApp =
       : lazy(() => import('./app/App').then((module) => ({ default: module.App })));
 
 const fallbackLabel =
-  runtimeAppKey === 'crm' ? 'Carregando CRM...' : runtimeAppKey === 'reservas' ? 'Carregando reservas...' : 'Carregando Villa Cuiabar...';
+  runtimeAppKey === 'crm' ? 'Carregando Cuiabar Atende...' : runtimeAppKey === 'reservas' ? 'Carregando reservas...' : 'Carregando Villa Cuiabar...';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
