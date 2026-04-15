@@ -1,5 +1,22 @@
 # Arquitetura e rotas
 
+Atualizado em: 2026-04-14
+
+## Sistema e produtos
+
+O sistema-mãe do repositorio passa a ser:
+
+- `GHCO OS`
+
+Linhas de produto dentro dele:
+
+1. `Cuiabar Web`
+   Site, blog e cardapio para o cliente final.
+2. `MeuCuiabar`
+   Controle interno, qualidade, HACCP e rotinas da casa.
+3. `Cuiabar Atende`
+   WhatsApp com IA, reservas, CRM, marketing e fidelidade.
+
 ## Stack principal
 
 - React 18
@@ -28,6 +45,7 @@ src/
   styles/         estilos globais
   reservations/   frontend do modulo de reservas
   blog/           estrutura do blog/editorial
+  crm/            portal operacional e administrativo
 
 functions/
   api/            funcoes Pages, incluindo Meta CAPI
@@ -44,6 +62,26 @@ migrations/
   migrations do banco D1
 ```
 
+## Mapeamento por modulo
+
+- `src/pages/`, `src/sections/`, `src/blog/`, `src/data/`, `public/`
+  Base principal do `Cuiabar Web`.
+
+- `src/crm/`
+  Interface principal do `Cuiabar Atende` e area administrativa compartilhada.
+
+- `src/reservations/`
+  Frontend do portal de reservas, ligado ao `Cuiabar Atende`.
+
+- `worker/`
+  Backend principal em Cloudflare Workers: nucleo compartilhado do `GHCO OS`, cobrindo CRM, integracoes, reservas, autenticacao e rotas server-side dedicadas.
+
+- `worker/whatsapp-intelligence/`
+  Worker dedicado/experimental para automacoes de WhatsApp com Llama, auditoria e bridge para gateway Baileys dentro da linha `Cuiabar Atende`.
+
+- `services/whatsapp-baileys/`
+  Runtime local da ponte de transporte do WhatsApp Web.
+
 ## Configuracao central
 
 Arquivos mais importantes para operacao:
@@ -52,6 +90,7 @@ Arquivos mais importantes para operacao:
 - `src/data/seoRoutes.json`
 - `src/data/content.ts`
 - `src/app/App.tsx`
+- `src/crm/CrmApp.tsx`
 - `wrangler.jsonc`
 - `package.json`
 
@@ -92,11 +131,17 @@ Arquivos mais importantes para operacao:
 
 ## Rotas de infraestrutura
 
+- `cuiabar.com`
+  `Cuiabar Web` principal.
+
 - `crm.cuiabar.com`
-  CRM/operacao administrativa hospedada via Worker.
+  Portal principal do `Cuiabar Atende`.
 
 - `reservas.cuiabar.com`
-  Portal/infra de reservas hospedada via Worker.
+  Portal de reservas do `Cuiabar Atende`.
+
+- `blog.cuiabar.com`
+  Presenca editorial do `Cuiabar Web`.
 
 - `blog.cuiabar.com/editor*`
   Faixa reservada para editor/blog.

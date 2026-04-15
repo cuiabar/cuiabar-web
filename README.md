@@ -1,6 +1,14 @@
-# Cuiabar Web + CRM + WhatsApp AI
+# GHCO OS — sistema web do ecossistema Cuiabar
 
-Repositorio principal do ecossistema digital do Villa Cuiabar.
+Repositorio principal do ecossistema digital do Cuiabar.
+
+Sistema unico que hoje sustenta tres linhas principais:
+
+- `Cuiabar Web` — site, blog e cardapio para o cliente
+- `MeuCuiabar` — controle interno, qualidade, HACCP e rotinas da casa
+- `Cuiabar Atende` — WhatsApp com IA, reservas, CRM, marketing e fidelidade
+
+O repositorio continua em monorepo, com dependencia de um nucleo compartilhado.
 
 Ele concentra:
 

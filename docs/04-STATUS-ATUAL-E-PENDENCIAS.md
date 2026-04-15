@@ -1,10 +1,22 @@
 # Status atual e pendencias
 
-Atualizado em: 2026-04-13
+Atualizado em: 2026-04-14
 
 ## Estado geral
 
 O projeto esta operacional e publicado via Cloudflare.
+
+## Definicao atual de produto
+
+O sistema passa a ser tratado como:
+
+- `GHCO OS` como sistema-mãe
+
+Com tres linhas de produto:
+
+- `Cuiabar Web`
+- `MeuCuiabar`
+- `Cuiabar Atende`
 
 ## O que esta ativo
 
@@ -26,6 +38,14 @@ O projeto esta operacional e publicado via Cloudflare.
 - inventario operacional desta maquina e do bridge em `docs/10-AMBIENTE-LOCAL-E-IDS.md`
 - repositorio GitHub oficial em `github.com/cuiabar/cuiabar-web`
 
+## O que ja foi melhorado nesta organizacao
+
+- trilha de leitura obrigatoria para novas IAs
+- mapa oficial de documentacao e governanca
+- definicao do sistema-mãe `GHCO OS`
+- separacao conceitual entre `Cuiabar Web`, `MeuCuiabar` e `Cuiabar Atende`
+- padrao de branches por linha de produto e por core compartilhado
+
 ## O que merece acompanhamento
 
 - revisar warnings de SSR com `<Navigate>` no build
@@ -43,14 +63,14 @@ O projeto esta operacional e publicado via Cloudflare.
 A publicacao do site nao depende do GitHub hoje.
 
 Isso significa:
-- o repositório GitHub nao e o mecanismo de deploy do site;
+- o repositorio GitHub nao e o mecanismo de deploy do site;
 - o que nao pode faltar para publicacao e o acesso de deploy ao Cloudflare;
 - o GitHub continua sendo a base oficial de versionamento e continuidade.
 
 ## Estado do GitHub
 
-- o repositório oficial de versionamento e `cuiabar/cuiabar-web`
-- o repositório e privado
+- o repositorio oficial de versionamento e `cuiabar/cuiabar-web`
+- o repositorio e privado
 - a copia operacional principal fica em `C:\workspace\cuiabar-web`
 - o Google Drive fica como backup e snapshot, nao como runtime principal
 

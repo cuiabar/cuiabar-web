@@ -1,6 +1,6 @@
 # Estratégia de branches e módulos
 
-Atualizado em: 2026-04-10
+Atualizado em: 2026-04-14
 
 ## Objetivo
 
@@ -19,7 +19,12 @@ O caminho mais seguro é:
 
 ## Estrutura lógica recomendada
 
-### Frente 1: site institucional
+### Sistema-mãe
+
+- `GHCO OS`
+  Nucleo compartilhado do repositório.
+
+### Linha 1: Cuiabar Web
 
 - home
 - menu
@@ -37,29 +42,57 @@ O caminho mais seguro é:
 
 Branch sugerida:
 
-- `site/*`
+- `web/*`
 
-### Frente 2: CRM e operações
+### Linha 2: MeuCuiabar
+
+- controle interno
+- qualidade
+- HACCP
+- rotinas da casa
+- procedimentos operacionais
+
+Área principal inicial:
+
+- `src/crm/` para modulos internos administrativos
+- `worker/` para regras e persistencia
+- `migrations/` para tabelas de operacao
+
+Branch sugerida:
+
+- `meucuiabar/*`
+
+Observacao:
+
+- `MeuCuiabar` nao deve nascer como copia do CRM comercial;
+- ele deve reutilizar o core do sistema e expor apenas a camada interna da casa.
+
+### Linha 3: Cuiabar Atende
 
 - CRM
+- WhatsApp com IA
 - integrações
-- reservas backend
+- reservas
 - autenticação
 - campanhas
+- marketing
+- fidelidade
 - tracking server-side
 
 Área principal:
 
 - `src/crm/`
+- `src/reservations/`
 - `worker/`
 - `functions/`
 - `migrations/`
+- `services/whatsapp-baileys/`
 
 Branch sugerida:
 
-- `crm/*`
+- `atende/*`
 
-### Frente 3: Burger Cuiabar
+### Frente complementar: Burger Cuiabar
 
 - landing
 - assets
@@ -76,7 +109,7 @@ Branch sugerida:
 
 - `burger/*`
 
-### Frente 4: blog
+### Frente complementar: blog
 
 - app editorial
 - sincronização CMS
@@ -95,11 +128,14 @@ Branch sugerida:
 
 ## Branches de manutenção transversal
 
+- `ghco/*`
+  mudanças de core compartilhado, contratos centrais, entidades comuns e arquitetura do sistema-mãe
+
 - `infra/*`
-  deploy, Cloudflare, build, CI, estrutura
+  deploy, Cloudflare, build, CI, estrutura, segredos e ambiente
 
 - `seo/*`
-  quando a mudança cruzar site, blog e burger ao mesmo tempo
+  quando a mudança cruzar `Cuiabar Web`, blog e burger ao mesmo tempo
 
 - `assets/*`
   quando a mudança for puramente de mídia/organização visual
@@ -108,8 +144,10 @@ Branch sugerida:
 
 Se a tarefa for predominantemente:
 
-- site público: atuar em `site/*`
-- CRM/backend: atuar em `crm/*`
+- core compartilhado do sistema: atuar em `ghco/*`
+- site público, blog e cardápio: atuar em `web/*`
+- operação interna da casa: atuar em `meucuiabar/*`
+- atendimento, CRM, reservas e marketing: atuar em `atende/*`
 - burger: atuar em `burger/*`
 - blog/editorial: atuar em `blog/*`
 - infraestrutura ou organização: atuar em `infra/*`

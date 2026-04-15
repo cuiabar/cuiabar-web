@@ -1,10 +1,10 @@
 # Cuiabar Web - indice geral
 
-Atualizado em: 2026-04-13
+Atualizado em: 2026-04-14
 
 ## Objetivo
 
-Este diretorio centraliza a documentacao operacional do website Cuiabar para que o projeto possa ser aberto e operado em outros Codex, sem depender de memoria de conversa ou de um unico computador.
+Este diretorio centraliza a documentacao operacional do `GHCO OS`, para que o projeto possa ser aberto e operado em outros Codex, sem depender de memoria de conversa ou de um unico computador.
 
 ## Ordem recomendada de leitura
 
@@ -52,7 +52,10 @@ Este diretorio centraliza a documentacao operacional do website Cuiabar para que
 - `10-AMBIENTE-LOCAL-E-IDS.md`
   Inventario do PC operacional, bridge local, host IDs e referencias de runtime para suporte e continuidade.
 
-## Documentos antigos ainda uteis
+- `14-NOMENCLATURA-E-LINHAS-DE-PRODUTO.md`
+  Nome do sistema-mãe, linhas de produto, fronteiras funcionais e convencao de naming para branches.
+
+## Material complementar
 
 Esses arquivos continuam validos como apoio:
 
