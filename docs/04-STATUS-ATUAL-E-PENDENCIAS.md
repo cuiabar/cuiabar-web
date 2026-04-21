@@ -27,6 +27,7 @@ O projeto está funcional como base única para:
 - Search Console confirmado por API com acesso à propriedade `sc-domain:cuiabar.com`
 - sitemap principal `https://cuiabar.com/sitemap.xml` submetido por API em 2026-04-11
 - fluxo OAuth inicial do Google Business Profile preparado no Worker, aguardando autorizacao da conta gestora
+- scaffold inicial de WhatsApp Intelligence criado em `worker/whatsapp-intelligence/` com webhook, Llama e trilha de auditoria em D1
 
 ## Pontos que ainda exigem acompanhamento
 
@@ -39,6 +40,8 @@ O projeto está funcional como base única para:
 - limpar entradas antigas/erradas de sitemap no Search Console ligadas a rotas do `expresso.cuiabar.com`
 - OAuth do Google Business Profile concluido; `refresh token` e credenciais atualizados no Worker
 - pendencia atual do Google Business Profile: quota do projeto Google retorna `Requests per minute = 0`, bloqueando leitura da API ate ajuste no Google Cloud
+- concluir operacao do gateway Baileys e autenticação interna entre webhook, DO e CRM
+- evoluir pipeline de automacoes WhatsApp para integrar com o fluxo oficial de reservas sem bypass de validação
 
 ## Próximo passo estrutural recomendado
 
