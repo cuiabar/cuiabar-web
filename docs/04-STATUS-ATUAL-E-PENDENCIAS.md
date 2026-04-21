@@ -10,7 +10,7 @@ O projeto esta operacional e publicado via Cloudflare como base unica do `GHCO O
 - `MeuCuiabar`
 - `Cuiabar Atende`
 
-O repositorio oficial continua sendo `cuiabar/cuiabar-web`, mas o workspace local desta maquina esta mais avancado que o GitHub e exigia consolidacao antes de nova publicacao.
+O repositorio oficial continua sendo `GHCO-OS/cuiabar-web`, mas o workspace local desta maquina estava mais avancado que o GitHub e exigia consolidacao antes de nova publicacao.
 
 ## O que esta ativo
 
@@ -111,7 +111,7 @@ Isso significa:
 
 ## Estado do GitHub
 
-- o repositorio oficial de versionamento e `cuiabar/cuiabar-web`
+- o repositorio oficial de versionamento e `GHCO-OS/cuiabar-web`
 - o repositorio e privado
 - a copia operacional principal desta maquina fica em `C:\cuiabar-web`
 - o Google Drive fica como backup e snapshot, nao como runtime principal

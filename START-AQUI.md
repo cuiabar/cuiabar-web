@@ -13,7 +13,7 @@ Se voce abriu esta pasta em outro Codex, comece por estes arquivos:
 Resumo rapido:
 - Este projeto roda em React + Vite + TypeScript.
 - A publicacao atual do site nao depende do GitHub para deploy.
-- O repositorio GitHub oficial para versionamento e continuidade e `github.com/cuiabar/cuiabar-web`.
+- O repositorio GitHub oficial para versionamento e continuidade e `github.com/GHCO-OS/cuiabar-web`.
 - O deploy principal e feito via Cloudflare com `wrangler pages deploy` e `wrangler deploy`.
 - Existem modulos adicionais no mesmo repositorio, como reservas e CRM.
 - A regra operacional para futuras IAs esta formalizada em `AGENTS.md`.

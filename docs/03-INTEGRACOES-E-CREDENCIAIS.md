@@ -105,7 +105,7 @@ Usado para:
 
 Repositorio principal:
 
-- `https://github.com/cuiabar/cuiabar-web`
+- `https://github.com/GHCO-OS/cuiabar-web`
 
 Observacao:
 
