@@ -7,6 +7,7 @@ export interface Env {
   WHATSAPP_KV: KVNamespace;
   APP_NAME: string;
   APP_BASE_URL: string;
+  BLOG_EDITOR_UPSTREAM_URL?: string;
   SESSION_COOKIE_NAME: string;
   CSRF_COOKIE_NAME: string;
   DEFAULT_FROM_EMAIL: string;

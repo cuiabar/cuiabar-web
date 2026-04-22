@@ -6,6 +6,7 @@ export interface Env {
     WHATSAPP_KV: KVNamespace;
     APP_NAME: string;
     APP_BASE_URL: string;
+    BLOG_EDITOR_UPSTREAM_URL?: string;
     SESSION_COOKIE_NAME: string;
     CSRF_COOKIE_NAME: string;
     DEFAULT_FROM_EMAIL: string;
@@ -15,8 +16,10 @@ export interface Env {
     FOOD99_STORE_URL?: string;
     AUTH_MODE?: string;
     GOOGLE_AUTH_CLIENT_ID?: string;
+    GOOGLE_AUTH_CLIENT_SECRET?: string;
     GOOGLE_ALLOWED_EMAILS?: string;
     GOOGLE_MANAGER_EMAILS?: string;
+    MEUCUIABAR_MASTER_EMAILS?: string;
     ENABLE_OPEN_TRACKING?: string;
     SEND_BATCH_SIZE?: string;
     SEND_RATE_PER_MINUTE?: string;
@@ -71,6 +74,11 @@ export interface AuthUser {
     displayName: string;
     status: string;
     roles: RoleName[];
+    firstName?: string | null;
+    lastName?: string | null;
+    avatarUrl?: string | null;
+    approvalStatus?: 'pending' | 'approved' | 'rejected';
+    googleAccessScope?: string | null;
 }
 export interface SessionRecord {
     id: string;
