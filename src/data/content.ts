@@ -46,12 +46,13 @@ export const reservationFaqs: FaqItem[] = [
     answer: 'As reservas sao feitas no portal oficial reservas.cuiabar.com, com data, horario, quantidade de pessoas e preferencias em um unico fluxo.',
   },
   {
-    question: 'Quando tem música ao vivo?',
-    answer: 'O presencial com música acontece às sextas, sábados e domingos.',
+    question: 'Quais sao os horarios de servico da casa?',
+    answer:
+      'Delivery todos os dias das 11h às 14:30. Presencial na quinta das 11h às 14:30, na sexta das 11h às 14:30 e das 18h às 23h, e no sábado das 11h às 15h e das 18h às 23h.',
   },
   {
-    question: 'Quais dias têm atendimento noturno?',
-    answer: 'O delivery à noite funciona de quarta a sábado.',
+    question: 'Onde faço a reserva da mesa?',
+    answer: 'Voce pode entrar pela pagina cuiabar.com/reservas e seguir para o portal oficial com o fluxo completo de reserva.',
   },
 ];
 

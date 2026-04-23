@@ -653,6 +653,8 @@
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.85",
+      "canonicalUrl": "https://prorefeicao.cuiabar.com/",
+      "includeInSitemap": false,
       "keywords": [
         "refeição corporativa Campinas",
         "marmitas para empresa Campinas",
@@ -678,7 +680,7 @@
             "@type": "BusinessAudience",
             "audienceType": "Empresas, clínicas, hospitais, obras e indústrias"
           },
-          "url": "https://cuiabar.com/prorefeicao",
+          "url": "https://prorefeicao.cuiabar.com/",
           "description": "Atendimento de refeição corporativa para empresas e operações recorrentes com embalagens seladas e rotina organizada."
         }
       ]

@@ -1,6 +1,6 @@
 # Status atual e pendências
 
-Atualizado em: 2026-04-22
+Atualizado em: 2026-04-23
 
 ## Estado geral
 
@@ -32,6 +32,8 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 - shell principal alinhado ao `Cuiabar Atende`
 - binding de KV fixado no `wrangler.jsonc`
 - migrações remotas do `MeuCuiabar` já aplicadas
+- carregamento do `MeuCuiabar` quebrado por página para reduzir o bundle inicial da aplicação
+- frente `ProRefeição` migrada para o host dedicado `prorefeicao.cuiabar.com`, com a rota `cuiabar.com/prorefeicao` mantida apenas como redirecionamento permanente
 
 ## Situação do Git
 
@@ -42,9 +44,10 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 
 ## Pendências principais
 
-- reduzir o bundle do `MeuCuiabar`
+- continuar a redução do bundle do `MeuCuiabar`, agora com foco em dependências pesadas compartilhadas
 - revisar warnings de SSR com `<Navigate>`
 - continuar a extração do backend próprio do `MeuCuiabar`
+- criar a operação de SEO própria do `ProRefeição` no Search Console e acompanhar a indexação do novo host
 - concluir a documentação institucional e o espelhamento no Wiki do GitHub
 - ativar o Wiki do repositório no GitHub para publicar as páginas já preparadas em `docs/wiki/`
 - manter a política de segredos fora da árvore pública do repositório

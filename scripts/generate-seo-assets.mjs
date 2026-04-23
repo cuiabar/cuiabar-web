@@ -53,7 +53,8 @@ const toAbsoluteUrl = (value) => {
   return `${siteOrigin}${value.startsWith('/') ? value : `/${value}`}`;
 };
 
-const buildCanonicalUrl = (routePath, routeSeo) => `${siteOrigin}${routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath)}`;
+const buildCanonicalUrl = (routePath, routeSeo) =>
+  routeSeo.canonicalUrl ?? `${siteOrigin}${routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath)}`;
 
 const normalizePrice = (value) => {
   if (!value) {

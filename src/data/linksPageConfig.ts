@@ -4,35 +4,65 @@ const ADDRESS_LABEL = siteConfig.address;
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP';
 const JOBS_URL = '/vagas';
-const LIVE_MUSIC_SCHEDULE_HOURS = [
-  'Sexta, sábado e domingo',
-  'Consulte a programação atual antes de sair',
-];
 
 export const linksPageConfig = {
   brandName: 'Cuiabar',
   pageEyebrow: 'Links oficiais',
-  headline: 'Escolha seu próximo passo com a Cuiabar.',
-  subheadline: 'Delivery, atendimento, novidades e oportunidades em um só lugar.',
+  headline: 'Reservas, pedidos, atendimento e horários oficiais em um só lugar.',
+  subheadline: 'Entre no link certo em segundos e consulte o funcionamento atual da casa antes de sair.',
   institutionalIntro:
-    'Uma página leve, direta e oficial para chegar rápido ao que importa na marca em Campinas.',
+    'Uma página direta, oficial e pensada para quem quer resolver rápido: reservar, pedir, falar com a equipe ou confirmar horários.',
   featuredChannelLabel: 'Canal em destaque',
   featuredChannelNote: 'Receba promoções, agenda, novidades da casa e avisos importantes em primeira mão.',
   whatsappChannelUrl: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
   restaurantWhatsappUrl: 'https://wa.me/551933058878',
   directOrderUrl: 'https://expresso.cuiabar.com',
+  reservationsUrl: '/reservas',
   jobsUrl: JOBS_URL,
   addressLabel: ADDRESS_LABEL,
   mapsUrl: MAPS_URL,
-  liveMusicScheduleTitle: 'Presencial com música ao vivo',
-  liveMusicScheduleText: 'Presencial com música ao vivo — consulte a programação atual.',
-  liveMusicScheduleLabel: 'Horários presenciais',
+  serviceHoursTitle: 'Horários de serviço da casa',
+  serviceHoursText: 'Confira abaixo os horários confirmados para delivery e atendimento presencial.',
+  serviceHoursLabel: 'Funcionamento',
   addressCardLabel: 'Endereço',
-  liveMusicScheduleHours: LIVE_MUSIC_SCHEDULE_HOURS,
   venueCopy:
-    'Venha viver a experiência Cuiabar no salão, com ambiente acolhedor, operação familiar e programação musical.',
+    'Visite o salão da Cuiabar em Campinas, aproveite o almoço presencial e consulte os horários antes de sair.',
   footerCopy: 'Cuiabar • Campinas/SP',
   logoUrl: siteConfig.logoUrl,
+  serviceHours: [
+    {
+      id: 'delivery',
+      label: 'Delivery',
+      days: 'Todos os dias',
+      hours: '11h às 14:30',
+      note: 'Almoço com pedido direto pelo site oficial.',
+      isFeatured: true,
+    },
+    {
+      id: 'quinta',
+      label: 'Presencial',
+      days: 'Quinta',
+      hours: '11h às 14:30',
+      note: 'Salão aberto para almoço presencial.',
+      isFeatured: false,
+    },
+    {
+      id: 'sexta',
+      label: 'Presencial',
+      days: 'Sexta',
+      hours: '11h às 14:30 • 18h às 23h',
+      note: 'Almoço e noite no salão.',
+      isFeatured: false,
+    },
+    {
+      id: 'sabado',
+      label: 'Presencial',
+      days: 'Sábado',
+      hours: '11h às 15h • 18h às 23h',
+      note: 'Almoço estendido e serviço noturno.',
+      isFeatured: false,
+    },
+  ],
   links: [
     {
       id: 'channel',
@@ -53,21 +83,21 @@ export const linksPageConfig = {
       isFeatured: false,
     },
     {
+      id: 'reservations',
+      emoji: '🪑',
+      eyebrow: 'Reservas',
+      title: 'Reservar mesa',
+      subtitle: 'Abra cuiabar.com/reservas e siga para o fluxo oficial de reserva.',
+      href: '/reservas',
+      isFeatured: false,
+    },
+    {
       id: 'direct-order',
       emoji: '🍽️',
       eyebrow: 'Pedido',
       title: 'Fazer pedido direto',
       subtitle: 'Acesse o canal oficial de pedidos online.',
       href: 'https://expresso.cuiabar.com',
-      isFeatured: false,
-    },
-    {
-      id: 'live-music',
-      emoji: '🎶',
-      eyebrow: 'Presencial',
-      title: 'Ver programação presencial com música',
-      subtitle: 'Confira o bloco com a agenda e a experiência no salão.',
-      href: '#presencial',
       isFeatured: false,
     },
     {
@@ -88,5 +118,5 @@ export const linksPageConfig = {
       href: MAPS_URL,
       isFeatured: false,
     },
-  ],
+  ] as const,
 } as const;

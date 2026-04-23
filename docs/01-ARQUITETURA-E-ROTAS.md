@@ -1,6 +1,6 @@
 # Arquitetura e rotas
 
-Atualizado em: 2026-04-22
+Atualizado em: 2026-04-23
 
 ## Estrutura do sistema
 
@@ -84,6 +84,9 @@ migrations/
 - `https://cuiabar.com`
   Site principal.
 
+- `https://prorefeicao.cuiabar.com`
+  Host oficial da frente `ProRefeição`.
+
 - `https://crm.cuiabar.com`
   Portal oficial do `Cuiabar Atende`.
 
@@ -102,17 +105,26 @@ migrations/
 ## Rotas públicas principais
 
 - `/`
+  Home pública com hero institucional, destaque promocional do almoço presencial e acesso para menu, WhatsApp e reservas.
 - `/menu`
 - `/pedidos-online`
 - `/delivery`
 - `/burguer`
 - `/burger`
 - `/espetaria`
-- `/prorefeicao`
 - `/vagas`
 - `/links`
+  Hub leve de links oficiais, com foco em reservas, pedido direto, atendimento e horários operacionais da casa.
 - `/agenda`
 - `/reservas`
+
+## Redirecionamentos legados relevantes
+
+- `https://cuiabar.com/prorefeicao`
+  Redireciona permanentemente para `https://prorefeicao.cuiabar.com/`.
+
+- `https://www.prorefeicao.cuiabar.com`
+  Redireciona permanentemente para `https://prorefeicao.cuiabar.com/`.
 
 ## Rotas internas e de infraestrutura
 
@@ -131,6 +143,7 @@ migrations/
 ## Observações arquiteturais
 
 - O projeto combina assets estáticos do Pages com backend dinâmico em Workers.
+- A frente `ProRefeição` deixou de ser página principal em `cuiabar.com/prorefeicao` e passou a operar no subdomínio dedicado `prorefeicao.cuiabar.com`, com a rota antiga preservada apenas como `301`.
 - O `MeuCuiabar` já tem host próprio, mas ainda usa parte do frontend transplantado do Base44.
 - O módulo `worker/whatsapp-intelligence/` segue isolado por feature flag e não substitui a arquitetura canônica de `worker/whatsapp/`.
 - O blog foi retirado da superfície principal e preservado apenas como frente separável.

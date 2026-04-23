@@ -12,6 +12,18 @@ export const ClientRedirect = ({ to, replace = true, title = 'Redirecionando...'
   const navigate = useNavigate();
 
   useEffect(() => {
+    const isAbsoluteUrl = /^[a-z][a-z\d+\-.]*:\/\//i.test(to);
+
+    if (isAbsoluteUrl) {
+      if (replace) {
+        window.location.replace(to);
+        return;
+      }
+
+      window.location.assign(to);
+      return;
+    }
+
     navigate(to, { replace });
   }, [navigate, replace, to]);
 

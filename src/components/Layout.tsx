@@ -8,12 +8,15 @@ import { WhatsAppFloatingButton } from './WhatsAppFloatingButton';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const location = useLocation();
+  const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isLinksRoute = ['/links', '/bio', '/acessos'].includes(normalizedPath);
   const isBurgerRoute = normalizedPath.startsWith('/burguer') || normalizedPath.startsWith('/burger');
   const isReservationsRoute = normalizedPath === '/reservas';
+  const isProRefeicaoHost = hostname === 'prorefeicao.cuiabar.com';
+  const isProRefeicaoSurface = isProRefeicaoHost || normalizedPath === '/prorefeicao';
 
-  if (isLinksRoute || isBurgerRoute) {
+  if (isLinksRoute || isBurgerRoute || isProRefeicaoSurface) {
     return (
       <>
         <AnalyticsTracker />
@@ -28,15 +31,15 @@ export const Layout = ({ children }: PropsWithChildren) => {
   }
 
   return (
-      <>
-        <AnalyticsTracker />
-        <ScrollManager />
-        <Header hideWhatsAppActions={isReservationsRoute} />
-        <main className="pt-24">
-          <div key={location.pathname} className="page-transition">
-            {children}
-          </div>
-        </main>
+    <>
+      <AnalyticsTracker />
+      <ScrollManager />
+      <Header hideWhatsAppActions={isReservationsRoute} />
+      <main className="pt-24">
+        <div key={location.pathname} className="page-transition">
+          {children}
+        </div>
+      </main>
       <Footer hideWhatsAppActions={isReservationsRoute} />
       <WhatsAppFloatingButton hide={isReservationsRoute} />
     </>

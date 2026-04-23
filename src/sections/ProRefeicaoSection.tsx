@@ -1,7 +1,6 @@
 // Diretriz visual: toda imagem usada nesta seção precisa seguir o padrão
 // de marmita redonda preta selada sobre fundo branco (estúdio profissional).
 // Regras completas e checklist em `/public/prorefeicao/README.md`.
-import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { siteConfig } from '../data/siteConfig';
 
@@ -52,9 +51,9 @@ export const ProRefeicaoSection = () => (
             ))}
           </ul>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link to="/prorefeicao" className="btn-primary">
+            <a href={siteConfig.prorefeicaoPageUrl} className="btn-primary">
               Fazer cotação
-            </Link>
+            </a>
             <a
               href={commercialHref}
               target="_blank"

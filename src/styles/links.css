@@ -56,6 +56,56 @@
   letter-spacing: 0.01em;
 }
 
+.links-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.links-hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.45rem;
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-align: center;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    background-color 240ms ease,
+    color 240ms ease,
+    border-color 240ms ease;
+}
+
+.links-hero-action:hover {
+  transform: translateY(-2px);
+}
+
+.links-hero-action-primary {
+  background: linear-gradient(135deg, #a84f29 0%, #7e331e 100%);
+  color: #fff;
+  box-shadow: 0 22px 42px -24px rgba(122, 53, 31, 0.72);
+}
+
+.links-hero-action-primary:hover {
+  background: linear-gradient(135deg, #8f4423 0%, #5d2718 100%);
+}
+
+.links-hero-action-secondary {
+  border: 1px solid rgba(51, 35, 19, 0.12);
+  background: rgba(255, 255, 255, 0.8);
+  color: #332313;
+}
+
+.links-hero-action-secondary:hover {
+  border-color: rgba(122, 53, 31, 0.28);
+  background: #fff;
+  color: #8b3e1e;
+}
+
 .links-stack {
   display: grid;
   gap: 0.85rem;
@@ -105,7 +155,67 @@
   box-shadow: 0 34px 72px -34px rgba(110, 47, 24, 0.66);
 }
 
+.links-service-card {
+  border: 1px solid rgba(51, 35, 19, 0.1);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78)),
+    rgba(255, 255, 255, 0.74);
+  padding: 1rem;
+}
+
+.links-service-card-featured {
+  border-color: rgba(110, 47, 24, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.16), transparent 28%),
+    linear-gradient(135deg, #ae5528 0%, #7a351f 52%, #4f2d20 100%);
+  box-shadow: 0 26px 56px -34px rgba(110, 47, 24, 0.54);
+}
+
+.links-service-hours {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(51, 35, 19, 0.1);
+  background: rgba(248, 239, 226, 0.9);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #332313;
+}
+
+.links-service-hours-featured {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.links-address-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #8b3e1e;
+  transition: color 220ms ease;
+}
+
+.links-address-cta:hover {
+  color: #5d2718;
+}
+
 @media (min-width: 640px) {
+  .links-hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .links-hero-action {
+    width: auto;
+  }
+
   .links-editorial-row {
     padding: 1.25rem 1.15rem;
   }

@@ -3,6 +3,8 @@ import type { NavItem } from './types';
 export const siteConfig = {
   brandName: 'Villa Cuiabar | Campinas',
   brandShortName: 'Villa Cuiabar',
+  siteOrigin: 'https://cuiabar.com',
+  prorefeicaoOrigin: 'https://prorefeicao.cuiabar.com',
   city: 'Campinas',
   neighborhood: 'Jardim Aurelia',
   corridor: 'Avenida John Boyd Dunlop',
@@ -15,6 +17,7 @@ export const siteConfig = {
   commercialWhatsappNumber: '551933058878',
   commercialWhatsappMessage: 'Olá! Quero falar com o time do ProRefeição.',
   reservationPortalUrl: 'https://reservas.cuiabar.com',
+  reservationPageUrl: '/reservas',
   calendarEmbedUrl:
     'https://calendar.google.com/calendar/embed?src=c_cb44b5a5c24377de0d7ec7a6bb840f4ed667ce355c9b4611a4b9d9e1ff7e5782%40group.calendar.google.com&ctz=America%2FSao_Paulo',
   orderLinks: {
@@ -31,7 +34,7 @@ export const siteConfig = {
     food99: 'https://oia.99app.com/dlp9/cn3kx8?area=BR',
   },
   menuPageUrl: '/menu',
-  prorefeicaoPageUrl: 'https://www.cuiabar.com/prorefeicao',
+  prorefeicaoPageUrl: 'https://prorefeicao.cuiabar.com',
   geo: {
     latitude: '-22.9010251',
     longitude: '-47.0967600',
@@ -42,16 +45,17 @@ export const siteConfig = {
   },
   address: 'Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia - Campinas/SP',
   openingHours: [
-    'Delivery no almoço todos os dias',
-    'Delivery à noite de quarta a sábado',
-    'Presencial com música ao vivo às sextas, sábados e domingos',
+    'Delivery: todos os dias, das 11h às 14:30',
+    'Presencial: quinta, das 11h às 14:30',
+    'Presencial: sexta, das 11h às 14:30 e das 18h às 23h',
+    'Presencial: sábado, das 11h às 15h e das 18h às 23h',
   ],
   inPersonOpeningHours: [
+    { day: 'Quinta-feira', opens: '11:00', closes: '14:30' },
     { day: 'Sexta-feira', opens: '11:00', closes: '14:30' },
     { day: 'Sexta-feira', opens: '18:00', closes: '23:00' },
     { day: 'Sabado', opens: '11:00', closes: '15:00' },
     { day: 'Sabado', opens: '18:00', closes: '23:00' },
-    { day: 'Domingo', opens: '11:00', closes: '16:00' },
   ],
   nearbyLandmarks: [
     'Enxuto Dunlop',
@@ -68,7 +72,7 @@ export const navItems: NavItem[] = [
   { label: 'Menu', to: '/menu' },
   { label: 'Espetaria', to: '/espetaria' },
   { label: 'Burguer Cuiabar', to: '/burguer', variant: 'highlight' },
-  { label: 'ProRefeição', to: '/prorefeicao', variant: 'outline' },
+  { label: 'ProRefeição', to: siteConfig.prorefeicaoPageUrl, variant: 'outline', external: true },
   { label: 'Reservas', to: '/reservas' },
   { label: 'Vagas', to: '/vagas' },
 ];

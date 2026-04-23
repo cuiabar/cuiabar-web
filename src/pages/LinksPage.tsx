@@ -94,9 +94,17 @@ const LinksPage = () => {
           </div>
           <p className="mt-5 max-w-xl text-xl leading-tight text-cocoa sm:text-[1.65rem]">{linksPageConfig.subheadline}</p>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-steel sm:text-[0.98rem]">{linksPageConfig.institutionalIntro}</p>
+          <div className="links-hero-actions mt-7">
+            <Link to={linksPageConfig.reservationsUrl} className="links-hero-action links-hero-action-primary">
+              Reservar mesa
+            </Link>
+            <a href={linksPageConfig.directOrderUrl} className="links-hero-action links-hero-action-secondary">
+              Pedir no site
+            </a>
+          </div>
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="links-chip">🍴 Pedido oficial</span>
-            <span className="links-chip">🎶 Música ao vivo</span>
+            <span className="links-chip">🪑 Reservas pelo site oficial</span>
+            <span className="links-chip">🍴 Delivery todos os dias no almoço</span>
             <span className="links-chip">💬 Atendimento direto</span>
           </div>
           <p className="mt-6 text-sm font-medium text-cocoa/86 sm:text-[0.96rem]">{linksPageConfig.headline}</p>
@@ -130,26 +138,35 @@ const LinksPage = () => {
           </div>
         </aside>
 
-        <section id="presencial" aria-labelledby="presencial-title" className="mt-6">
+        <section aria-labelledby="horarios-title" className="mt-6">
           <div className="links-surface rounded-[2rem] px-5 py-6 sm:px-8 sm:py-8">
-            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-terracotta/85">Presença física</p>
+            <p className="text-[0.72rem] uppercase tracking-[0.28em] text-terracotta/85">{linksPageConfig.serviceHoursLabel}</p>
             <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
               <div>
-                <h2 id="presencial-title" className="font-heading text-[2rem] leading-tight text-cocoa sm:text-[2.45rem]">
-                  {linksPageConfig.liveMusicScheduleTitle}
+                <h2 id="horarios-title" className="font-heading text-[2rem] leading-tight text-cocoa sm:text-[2.45rem]">
+                  {linksPageConfig.serviceHoursTitle}
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-steel sm:text-[1.03rem]">{linksPageConfig.liveMusicScheduleText}</p>
+                <p className="mt-3 text-base leading-relaxed text-steel sm:text-[1.03rem]">{linksPageConfig.serviceHoursText}</p>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-cocoa/84 sm:text-[0.97rem]">{linksPageConfig.venueCopy}</p>
               </div>
               <div className="grid gap-4">
-                <article className="rounded-[1.5rem] border border-cocoa/10 bg-white/70 px-4 py-4">
-                  <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">{linksPageConfig.liveMusicScheduleLabel}</p>
-                  <div className="mt-3 space-y-2 text-sm leading-relaxed text-cocoa sm:text-[0.95rem]">
-                    {linksPageConfig.liveMusicScheduleHours.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
-                  </div>
-                </article>
+                {linksPageConfig.serviceHours.map((service) => (
+                  <article
+                    key={service.id}
+                    className={`links-service-card ${service.isFeatured ? 'links-service-card-featured' : ''}`}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className={`text-[0.68rem] uppercase tracking-[0.24em] ${service.isFeatured ? 'text-white/72' : 'text-steel/80'}`}>
+                          {service.label}
+                        </p>
+                        <h3 className={`mt-3 text-xl leading-tight sm:text-[1.35rem] ${service.isFeatured ? 'text-white' : 'text-cocoa'}`}>{service.days}</h3>
+                      </div>
+                      <span className={`links-service-hours ${service.isFeatured ? 'links-service-hours-featured' : ''}`}>{service.hours}</span>
+                    </div>
+                    <p className={`mt-3 text-sm leading-relaxed ${service.isFeatured ? 'text-white/82' : 'text-steel'}`}>{service.note}</p>
+                  </article>
+                ))}
                 <article className="rounded-[1.5rem] border border-cocoa/10 bg-white/70 px-4 py-4">
                   <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">{linksPageConfig.addressCardLabel}</p>
                   <a
@@ -159,6 +176,9 @@ const LinksPage = () => {
                   >
                     {linksPageConfig.addressLabel}
                   </a>
+                  <Link to={linksPageConfig.reservationsUrl} className="links-address-cta">
+                    Abrir reservas
+                  </Link>
                 </article>
               </div>
             </div>

@@ -1,6 +1,6 @@
 # Operação e deploy
 
-Atualizado em: 2026-04-22
+Atualizado em: 2026-04-23
 
 ## Requisitos
 
@@ -55,6 +55,7 @@ npm run d1:migrate:remote
 - O build gera `dist/`.
 - O deploy publica no projeto `cuiabar-site` no Cloudflare Pages.
 - O comando operacional é `wrangler pages deploy`.
+- O subdomínio `prorefeicao.cuiabar.com` consome o artefato público do Pages com roteamento via `functions/_middleware.js`, servindo a landing dedicada do `ProRefeição` na raiz do host.
 
 ### Worker principal
 
@@ -67,6 +68,8 @@ npm run d1:migrate:remote
 - O token de deploy do Worker precisa enxergar `Workers`, `KV` e `D1`.
 - O binding `WHATSAPP_KV` deve permanecer com `id` explícito no `wrangler.jsonc`.
 - O host oficial do `MeuCuiabar` é `meu.cuiabar.com`.
+- O host oficial do `ProRefeição` é `prorefeicao.cuiabar.com`.
+- `cuiabar.com/prorefeicao` deve permanecer apenas como redirecionamento `301` para o subdomínio dedicado.
 - O alias `crm.cuiabar.com/meucuiabar*` deve permanecer apenas como redirecionamento de compatibilidade.
 
 ## Relação com GitHub

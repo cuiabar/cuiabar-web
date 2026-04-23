@@ -18,7 +18,7 @@ export const Footer = ({ hideWhatsAppActions = false }: FooterProps) => {
           <h3 className="font-heading text-2xl">{siteConfig.brandShortName}</h3>
         </div>
         <p className="mt-3 text-sm text-white/80">
-          Delivery todos os dias no almoço, atendimento presencial com música ao vivo e operação corporativa em Campinas.
+          Delivery no almoço todos os dias, presencial de quinta a sábado e operação corporativa em Campinas.
         </p>
       </div>
       <div>

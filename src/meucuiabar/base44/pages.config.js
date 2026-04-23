@@ -47,34 +47,23 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
-import Dashboard from './pages/Dashboard';
-import Temperatures from './pages/Temperatures';
-import Cleaning from './pages/Cleaning';
-import OilChanges from './pages/OilChanges';
-import ProduceWashing from './pages/ProduceWashing';
-import Checklists from './pages/Checklists';
-import NonConformities from './pages/NonConformities';
-import SettingsPage from './pages/SettingsPage';
-import HACCPDigital from './pages/HACCPDigital';
-import Relatorios from './pages/Relatorios';
 import __Layout from './Layout.jsx';
 
-
-export const PAGES = {
-    "Dashboard": Dashboard,
-    "Temperatures": Temperatures,
-    "Cleaning": Cleaning,
-    "OilChanges": OilChanges,
-    "ProduceWashing": ProduceWashing,
-    "Checklists": Checklists,
-    "NonConformities": NonConformities,
-    "SettingsPage": SettingsPage,
-    "HACCPDigital": HACCPDigital,
-    "Relatorios": Relatorios,
-}
+export const pageKeys = [
+    'Dashboard',
+    'Temperatures',
+    'Cleaning',
+    'OilChanges',
+    'ProduceWashing',
+    'Checklists',
+    'NonConformities',
+    'SettingsPage',
+    'HACCPDigital',
+    'Relatorios',
+];
 
 export const pagesConfig = {
     mainPage: "Dashboard",
-    Pages: PAGES,
+    pageKeys,
     Layout: __Layout,
 };

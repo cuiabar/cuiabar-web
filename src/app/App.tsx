@@ -18,11 +18,14 @@ const EspetariaCuiabarPage = lazy(() => import('../pages/EspetariaCuiabarPage'))
 const LinksPage = lazy(() => import('../pages/LinksPage'));
 const LocalGuidePage = lazy(() => import('../pages/LocalGuidePage'));
 
+const isProRefeicaoHost = () =>
+  typeof window !== 'undefined' && window.location.hostname.toLowerCase() === 'prorefeicao.cuiabar.com';
+
 export const App = () => (
   <Suspense fallback={<div className="container-shell py-24">Carregando Villa Cuiabar...</div>}>
     <Layout>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={isProRefeicaoHost() ? <ProRefeicaoPage /> : <HomePage />} />
         <Route path="/bio" element={<ClientRedirect to="/links" />} />
         <Route path="/acessos" element={<ClientRedirect to="/links" />} />
         <Route path="/canal" element={<ClientRedirect to="/links" />} />
@@ -41,7 +44,7 @@ export const App = () => (
         <Route path="/blog/:slug" element={<BlogSubdomainRedirectPage />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/menu" element={<MenuPage />} />
-        <Route path="/prorefeicao" element={<ProRefeicaoPage />} />
+        <Route path="/prorefeicao" element={<ClientRedirect to="https://prorefeicao.cuiabar.com" />} />
         <Route path="/pedidos-online" element={<PedidosOnlinePage />} />
         <Route path="/pesquisa" element={<PesquisaPage />} />
         <Route path="/reservas" element={<ReservasPage />} />

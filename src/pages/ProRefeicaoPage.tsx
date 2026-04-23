@@ -4,22 +4,40 @@ import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 import '../styles/pro-refeicao.css';
 
+const trustSignals = [
+  {
+    label: 'Formato',
+    value: 'Operação recorrente',
+    detail: 'Atendimento pensado para rotina, volume e previsibilidade comercial.',
+  },
+  {
+    label: 'Entrega',
+    value: 'Embalagem selada',
+    detail: 'Apresentação profissional com foco em integridade até o consumo.',
+  },
+  {
+    label: 'Atuação',
+    value: 'Campinas e entorno',
+    detail: 'Solução B2B da Cuiabar para empresas, clínicas, obras e equipes externas.',
+  },
+];
+
 const operationalPillars = [
   {
     title: 'Operação contínua',
-    description: 'Atendimento recorrente para almoço, jantar e rotinas corporativas com padrão estável de produção.',
+    description: 'Rotina organizada para almoço, jantar e fornecimento recorrente sem improviso.',
   },
   {
-    title: 'Logística organizada',
-    description: 'Fluxo pensado para volume, horário combinado e distribuição consistente para equipes e frentes de trabalho.',
+    title: 'Logística previsível',
+    description: 'Fluxo alinhado por volume, horário, frequência e perfil da operação atendida.',
   },
   {
-    title: 'Embalagem selada',
-    description: 'Refeições em embalagens seladas que ajudam a preservar qualidade, integridade e temperatura.',
+    title: 'Padrão visual',
+    description: 'Apresentação consistente em lotes e turnos, com embalagem própria para cenário corporativo.',
   },
   {
-    title: 'Atendimento comercial',
-    description: 'Contato direto para orçamento, alinhamento de demanda e ajustes operacionais conforme a rotina da empresa.',
+    title: 'Canal comercial direto',
+    description: 'Contato claro para orçamento, ajustes operacionais e expansão de atendimento.',
   },
 ];
 
@@ -29,28 +47,28 @@ const servedSegments = [
   'Indústrias e operações fabris',
   'Obras, construtoras e equipes externas',
   'Condomínios corporativos e centros logísticos',
-  'Operações com almoço e jantar recorrentes',
+  'Rotinas com almoço e jantar recorrentes',
 ];
 
 const packagingPoints = [
-  'Embalagens seladas para reforçar segurança e apresentação profissional.',
-  'Montagem padronizada para manter consistência entre lotes e turnos.',
-  'Transporte com foco em integridade do pedido até a entrega.',
-  'Retenção térmica para apoiar qualidade sensorial no momento do consumo.',
+  'Bowls selados para reforçar segurança, apresentação e consistência operacional.',
+  'Montagem padronizada para manter o mesmo padrão entre lotes e turnos.',
+  'Transporte pensado para preservar integridade do pedido até a entrega.',
+  'Retenção térmica para apoiar qualidade sensorial no momento da refeição.',
 ];
 
 const patBenefits = [
   {
-    title: 'Benefício alimentar contínuo',
-    description: 'O PAT ajuda a estruturar a alimentação do trabalhador como rotina organizada, não como solução improvisada.',
+    title: 'Benefício alimentar com rotina',
+    description: 'Estruture o fornecimento como processo estável, não como solução improvisada de última hora.',
   },
   {
-    title: 'Mais previsibilidade operacional',
-    description: 'Com fornecimento contínuo, a empresa reduz ruptura na jornada, padroniza horários e melhora a experiência do time.',
+    title: 'Mais previsibilidade para a empresa',
+    description: 'Organize horários, turnos e frequência com uma base operacional mais clara e controlável.',
   },
   {
-    title: 'Apoio à saúde e produtividade',
-    description: 'Uma operação estável de alimentação contribui para bem-estar, rendimento e regularidade no dia a dia da equipe.',
+    title: 'Experiência melhor para a equipe',
+    description: 'Uma operação alimentar estável reforça cuidado, percepção de valor e regularidade no dia a dia.',
   },
 ];
 
@@ -60,269 +78,222 @@ const commercialSteps = [
   'Início da operação com acompanhamento próximo e canal comercial direto.',
 ];
 
-// IMPORTANTE: só podem entrar aqui fotos que seguem a diretriz visual
-// da página ProRefeição — marmita redonda preta selada, fundo branco,
-// estúdio profissional. Regras completas em `/public/prorefeicao/README.md`.
-// Qualquer foto nova passa pelo checklist desse README antes de ser adicionada.
 const showcaseMeals = [
   {
     src: '/prorefeicao/marmita-parmegiana.png',
-    alt: 'Marmita corporativa com parmegiana, arroz, feijão e fritas em embalagem selada',
-    width: 520,
-    height: 520,
-    className: 'pro-immersive-card pro-immersive-card-primary',
+    alt: 'Marmita corporativa com parmegiana, arroz, feijão e fritas',
+    className: 'pro-stage-card pro-stage-card-main',
   },
   {
     src: '/prorefeicao/marmita-carne.png',
-    alt: 'Marmita corporativa com carne acebolada, arroz, feijão, fritas e brócolis em embalagem selada',
-    width: 520,
-    height: 520,
-    className: 'pro-immersive-card pro-immersive-card-secondary',
-  },
-  {
-    src: '/prorefeicao/marmita-mix.png',
-    alt: 'Três marmitas corporativas em embalagem selada mostrando variedade de cardápios',
-    width: 520,
-    height: 520,
-    className: 'pro-immersive-card pro-immersive-card-tertiary',
+    alt: 'Marmita corporativa com carne acebolada, arroz, feijão, fritas e brócolis',
+    className: 'pro-stage-card pro-stage-card-support',
   },
 ];
 
 const ProRefeicaoPage = () => {
   const commercialHref = `https://wa.me/${siteConfig.commercialWhatsappNumber}?text=${encodeURIComponent(siteConfig.commercialWhatsappMessage)}`;
 
-  useSeo(getRouteSeo('/prorefeicao'));
+  useSeo({
+    ...getRouteSeo('/prorefeicao'),
+    canonicalUrl: siteConfig.prorefeicaoOrigin,
+  });
 
   return (
-    <section className="container-shell space-y-12 py-14">
-      <Reveal
-        as="header"
-        className="overflow-hidden rounded-[2.25rem] border border-[#d8deea] bg-[linear-gradient(135deg,#122033_0%,#1f3149_45%,#304865_100%)] px-6 py-8 text-white shadow-[0_40px_100px_-44px_rgba(12,21,35,0.92)] sm:px-8 lg:px-10 lg:py-10"
-      >
-        <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
-              ProRefeição • Solução B2B
-            </div>
-            <div>
-              <h1 className="max-w-3xl font-heading text-4xl leading-[1.02] text-white sm:text-5xl lg:text-[3.9rem]">
-                Refeição corporativa com padrão e rotina previsível.
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg">
-                Almoço e jantar profissionais para escritórios, clínicas, indústrias, obras e equipes externas em Campinas.
-                Embalagem selada, cardápio recorrente e canal comercial direto para sua cotação.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a href={commercialHref} target="_blank" rel="noreferrer" className="btn-primary">
-                Falar com o comercial
-              </a>
-              <a href="#pat" className="btn-secondary border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-cocoa">
-                Entender o PAT
-              </a>
-            </div>
-            <div className="grid gap-3 pt-2 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/8 px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/60">Formato</p>
-                <p className="mt-2 text-sm text-white/85">Atendimento contínuo para empresas e operações com rotina diária.</p>
+    <div className="pro-page">
+      <section className="container-shell py-12 sm:py-14 lg:py-16">
+        <Reveal as="header" className="pro-hero">
+          <div className="pro-hero-grid">
+            <div className="pro-hero-copy">
+              <div className="pro-brand-lockup">
+                <img
+                  src="/prorefeicao/logo-prorefeicao.png"
+                  alt="ProRefeição"
+                  width="180"
+                  height="44"
+                  decoding="async"
+                  className="h-9 w-auto sm:h-10"
+                />
+                <span className="pro-brand-pill">Alimentação corporativa em Campinas</span>
+                <a href={siteConfig.siteOrigin} className="pro-host-backlink">
+                  Voltar para cuiabar.com
+                </a>
               </div>
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/8 px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/60">Entrega</p>
-                <p className="mt-2 text-sm text-white/85">Montagem padronizada e foco em qualidade até o consumo.</p>
-              </div>
-              <div className="rounded-[1.5rem] border border-white/10 bg-white/8 px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/60">Comercial</p>
-                <p className="mt-2 text-sm text-white/85">Canal direto para orçamento, ajustes e expansão de volume.</p>
-              </div>
-            </div>
-          </div>
 
-          <div className="pro-immersive-stage min-h-[440px]">
-            <div className="pro-immersive-aura pro-immersive-aura-primary" />
-            <div className="pro-immersive-aura pro-immersive-aura-secondary" />
-            {showcaseMeals.map((meal) => (
-              <div key={meal.src} className={meal.className}>
-                <div className="pro-immersive-shell">
-                  <img
-                    src={meal.src}
-                    alt={meal.alt}
-                    width={meal.width}
-                    height={meal.height}
-                    loading="lazy"
-                    decoding="async"
-                    className="pro-immersive-image"
-                  />
+              <div className="pro-copy-stack">
+                <p className="pro-kicker">Frente B2B da Cuiabar</p>
+                <h1 className="pro-hero-title">Refeição corporativa com linguagem de operação séria.</h1>
+                <p className="pro-hero-lead">
+                  O ProRefeição foi desenhado para empresas que precisam de previsibilidade, boa apresentação e rotina organizada.
+                  Atendemos escritórios, clínicas, indústrias, obras e equipes externas com uma lógica clara de produção e entrega.
+                </p>
+              </div>
+
+              <div className="pro-actions">
+                <a href={commercialHref} target="_blank" rel="noreferrer" className="btn-primary">
+                  Falar com o comercial
+                </a>
+                <a href="#estrutura" className="pro-outline-action">
+                  Ver como funciona
+                </a>
+              </div>
+
+              <dl className="pro-trust-strip">
+                {trustSignals.map((signal) => (
+                  <div key={signal.label} className="pro-trust-item">
+                    <dt className="pro-trust-label">{signal.label}</dt>
+                    <dd className="pro-trust-value">{signal.value}</dd>
+                    <dd className="pro-trust-detail">{signal.detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="pro-stage">
+              <div className="pro-stage-glow pro-stage-glow-primary" />
+              <div className="pro-stage-glow pro-stage-glow-secondary" />
+              {showcaseMeals.map((meal) => (
+                <div key={meal.src} className={meal.className}>
+                  <div className="pro-stage-frame">
+                    <img
+                      src={meal.src}
+                      alt={meal.alt}
+                      width="620"
+                      height="620"
+                      loading="lazy"
+                      decoding="async"
+                      className="pro-stage-image"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div className="pro-immersive-note">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/55">Integridade da operação</p>
-              <p className="mt-3 text-sm leading-relaxed text-white/82">
-                Embalagens seladas e montagem padronizada para apoiar qualidade, integridade e retenção de temperatura.
-              </p>
+              ))}
+
+              <article className="pro-stage-note">
+                <p className="pro-stage-note-label">Prova visual da operação</p>
+                <h2 className="pro-stage-note-title">Embalagem selada, leitura imediata e apresentação profissional.</h2>
+                <p className="pro-stage-note-copy">
+                  A imagem da marmita precisa comunicar integridade, padrão e prontidão. Esse é o núcleo visual da frente ProRefeição.
+                </p>
+              </article>
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
 
-      <div className="grid gap-4 lg:grid-cols-4">
-        {operationalPillars.map((pillar, index) => (
-          <Reveal key={pillar.title} as="article" delay={index * 70} className="card p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">{pillar.title}</p>
-            <p className="mt-3 text-sm leading-relaxed text-steel">{pillar.description}</p>
+        <div id="estrutura" className="mt-8 grid gap-6 lg:grid-cols-[1.04fr_0.96fr]">
+          <Reveal as="section" className="pro-surface pro-surface-light">
+            <div className="pro-section-head">
+              <p className="pro-kicker">Estrutura de atendimento</p>
+              <h2 className="pro-section-title">Uma frente comercial pensada para rotina, não para improviso.</h2>
+            </div>
+            <div className="pro-rich-text">
+              <p>
+                O ProRefeição organiza atendimento corporativo com lógica própria: volume, frequência, janela de entrega e padrão de montagem.
+                Isso reduz atrito comercial e deixa a operação mais simples de entender para quem contrata.
+              </p>
+              <p>
+                Em vez de vender apenas um cardápio, a página precisa transmitir método. O cliente deve perceber que existe capacidade de atender
+                recorrência, alinhar escopo e sustentar qualidade visual e operacional.
+              </p>
+            </div>
+            <div className="pro-pillar-grid">
+              {operationalPillars.map((pillar) => (
+                <article key={pillar.title} className="pro-pillar-card">
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </article>
+              ))}
+            </div>
           </Reveal>
-        ))}
-      </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <Reveal as="section" className="card p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">Perfil de atendimento</p>
-          <h2 className="mt-3 font-heading text-4xl text-cocoa">Estrutura pensada para alimentação corporativa recorrente</h2>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-steel">
-            O Villa Cuiabar opera com lógica de produção profissional para contratos, demandas recorrentes e atendimento sob rotina.
-            Isso permite trabalhar volume, repetição de padrão e alinhamento comercial sem perder apresentação e percepção de qualidade.
-          </p>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-steel">
-            A proposta atende desde empresas que precisam de almoço diário até operações com múltiplos turnos, equipes externas ou
-            ambientes com exigência maior de organização na entrega.
-          </p>
-        </Reveal>
-
-        <Reveal as="section" delay={90} className="card p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">Onde faz sentido</p>
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            {servedSegments.map((segment) => (
-              <div key={segment} className="rounded-[1.5rem] border border-sand/45 bg-cream/80 px-4 py-4 text-sm leading-relaxed text-cocoa">
-                {segment}
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-
-      <Reveal
-        as="section"
-        delay={120}
-        className="overflow-hidden rounded-[2.1rem] border border-[#c8d4e6] bg-[linear-gradient(135deg,#edf3fb_0%,#f8fbff_42%,#eef2f7_100%)] p-8 shadow-[0_34px_90px_-42px_rgba(31,49,73,0.55)]"
-      >
-        <div className="grid items-center gap-8 lg:grid-cols-[0.98fr_1.02fr]">
-          <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slateBlue">Qualidade na entrega</p>
-            <h2 className="font-heading text-4xl text-cocoa sm:text-5xl">Embalagens seladas com foco em qualidade, integridade e temperatura</h2>
-            <p className="max-w-2xl text-base leading-relaxed text-steel">
-              O ProRefeição trabalha com embalagens seladas para reforçar apresentação profissional, reduzir interferência no trajeto
-              e preservar a experiência até o momento da refeição. Isso é central em operações com volume, deslocamento ou consumo fora do ponto de produção.
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {packagingPoints.map((point) => (
-                <div key={point} className="rounded-[1.4rem] border border-[#d5deea] bg-white/88 px-4 py-4 text-sm leading-relaxed text-cocoa">
-                  {point}
+          <Reveal as="section" delay={90} className="pro-surface pro-surface-plain">
+            <div className="pro-section-head">
+              <p className="pro-kicker">Onde faz sentido</p>
+              <h2 className="pro-section-title">Perfis de operação que combinam com a proposta da casa.</h2>
+            </div>
+            <div className="pro-segment-list">
+              {servedSegments.map((segment) => (
+                <div key={segment} className="pro-segment-item">
+                  <span className="pro-segment-bullet" aria-hidden="true" />
+                  <span>{segment}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
+        </div>
 
-          <div className="relative min-h-[420px]">
-            <div className="pro-immersive-stage pro-immersive-stage-light h-full min-h-[420px]">
-              <div className="pro-immersive-aura pro-immersive-aura-soft" />
-              <div className="pro-immersive-card pro-immersive-card-packaging-main">
-                <div className="pro-immersive-shell pro-immersive-shell-light">
-                  <img
-                    src="/prorefeicao/marmita-parmegiana.png"
-                    alt="Marmita corporativa com parmegiana, arroz, feijão e fritas em embalagem selada"
-                    width="520"
-                    height="520"
-                    loading="lazy"
-                    decoding="async"
-                    className="pro-immersive-image"
-                  />
-                </div>
-              </div>
-              <div className="pro-immersive-card pro-immersive-card-packaging-support">
-                <div className="pro-immersive-shell pro-immersive-shell-light">
-                  <img
-                    src="/prorefeicao/marmita-carne.png"
-                    alt="Marmita corporativa com carne acebolada, arroz, feijão, fritas e brócolis em embalagem selada"
-                    width="520"
-                    height="520"
-                    loading="lazy"
-                    decoding="async"
-                    className="pro-immersive-image"
-                  />
-                </div>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.94fr_1.06fr]">
+          <Reveal as="section" delay={120} className="pro-surface pro-surface-tinted">
+            <div className="pro-section-head">
+              <p className="pro-kicker">Qualidade na entrega</p>
+              <h2 className="pro-section-title">Legibilidade comercial também vem da embalagem.</h2>
+            </div>
+            <div className="pro-rich-text">
+              <p>
+                A frente ProRefeição precisa vender confiança no primeiro olhar. Por isso a embalagem selada não é um detalhe estético:
+                ela é parte da promessa de integridade, apresentação profissional e estabilidade entre lotes.
+              </p>
+            </div>
+            <div className="pro-check-grid">
+              {packagingPoints.map((point) => (
+                <article key={point} className="pro-check-card">
+                  <span className="pro-check-icon" aria-hidden="true">
+                    ✓
+                  </span>
+                  <p>{point}</p>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal as="section" delay={160} className="pro-surface pro-surface-olive">
+            <div className="pro-section-head">
+              <p className="pro-kicker">PAT e continuidade</p>
+              <h2 className="pro-section-title">Fornecimento recorrente ajuda a estruturar a alimentação do trabalhador.</h2>
+            </div>
+            <div className="pro-benefit-stack">
+              {patBenefits.map((benefit) => (
+                <article key={benefit.title} className="pro-benefit-card">
+                  <h3>{benefit.title}</h3>
+                  <p>{benefit.description}</p>
+                </article>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal as="section" id="contato" delay={210} className="pro-cta-band">
+          <div className="pro-cta-grid">
+            <div className="pro-cta-copy">
+              <p className="pro-kicker pro-kicker-light">Canal comercial</p>
+              <h2 className="pro-cta-title">Entre com o cenário da sua operação. O restante a gente organiza com você.</h2>
+              <p className="pro-cta-lead">
+                Use o WhatsApp comercial para apresentar volume, frequência, turnos e tipo de operação. O contato vai direto para o canal oficial da Cuiabar.
+              </p>
+              <div className="pro-actions">
+                <a href={commercialHref} target="_blank" rel="noreferrer" className="btn-primary">
+                  Chamar no WhatsApp
+                </a>
+                <a href="mailto:cuiabar@cuiabar.net" className="pro-outline-action pro-outline-action-light">
+                  Enviar e-mail
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </Reveal>
 
-      <Reveal as="section" id="pat" delay={160} className="card p-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">PAT</p>
-        <div className="mt-3 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <h2 className="font-heading text-4xl text-cocoa">Programa de Alimentação do Trabalhador com fornecimento contínuo</h2>
-            <p className="mt-4 text-base leading-relaxed text-steel">
-              Para empresas que operam ou pretendem operar dentro da lógica do PAT, manter fornecimento contínuo de alimentação ajuda
-              a estruturar o benefício de forma mais estável, previsível e aderente à rotina da equipe.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-steel">
-              Na prática, isso reduz improviso na jornada, melhora organização interna e fortalece a percepção de cuidado com o colaborador,
-              principalmente em operações com alta recorrência, turnos ou deslocamento.
-            </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {patBenefits.map((item) => (
-              <article key={item.title} className="rounded-[1.6rem] border border-sand/40 bg-cream/75 p-5">
-                <h3 className="font-heading text-2xl text-cocoa">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-steel">{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-
-      <div className="grid gap-6 lg:grid-cols-[0.94fr_1.06fr]">
-        <Reveal
-          as="section"
-          delay={200}
-          className="overflow-hidden rounded-[2rem] border border-[#253751]/10 bg-[linear-gradient(145deg,#162336_0%,#20324b_100%)] p-8 text-white shadow-[0_34px_90px_-44px_rgba(22,35,54,0.88)]"
-        >
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">Fluxo comercial</p>
-          <h2 className="mt-3 font-heading text-4xl text-white">Como o Villa Cuiabar estrutura a entrada da operação</h2>
-          <ol className="mt-6 space-y-4">
-            {commercialSteps.map((step, index) => (
-              <li key={step} className="flex gap-4 rounded-[1.4rem] border border-white/10 bg-white/8 px-4 py-4">
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/12 text-sm font-semibold text-white">
-                  {index + 1}
-                </span>
-                <span className="text-sm leading-relaxed text-white/82">{step}</span>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-
-        <Reveal as="section" delay={240} className="card p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-terracotta">Canal comercial</p>
-          <h2 className="mt-3 font-heading text-4xl text-cocoa">Fale com o time do ProRefeição</h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-steel">
-            Use o WhatsApp comercial do Villa Cuiabar para apresentar sua operação, pedir orçamento e alinhar escopo, frequência e
-            volume. O atendimento é direto com o canal oficial do restaurante.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href={commercialHref} target="_blank" rel="noreferrer" className="btn-primary">
-              Chamar no WhatsApp
-            </a>
-            <a href="mailto:cuiabar@cuiabar.net" className="btn-secondary">
-              Enviar e-mail
-            </a>
-          </div>
-          <div className="mt-6 rounded-[1.5rem] border border-sand/45 bg-cream/70 p-5 text-sm leading-relaxed text-steel">
-            Atendimento comercial via WhatsApp oficial do Villa Cuiabar. Ideal para empresas com necessidade recorrente de alimentação,
-            operação escalável e padrão estável de entrega.
+            <div className="pro-step-panel">
+              <p className="pro-step-label">Fluxo de entrada</p>
+              <ol className="pro-step-list">
+                {commercialSteps.map((step, index) => (
+                  <li key={step} className="pro-step-item">
+                    <span className="pro-step-index">{index + 1}</span>
+                    <span className="pro-step-copy">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </Reveal>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

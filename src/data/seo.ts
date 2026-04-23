@@ -13,6 +13,7 @@ export type RouteSeo = {
   keywords?: string[];
   robots?: string;
   canonicalPath?: string;
+  canonicalUrl?: string;
   includeInSitemap?: boolean;
   schema?: SchemaBlock[];
 };

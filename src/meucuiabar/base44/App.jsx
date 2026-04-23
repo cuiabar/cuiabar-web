@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { Toaster } from "@meucuiabar/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@meucuiabar/lib/query-client'
@@ -6,8 +7,23 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { MEUCUIABAR_BASE_PATH } from '@meucuiabar/config';
 
-const { Pages, Layout, mainPage } = pagesConfig;
-const mainPageKey = mainPage ?? Object.keys(Pages)[0];
+const pageModules = import.meta.glob('./pages/*.jsx');
+const pageKeys = pagesConfig.pageKeys ?? [];
+
+const Pages = Object.fromEntries(
+  pageKeys.map((pageKey) => {
+    const loader = pageModules[`./pages/${pageKey}.jsx`];
+
+    if (!loader) {
+      throw new Error(`Pagina MeuCuiabar nao encontrada: ${pageKey}`);
+    }
+
+    return [pageKey, lazy(loader)];
+  }),
+);
+
+const { Layout, mainPage } = pagesConfig;
+const mainPageKey = mainPage ?? pageKeys[0];
 const MainPage = mainPageKey ? Pages[mainPageKey] : <></>;
 const withBasePath = (path = '') => {
   const basePath = MEUCUIABAR_BASE_PATH || '';
@@ -22,24 +38,30 @@ const LayoutWrapper = ({ children, currentPageName }) => Layout ?
   <Layout currentPageName={currentPageName}>{children}</Layout>
   : <>{children}</>;
 
+const PageLoadingState = () => (
+  <div className="flex min-h-[40vh] items-center justify-center text-sm text-muted-foreground">
+    Carregando modulo...
+  </div>
+);
+
+const renderPageElement = (Page, currentPageName) => (
+  <LayoutWrapper currentPageName={currentPageName}>
+    <Suspense fallback={<PageLoadingState />}>
+      <Page />
+    </Suspense>
+  </LayoutWrapper>
+);
+
 const MeuCuiabarRuntime = () => {
   return (
     <Routes>
       {shouldRedirectRoot ? <Route path="/" element={<Navigate to={mainRoutePath} replace />} /> : null}
-      <Route path={mainRoutePath} element={
-        <LayoutWrapper currentPageName={mainPageKey}>
-          <MainPage />
-        </LayoutWrapper>
-      } />
+      <Route path={mainRoutePath} element={renderPageElement(MainPage, mainPageKey)} />
       {Object.entries(Pages).map(([path, Page]) => (
         <Route
           key={path}
           path={withBasePath(path)}
-          element={
-            <LayoutWrapper currentPageName={path}>
-              <Page />
-            </LayoutWrapper>
-          }
+          element={renderPageElement(Page, path)}
         />
       ))}
       <Route path="*" element={<PageNotFound />} />

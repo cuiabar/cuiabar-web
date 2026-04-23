@@ -20,6 +20,11 @@ const getAnchor = (target: EventTarget | null) => {
 
 const classifyInternalPath = (pathname: string) => {
   const normalizedPath = pathname.replace(/\/+$/, '') || '/';
+  const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
+
+  if (hostname === 'prorefeicao.cuiabar.com' && normalizedPath === '/') {
+    return { eventName: 'open_prorefeicao_page' };
+  }
 
   if (normalizedPath === '/agenda' || normalizedPath.startsWith('/agenda/')) {
     return { eventName: normalizedPath === '/agenda' ? 'open_agenda_page' : 'open_agenda_event_page' };
@@ -49,6 +54,11 @@ const normalizePathname = (pathname: string) => pathname.replace(/\/+$/, '') || 
 
 const getContentName = (pathname: string) => {
   const normalizedPath = normalizePathname(pathname);
+  const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
+
+  if (hostname === 'prorefeicao.cuiabar.com' && normalizedPath === '/') {
+    return 'prorefeicao';
+  }
 
   if (normalizedPath === '/agenda' || normalizedPath.startsWith('/agenda/')) {
     return 'agenda_musica_ao_vivo';
@@ -69,6 +79,8 @@ const getContentName = (pathname: string) => {
 export const AnalyticsTracker = () => {
   const location = useLocation();
   const normalizedPath = normalizePathname(location.pathname);
+  const isProRefeicaoHost =
+    typeof window !== 'undefined' && window.location.hostname.toLowerCase() === 'prorefeicao.cuiabar.com';
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -81,6 +93,11 @@ export const AnalyticsTracker = () => {
   }, [location.hash, location.pathname, location.search]);
 
   useEffect(() => {
+    if (isProRefeicaoHost && normalizedPath === '/') {
+      trackViewContent('prorefeicao', { content_category: 'corporativo' });
+      return;
+    }
+
     switch (normalizedPath) {
       case '/menu':
         trackViewContent('menu_villa_cuiabar', { content_category: 'menu' });
@@ -101,7 +118,7 @@ export const AnalyticsTracker = () => {
         }
         break;
     }
-  }, [normalizedPath]);
+  }, [isProRefeicaoHost, normalizedPath]);
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
