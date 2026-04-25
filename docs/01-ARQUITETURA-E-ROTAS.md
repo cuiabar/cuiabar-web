@@ -1,6 +1,6 @@
 # Arquitetura e rotas
 
-Atualizado em: 2026-04-23
+Atualizado em: 2026-04-24
 
 ## Estrutura do sistema
 
@@ -87,6 +87,9 @@ migrations/
 - `https://prorefeicao.cuiabar.com`
   Host oficial da frente `ProRefeição`.
 
+- `https://burger.cuiabar.com`
+  Host público do Burger Cuiabar, servido na borda do Worker a partir da landing oficial em `/burguer`.
+
 - `https://crm.cuiabar.com`
   Portal oficial do `Cuiabar Atende`.
 
@@ -105,10 +108,16 @@ migrations/
 ## Rotas públicas principais
 
 - `/`
-  Home pública com hero institucional, destaque promocional do almoço presencial e acesso para menu, WhatsApp e reservas.
+  Portal de entrada da marca, com seletor de experiências para `Presencial`, `Expresso` e `Espetaria`.
+- `/presencial`
+  Home pública principal do restaurante, com hero institucional, destaque promocional do almoço presencial e acesso para menu, WhatsApp e reservas.
+- `/expresso`
+  Frente canônica de delivery e operação rápida, concentrando marmitaria, Burger Cuiabar e os canais oficiais de pedido.
 - `/menu`
 - `/pedidos-online`
+  Atalho legado, hoje redirecionado para `/expresso`.
 - `/delivery`
+  Atalho legado, hoje redirecionado para `/expresso`.
 - `/burguer`
 - `/burger`
 - `/espetaria`
@@ -143,7 +152,9 @@ migrations/
 ## Observações arquiteturais
 
 - O projeto combina assets estáticos do Pages com backend dinâmico em Workers.
+- A navegação pública agora foi reorganizada por experiência: a raiz funciona como hub, enquanto o conteúdo institucional do restaurante opera em `/presencial` e a frente de delivery em `/expresso`.
 - A frente `ProRefeição` deixou de ser página principal em `cuiabar.com/prorefeicao` e passou a operar no subdomínio dedicado `prorefeicao.cuiabar.com`, com a rota antiga preservada apenas como `301`.
+- O host `burger.cuiabar.com` é atendido por rota de Worker no edge e serve a mesma landing pública do `Burger Cuiabar`, reduzindo dependência do origin legado.
 - O `MeuCuiabar` já tem host próprio, mas ainda usa parte do frontend transplantado do Base44.
 - O módulo `worker/whatsapp-intelligence/` segue isolado por feature flag e não substitui a arquitetura canônica de `worker/whatsapp/`.
 - O blog foi retirado da superfície principal e preservado apenas como frente separável.

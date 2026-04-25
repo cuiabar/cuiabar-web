@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { getRouteSeo } from '../data/seo';
 import { siteConfig } from '../data/siteConfig';
@@ -22,6 +23,24 @@ const houseMoments = [
   {
     title: 'Projeto em construção',
     description: 'O cardápio próprio entra na próxima etapa. Enquanto isso, a página já apresenta a identidade e o clima dessa nova frente.',
+  },
+];
+
+const serviceWindows = [
+  {
+    label: 'Quinta',
+    hours: '11h às 14:30',
+    note: 'Almoço presencial da casa, com leitura de boteco e mesa compartilhada.',
+  },
+  {
+    label: 'Sexta',
+    hours: '11h às 14:30 e 18h às 23h',
+    note: 'Janela de almoço e noite completa para a frente boêmia ganhar tração.',
+  },
+  {
+    label: 'Sábado',
+    hours: '11h às 15h e 18h às 23h',
+    note: 'Horário mais amplo para almoço, fim de tarde e noite de encontro.',
   },
 ];
 
@@ -124,9 +143,9 @@ const EspetariaCuiabarPage = () => {
                 <a href={whatsAppHref} target="_blank" rel="noreferrer" className="btn-primary !bg-[#ab4b22] hover:!bg-[#3d2718]">
                   Falar sobre a Espetaria
                 </a>
-                <a href="/menu" className="btn-secondary !border-[#6f4b27]/18 !bg-white/80 !text-[#3d2718] hover:!bg-[#3d2718] hover:!text-white">
+                <Link to="/menu" className="btn-secondary !border-[#6f4b27]/18 !bg-white/80 !text-[#3d2718] hover:!bg-[#3d2718] hover:!text-white">
                   Ver menu da casa
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -207,6 +226,23 @@ const EspetariaCuiabarPage = () => {
                 <li className="rounded-[1.4rem] border border-white/12 bg-white/8 px-4 py-3">🍽️ Navegar pelo menu atual da casa enquanto a frente nova é preparada.</li>
                 <li className="rounded-[1.4rem] border border-white/12 bg-white/8 px-4 py-3">📍 Manter o Cuiabar no radar como restaurante e ponto de encontro em Campinas.</li>
               </ul>
+            </Reveal>
+            <Reveal delay={80} className="rounded-[2.4rem] border border-[#6f4b27]/12 bg-white/78 p-8 shadow-[0_28px_74px_-50px_rgba(61,39,24,0.28)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#ab4b22]">Horários da casa</p>
+              <h2 className="mt-3 font-heading text-4xl text-[#3d2718]">Faixa real de operação.</h2>
+              <div className="mt-5 grid gap-3">
+                {serviceWindows.map((window) => (
+                  <article key={window.label} className="rounded-[1.5rem] border border-[#6f4b27]/10 bg-[#fff9ec] px-4 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <h3 className="font-heading text-2xl text-[#3d2718]">{window.label}</h3>
+                      <span className="rounded-full bg-[#f0d4a3] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#7b4d1f]">
+                        {window.hours}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-[#6a4b34]">{window.note}</p>
+                  </article>
+                ))}
+              </div>
             </Reveal>
 
             <Reveal delay={120} className="rounded-[2.4rem] border border-[#6f4b27]/12 bg-[#fff9ec] p-8 shadow-[0_28px_74px_-50px_rgba(61,39,24,0.28)]">

@@ -11,12 +11,14 @@ export const Layout = ({ children }: PropsWithChildren) => {
   const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isLinksRoute = ['/links', '/bio', '/acessos'].includes(normalizedPath);
-  const isBurgerRoute = normalizedPath.startsWith('/burguer') || normalizedPath.startsWith('/burger');
+  const isBurgerHost = hostname === 'burger.cuiabar.com';
+  const isBurgerRoute = isBurgerHost || normalizedPath.startsWith('/burguer') || normalizedPath.startsWith('/burger');
   const isReservationsRoute = normalizedPath === '/reservas';
   const isProRefeicaoHost = hostname === 'prorefeicao.cuiabar.com';
   const isProRefeicaoSurface = isProRefeicaoHost || normalizedPath === '/prorefeicao';
+  const isExperienceHubRoute = normalizedPath === '/' && !isProRefeicaoHost;
 
-  if (isLinksRoute || isBurgerRoute || isProRefeicaoSurface) {
+  if (isLinksRoute || isBurgerRoute || isProRefeicaoSurface || isExperienceHubRoute) {
     return (
       <>
         <AnalyticsTracker />

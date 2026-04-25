@@ -15,7 +15,7 @@ export const Header = ({ hideWhatsAppActions = false }: HeaderProps) => {
   const brandName = isBurgerRoute ? siteConfig.burguerBrandName : siteConfig.brandShortName;
   const brandLogo = isBurgerRoute ? siteConfig.burguerLogoUrl : siteConfig.logoUrl;
   const brandLogoSize = isBurgerRoute ? 56 : 48;
-  const brandHome = isBurgerRoute ? '/burguer' : '/';
+  const brandHome = isBurgerRoute ? '/expresso' : '/presencial';
   const visibleNavItems = hideWhatsAppActions ? navItems.filter((item) => !item.label.toLowerCase().includes('whatsapp') && !item.to.includes('wa.me')) : navItems;
 
   return (

@@ -5,6 +5,8 @@ const app = createApp();
 const BLOG_EDITOR_PATH = '/editor';
 const MEUCUIABAR_LEGACY_PATH = '/meucuiabar';
 const MEUCUIABAR_HOST = 'meu.cuiabar.com';
+const BURGER_HOST = 'burger.cuiabar.com';
+const BURGER_ROOT = `https://${BURGER_HOST}/`;
 
 const isEditorRequest = (url: URL) => url.hostname === 'blog.cuiabar.com' && (url.pathname === BLOG_EDITOR_PATH || url.pathname.startsWith(`${BLOG_EDITOR_PATH}/`));
 const isInternalPortalHost = (hostname: string) => hostname === 'crm.cuiabar.com' || hostname === MEUCUIABAR_HOST;
@@ -102,6 +104,42 @@ const withInternalPortalHeaders = async (request: Request, env: Env) => {
   });
 };
 
+const serveBurgerHost = async (request: Request, env: Env) => {
+  const url = new URL(request.url);
+
+  if (url.pathname === '/burger' || url.pathname === '/burguer') {
+    url.pathname = '/';
+    return Response.redirect(url.toString(), 301);
+  }
+
+  if (url.pathname !== '/') {
+    return env.ASSETS.fetch(request);
+  }
+
+  const assetUrl = new URL(request.url);
+  assetUrl.pathname = '/burguer/';
+  const assetRequest = new Request(assetUrl.toString(), request);
+  const assetResponse = await env.ASSETS.fetch(assetRequest);
+
+  return new HTMLRewriter()
+    .on('link[rel="canonical"]', {
+      element(element) {
+        element.setAttribute('href', BURGER_ROOT);
+      },
+    })
+    .on('meta[property="og:url"]', {
+      element(element) {
+        element.setAttribute('content', BURGER_ROOT);
+      },
+    })
+    .on('meta[name="twitter:url"]', {
+      element(element) {
+        element.setAttribute('content', BURGER_ROOT);
+      },
+    })
+    .transform(assetResponse);
+};
+
 export default {
   fetch(request: Request, env: Env, ctx: ExecutionContext) {
     const url = new URL(request.url);
@@ -125,6 +163,10 @@ export default {
       pathname === '/99food'
     ) {
       return app.fetch(request, env, ctx);
+    }
+
+    if (url.hostname === BURGER_HOST) {
+      return serveBurgerHost(request, env);
     }
 
     if (isInternalPortalHost(url.hostname)) {

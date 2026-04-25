@@ -4,6 +4,7 @@ export const siteConfig = {
   brandName: 'Villa Cuiabar | Campinas',
   brandShortName: 'Villa Cuiabar',
   siteOrigin: 'https://cuiabar.com',
+  burgerOrigin: 'https://burger.cuiabar.com',
   prorefeicaoOrigin: 'https://prorefeicao.cuiabar.com',
   city: 'Campinas',
   neighborhood: 'Jardim Aurelia',
@@ -18,6 +19,9 @@ export const siteConfig = {
   commercialWhatsappMessage: 'Olá! Quero falar com o time do ProRefeição.',
   reservationPortalUrl: 'https://reservas.cuiabar.com',
   reservationPageUrl: '/reservas',
+  experienceHubPageUrl: '/',
+  presencialPageUrl: '/presencial',
+  expressoPageUrl: '/expresso',
   calendarEmbedUrl:
     'https://calendar.google.com/calendar/embed?src=c_cb44b5a5c24377de0d7ec7a6bb840f4ed667ce355c9b4611a4b9d9e1ff7e5782%40group.calendar.google.com&ctz=America%2FSao_Paulo',
   orderLinks: {
@@ -67,11 +71,12 @@ export const siteConfig = {
 };
 
 export const navItems: NavItem[] = [
-  { label: 'Home', to: '/' },
+  { label: 'Experiências', to: siteConfig.experienceHubPageUrl },
+  { label: 'Presencial', to: siteConfig.presencialPageUrl },
   { label: 'Agenda', to: '/agenda' },
   { label: 'Menu', to: '/menu' },
+  { label: 'Expresso', to: siteConfig.expressoPageUrl, variant: 'highlight' },
   { label: 'Espetaria', to: '/espetaria' },
-  { label: 'Burguer Cuiabar', to: '/burguer', variant: 'highlight' },
   { label: 'ProRefeição', to: siteConfig.prorefeicaoPageUrl, variant: 'outline', external: true },
   { label: 'Reservas', to: '/reservas' },
   { label: 'Vagas', to: '/vagas' },

@@ -1,6 +1,6 @@
 # Status atual e pendências
 
-Atualizado em: 2026-04-23
+Atualizado em: 2026-04-24
 
 ## Estado geral
 
@@ -34,6 +34,8 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 - migrações remotas do `MeuCuiabar` já aplicadas
 - carregamento do `MeuCuiabar` quebrado por página para reduzir o bundle inicial da aplicação
 - frente `ProRefeição` migrada para o host dedicado `prorefeicao.cuiabar.com`, com a rota `cuiabar.com/prorefeicao` mantida apenas como redirecionamento permanente
+- arquitetura pública reorganizada em três frentes de entrada na raiz do site: `Presencial`, `Expresso` e `Espetaria`, com a home operacional do restaurante movida para `/presencial` e o delivery concentrado em `/expresso`
+- host `burger.cuiabar.com` religado na borda do Cloudflare Worker para eliminar a dependência do origin legado que estava fora do ar
 
 ## Situação do Git
 
@@ -58,3 +60,4 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 - remover documentação paralela e arquivos soltos
 - publicar a documentação oficial no Wiki do repositório
 - concluir o merge da branch de consolidação na `main`
+- evoluir o portal de entrada da marca com refinamento visual e acompanhamento dos sinais de navegação e indexação nas novas rotas `/presencial` e `/expresso`

@@ -4,14 +4,15 @@ const LEGACY_REDIRECTS = new Map([
   ['/canal', '/links'],
   ['/burger', '/burguer'],
   ['/burguer-cuiabar', '/burguer'],
-  ['/marmita', '/pedidos-online'],
-  ['/delivery', '/pedidos-online'],
-  ['/online-ordering', '/pedidos-online'],
-  ['/services-5', '/pedidos-online'],
-  ['/asianrestaurant', '/'],
+  ['/marmita', '/expresso'],
+  ['/delivery', '/expresso'],
+  ['/online-ordering', '/expresso'],
+  ['/services-5', '/expresso'],
+  ['/asianrestaurant', '/presencial'],
 ]);
 
 const PROREFEICAO_HOST = 'prorefeicao.cuiabar.com';
+const BURGER_HOST = 'burger.cuiabar.com';
 
 const normalizePathname = (pathname) => {
   if (pathname === '/') {
@@ -31,6 +32,12 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
+  if (url.hostname === 'www.burger.cuiabar.com') {
+    url.hostname = BURGER_HOST;
+    url.pathname = normalizedPathname;
+    return Response.redirect(url.toString(), 301);
+  }
+
   if (url.hostname === 'www.cuiabar.com') {
     url.hostname = 'cuiabar.com';
     url.pathname = normalizedPathname;
@@ -43,6 +50,10 @@ export async function onRequest(context) {
 
   if (url.hostname === PROREFEICAO_HOST && normalizedPathname === '/prorefeicao') {
     return Response.redirect(`https://${PROREFEICAO_HOST}/`, 301);
+  }
+
+  if (url.hostname === BURGER_HOST && (normalizedPathname === '/burguer' || normalizedPathname === '/burger')) {
+    return Response.redirect(`https://${BURGER_HOST}/`, 301);
   }
 
   if (url.hostname === PROREFEICAO_HOST && normalizedPathname === '/') {
@@ -63,6 +74,29 @@ export async function onRequest(context) {
       .on('meta[name="twitter:url"]', {
         element(element) {
           element.setAttribute('content', `https://${PROREFEICAO_HOST}/`);
+        },
+      })
+      .transform(response);
+  }
+
+  if (url.hostname === BURGER_HOST && normalizedPathname === '/') {
+    const assetUrl = new URL('/burguer/', url.origin);
+    const response = await context.env.ASSETS.fetch(assetUrl.toString());
+
+    return new HTMLRewriter()
+      .on('link[rel="canonical"]', {
+        element(element) {
+          element.setAttribute('href', `https://${BURGER_HOST}/`);
+        },
+      })
+      .on('meta[property="og:url"]', {
+        element(element) {
+          element.setAttribute('content', `https://${BURGER_HOST}/`);
+        },
+      })
+      .on('meta[name="twitter:url"]', {
+        element(element) {
+          element.setAttribute('content', `https://${BURGER_HOST}/`);
         },
       })
       .transform(response);

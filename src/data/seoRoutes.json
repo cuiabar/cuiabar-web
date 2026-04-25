@@ -3,8 +3,60 @@
   "defaultImage": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
   "routes": {
     "/": {
-      "title": "Villa Cuiabar | Restaurante no Jardim Aurélia com música ao vivo em Campinas",
-      "description": "Villa Cuiabar no Jardim Aurélia, em Campinas, com bar e restaurante no eixo da John Boyd Dunlop, espaço kids, música ao vivo, menu completo e reservas online no portal oficial.",
+      "title": "Cuiabar | Escolha sua experiência em Campinas",
+      "description": "Portal de entrada da Cuiabar para escolher entre Presencial, Expresso e Espetaria, com navegação própria para restaurante, delivery e boteco em Campinas.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Portal de experiências da Cuiabar em Campinas",
+      "type": "website",
+      "changefreq": "daily",
+      "priority": "0.92",
+      "keywords": [
+        "Cuiabar Campinas",
+        "Villa Cuiabar",
+        "delivery Campinas",
+        "restaurante em Campinas",
+        "espetaria em Campinas",
+        "expresso Cuiabar"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Portal de experiências Cuiabar",
+          "url": "https://cuiabar.com/",
+          "description": "Entrada principal da Cuiabar para escolher entre Presencial, Expresso e Espetaria.",
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Experiências Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Presencial",
+              "url": "https://cuiabar.com/presencial"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Expresso",
+              "url": "https://cuiabar.com/expresso"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Espetaria",
+              "url": "https://cuiabar.com/espetaria"
+            }
+          ]
+        }
+      ]
+    },
+    "/presencial": {
+      "title": "Villa Cuiabar Presencial | Restaurante no Jardim Aurélia com música ao vivo em Campinas",
+      "description": "Frente presencial da Cuiabar no Jardim Aurélia, em Campinas, com restaurante, bar, agenda de shows, menu completo, reservas online e vagas da operação.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
       "imageAlt": "Salão do Villa Cuiabar em Campinas com mesas montadas e iluminação acolhedora",
       "type": "website",
@@ -26,11 +78,11 @@
         {
           "@context": "https://schema.org",
           "@type": "Restaurant",
-          "@id": "https://cuiabar.com/#restaurant",
+          "@id": "https://cuiabar.com/presencial#restaurant",
           "name": "Villa Cuiabar",
           "alternateName": "Cuiabar",
-          "description": "Bar e restaurante no Jardim Aurélia, em Campinas, com música ao vivo, espaço familiar, reservas online no portal oficial e operação corporativa com o ProRefeição.",
-          "url": "https://cuiabar.com/",
+          "description": "Bar e restaurante no Jardim Aurélia, em Campinas, com música ao vivo, espaço familiar, reservas online e almoço presencial.",
+          "url": "https://cuiabar.com/presencial",
           "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
           "image": [
             "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
@@ -42,8 +94,7 @@
           "servesCuisine": [
             "Brasileira",
             "Mato-grossense",
-            "Churrasco",
-            "Hambúrgueres"
+            "Churrasco"
           ],
           "address": {
             "@type": "PostalAddress",
@@ -53,144 +104,13 @@
             "postalCode": "13033-010",
             "addressCountry": "BR"
           },
-          "hasMap": "https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP",
+          "hasMenu": "https://cuiabar.com/menu",
+          "acceptsReservations": "https://reservas.cuiabar.com/",
           "sameAs": [
             "https://instagram.com/cuiabar",
             "https://facebook.com/villacuiabar",
             "https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a"
-          ],
-          "hasMenu": "https://cuiabar.com/menu",
-          "acceptsReservations": "https://reservas.cuiabar.com/",
-          "potentialAction": [
-            {
-              "@type": "OrderAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://expresso.cuiabar.com"
-              }
-            },
-            {
-              "@type": "ReserveAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://reservas.cuiabar.com/"
-              }
-            }
-          ],
-          "additionalType": "https://schema.org/BarOrPub",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -22.9010251,
-            "longitude": -47.09676
-          },
-          "areaServed": [
-            {
-              "@type": "City",
-              "name": "Campinas"
-            },
-            {
-              "@type": "Place",
-              "name": "Jardim Aurélia"
-            },
-            {
-              "@type": "Place",
-              "name": "Avenida John Boyd Dunlop"
-            }
-          ],
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "https://schema.org/Friday",
-              "opens": "11:00",
-              "closes": "14:30"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "https://schema.org/Friday",
-              "opens": "18:00",
-              "closes": "23:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "https://schema.org/Saturday",
-              "opens": "11:00",
-              "closes": "15:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "https://schema.org/Saturday",
-              "opens": "18:00",
-              "closes": "23:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "https://schema.org/Sunday",
-              "opens": "11:00",
-              "closes": "16:00"
-            }
-          ],
-          "amenityFeature": [
-            {
-              "@type": "LocationFeatureSpecification",
-              "name": "Música ao vivo",
-              "value": true
-            },
-            {
-              "@type": "LocationFeatureSpecification",
-              "name": "Espaço kids e ambiente familiar",
-              "value": true
-            },
-            {
-              "@type": "LocationFeatureSpecification",
-              "name": "Reservas online",
-              "value": true
-            },
-            {
-              "@type": "LocationFeatureSpecification",
-              "name": "Bar completo",
-              "value": true
-            }
-          ],
-          "knowsAbout": [
-            "Jardim Aurélia",
-            "John Boyd Dunlop",
-            "música ao vivo",
-            "shows",
-            "espaço kids",
-            "reservas online",
-            "bar e restaurante em Campinas"
-          ],
-          "currenciesAccepted": "BRL"
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://cuiabar.com/#organization",
-          "name": "Villa Cuiabar",
-          "url": "https://cuiabar.com/",
-          "logo": "https://cuiabar.com/logo-villa-cuiabar.png",
-          "contactPoint": [
-            {
-              "@type": "ContactPoint",
-              "telephone": "+55 19 3305-8878",
-              "contactType": "customer support",
-              "areaServed": "BR",
-              "availableLanguage": [
-                "pt-BR"
-              ]
-            }
           ]
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "@id": "https://cuiabar.com/#website",
-          "name": "Villa Cuiabar",
-          "url": "https://cuiabar.com/",
-          "inLanguage": "pt-BR",
-          "publisher": {
-            "@id": "https://cuiabar.com/#organization"
-          }
         },
         {
           "@context": "https://schema.org",
@@ -201,7 +121,7 @@
               "name": "Como faço minha reserva?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "As reservas e confirmações são feitas no portal oficial reservas.cuiabar.com, com data, horário, quantidade de pessoas e preferências em um único fluxo."
+                "text": "As reservas e confirmações são feitas no portal oficial reservas.cuiabar.com."
               }
             },
             {
@@ -211,22 +131,64 @@
                 "@type": "Answer",
                 "text": "O presencial com música acontece às sextas, sábados e domingos."
               }
+            }
+          ]
+        }
+      ]
+    },
+    "/expresso": {
+      "title": "Expresso Cuiabar | Marmitaria, hamburgueria e delivery em Campinas",
+      "description": "Frente Expresso da Cuiabar com marmitaria, Burger Cuiabar e todos os canais oficiais de delivery em Campinas: site próprio, iFood e 99Food.",
+      "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
+      "imageAlt": "Frente Expresso da Cuiabar com canais oficiais de delivery",
+      "type": "website",
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "keywords": [
+        "delivery Campinas",
+        "marmitaria Campinas",
+        "hamburgueria Campinas",
+        "Burger Cuiabar",
+        "pedido online Cuiabar",
+        "Expresso Cuiabar"
+      ],
+      "schema": [
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Expresso Cuiabar",
+          "url": "https://cuiabar.com/expresso",
+          "description": "Página da Cuiabar para pedidos online, delivery, marmitaria e burger.",
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Canais oficiais do Expresso Cuiabar",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Site próprio",
+              "url": "https://expresso.cuiabar.com"
             },
             {
-              "@type": "Question",
-              "name": "Tem espaço para ir com crianças?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sim. O ambiente é familiar, com brinquedo para crianças e estrutura pensada para almoço e encontros com os pequenos."
-              }
+              "@type": "ListItem",
+              "position": 2,
+              "name": "iFood",
+              "url": "https://www.ifood.com.br/delivery/campinas-sp/villa-cuiabar--executivos--pratos-do-dia-jardim-aurelia/1af0e396-a7c8-46e1-b1a5-dd06486bb4ad"
             },
             {
-              "@type": "Question",
-              "name": "Quais dias têm atendimento noturno?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "O delivery à noite funciona de quarta a sábado."
-              }
+              "@type": "ListItem",
+              "position": 3,
+              "name": "99Food",
+              "url": "https://oia.99app.com/dlp9/C94oJv?area=BR"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Burger Cuiabar",
+              "url": "https://cuiabar.com/burguer"
             }
           ]
         }
@@ -523,6 +485,8 @@
       "type": "website",
       "changefreq": "weekly",
       "priority": "0.9",
+      "canonicalUrl": "https://burger.cuiabar.com/",
+      "includeInSitemap": false,
       "keywords": [
         "hambúrguer em Campinas",
         "hambúrguer Jardim Aurélia",
@@ -542,7 +506,7 @@
           "@type": "Menu",
           "name": "Cardápio Burguer Cuiabar",
           "description": "Projeto piloto do Cuiabar com burgers preparados na chapa, carnes selecionadas e combos, com destaque para o canal proprio burger.cuiabar.com e apoio em iFood e 99Food.",
-          "url": "https://cuiabar.com/burguer",
+          "url": "https://burger.cuiabar.com/",
           "inLanguage": "pt-BR",
           "hasMenuSection": [
             {
@@ -623,7 +587,7 @@
     },
     "/espetaria": {
       "title": "Espetaria Cuiabar | Boteco raiz em Campinas",
-      "description": "Conheça a Espetaria Cuiabar, nova frente da casa com atmosfera de boteco brasileiro, clima acolhedor e projeto em preparação em Campinas.",
+      "description": "Conheça a Espetaria Cuiabar, nova frente da casa com atmosfera de boteco brasileiro, menu da casa, horários de operação e contato direto em Campinas.",
       "image": "https://cuiabar.com/home/home-mascote-salao.jpg",
       "imageAlt": "Entrada do salão do Villa Cuiabar com mascote da casa",
       "type": "website",
@@ -633,7 +597,9 @@
         "espetaria em Campinas",
         "boteco em Campinas",
         "Espetaria Cuiabar",
-        "bar brasileiro Campinas"
+        "bar brasileiro Campinas",
+        "horário da Espetaria Cuiabar",
+        "menu Espetaria Cuiabar"
       ],
       "schema": [
         {
@@ -641,7 +607,7 @@
           "@type": "WebPage",
           "name": "Espetaria Cuiabar",
           "url": "https://cuiabar.com/espetaria",
-          "description": "Página institucional da Espetaria Cuiabar com apresentação da proposta e atmosfera da nova frente da casa."
+          "description": "Página institucional da Espetaria Cuiabar com apresentação da proposta, menu da casa e horários da nova frente."
         }
       ]
     },
@@ -659,6 +625,8 @@
         "refeição corporativa Campinas",
         "marmitas para empresa Campinas",
         "alimentação corporativa Campinas",
+        "marmita empresarial Campinas",
+        "fornecimento de refeições para empresas",
         "ProRefeição Cuiabar"
       ],
       "schema": [
@@ -682,6 +650,44 @@
           },
           "url": "https://prorefeicao.cuiabar.com/",
           "description": "Atendimento de refeição corporativa para empresas e operações recorrentes com embalagens seladas e rotina organizada."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quais empresas o ProRefeição atende em Campinas?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O ProRefeição atende escritórios, clínicas, hospitais, indústrias, obras, centros logísticos e equipes externas que precisam de alimentação corporativa recorrente em Campinas e entorno."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O atendimento é só para almoço corporativo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O formato pode ser alinhado para almoço, jantar ou operação recorrente com mais de uma janela, conforme volume, frequência e logística definidos no contato comercial."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como funciona o orçamento para marmitas empresariais?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O primeiro passo é enviar cenário da operação, quantidade estimada, turnos, frequência e local de atendimento. A partir disso o time comercial estrutura o formato adequado para a empresa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "A embalagem é adequada para operação empresarial?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. A proposta enfatiza bowls selados com padrão visual consistente, pensados para preservar integridade, leitura do produto e apresentação profissional."
+              }
+            }
+          ]
         }
       ]
     },
@@ -942,28 +948,16 @@
       ]
     },
     "/pedidos-online": {
-      "title": "Pedidos online | Villa Cuiabar em Campinas",
-      "description": "Acesse os canais oficiais de pedidos do Villa Cuiabar: site próprio, iFood, 99Food e o destaque do Burger Cuiabar no iFood.",
+      "title": "Expresso Cuiabar | Delivery em Campinas",
+      "description": "Atalho legado para a frente Expresso da Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
       "imageAlt": "Ambiente do Villa Cuiabar em Campinas",
       "type": "website",
       "changefreq": "monthly",
-      "priority": "0.75",
-      "keywords": [
-        "pedido online Cuiabar",
-        "delivery Campinas",
-        "iFood Villa Cuiabar",
-        "Expresso Cuiabar"
-      ],
-      "schema": [
-        {
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Pedidos online Villa Cuiabar",
-          "url": "https://cuiabar.com/pedidos-online",
-          "description": "Canais oficiais para pedidos online do Villa Cuiabar."
-        }
-      ]
+      "priority": "0.1",
+      "canonicalPath": "/expresso",
+      "robots": "noindex,follow",
+      "includeInSitemap": false
     },
     "/bio": {
       "title": "Links oficiais | Cuiabar",
@@ -1232,34 +1226,34 @@
       ]
     },
     "/marmita": {
-      "title": "Pedidos online | Villa Cuiabar em Campinas",
-      "description": "Atalho para os pedidos online do Villa Cuiabar.",
+      "title": "Expresso Cuiabar | Delivery em Campinas",
+      "description": "Atalho para a frente Expresso da Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "canonicalPath": "/pedidos-online",
+      "canonicalPath": "/expresso",
       "robots": "noindex,follow",
       "includeInSitemap": false
     },
     "/online-ordering": {
-      "title": "Pedidos online | Villa Cuiabar em Campinas",
-      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "title": "Expresso Cuiabar | Delivery em Campinas",
+      "description": "Atalho legado para a frente Expresso da Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "canonicalPath": "/pedidos-online",
+      "canonicalPath": "/expresso",
       "robots": "noindex,follow",
       "includeInSitemap": false
     },
     "/services-5": {
-      "title": "Pedidos online | Villa Cuiabar em Campinas",
-      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "title": "Expresso Cuiabar | Delivery em Campinas",
+      "description": "Atalho legado para a frente Expresso da Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "canonicalPath": "/pedidos-online",
+      "canonicalPath": "/expresso",
       "robots": "noindex,follow",
       "includeInSitemap": false
     },
     "/delivery": {
-      "title": "Pedidos online | Villa Cuiabar em Campinas",
-      "description": "Atalho legado para os pedidos online do Villa Cuiabar.",
+      "title": "Expresso Cuiabar | Delivery em Campinas",
+      "description": "Atalho legado para a frente Expresso da Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "canonicalPath": "/pedidos-online",
+      "canonicalPath": "/expresso",
       "robots": "noindex,follow",
       "includeInSitemap": false
     },
@@ -1267,7 +1261,7 @@
       "title": "Villa Cuiabar | Restaurante em Campinas",
       "description": "Atalho legado para a pagina principal do Villa Cuiabar.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "canonicalPath": "/",
+      "canonicalPath": "/presencial",
       "robots": "noindex,follow",
       "includeInSitemap": false
     },
