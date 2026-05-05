@@ -1,6 +1,6 @@
 # Arquitetura e rotas
 
-Atualizado em: 2026-04-24
+Atualizado em: 2026-05-05
 
 ## Estrutura do sistema
 
@@ -87,8 +87,11 @@ migrations/
 - `https://prorefeicao.cuiabar.com`
   Host oficial da frente `ProRefeição`.
 
+- `https://burgersnsmoke.com`
+  Host público canônico do Burgers N' Smoke. O Worker serve a landing estática em `/burger-n-smoke` como raiz do domínio e diferencia as páginas satélite por intenção de busca local.
+
 - `https://burger.cuiabar.com`
-  Host público do Burger Cuiabar, servido na borda do Worker a partir da landing oficial em `/burguer`.
+  Host legado do Burger, hoje redirecionado para `https://burgersnsmoke.com/`.
 
 - `https://crm.cuiabar.com`
   Portal oficial do `Cuiabar Atende`.
@@ -100,7 +103,7 @@ migrations/
   Alias legado, hoje redirecionado para `meu.cuiabar.com`.
 
 - `https://reservas.cuiabar.com`
-  Portal dedicado de reservas.
+  Portal dedicado de reservas. O fluxo automatico esta temporariamente indisponivel e a tela direciona o cliente para o WhatsApp da loja.
 
 - `https://blog.cuiabar.com/editor*`
   Faixa reservada para operação editorial protegida.
@@ -126,8 +129,12 @@ migrations/
   Hub leve de links oficiais, com foco em reservas, pedido direto, atendimento e horários operacionais da casa.
 - `/agenda`
 - `/reservas`
+  Pagina publica de reservas. O CTA principal direciona para o WhatsApp enquanto o sistema automatico estiver pausado.
 
 ## Redirecionamentos legados relevantes
+
+- `https://burger.cuiabar.com`
+  Redireciona para `https://burgersnsmoke.com/`.
 
 - `https://cuiabar.com/prorefeicao`
   Redireciona permanentemente para `https://prorefeicao.cuiabar.com/`.
@@ -154,7 +161,10 @@ migrations/
 - O projeto combina assets estáticos do Pages com backend dinâmico em Workers.
 - A navegação pública agora foi reorganizada por experiência: a raiz funciona como hub, enquanto o conteúdo institucional do restaurante opera em `/presencial` e a frente de delivery em `/expresso`.
 - A frente `ProRefeição` deixou de ser página principal em `cuiabar.com/prorefeicao` e passou a operar no subdomínio dedicado `prorefeicao.cuiabar.com`, com a rota antiga preservada apenas como `301`.
-- O host `burger.cuiabar.com` é atendido por rota de Worker no edge e serve a mesma landing pública do `Burger Cuiabar`, reduzindo dependência do origin legado.
+- O host `burger.cuiabar.com` é mantido apenas como legado e redireciona para `burgersnsmoke.com`.
+- O host `burgersnsmoke.com` é atendido pelo Worker principal e mantém páginas satélite para SEO local: `/hamburgueria-campinas`, `/smash-burger-campinas`, `/delivery-burger-campinas` e `/burger-defumado-campinas`.
+- No host `burgersnsmoke.com`, o Worker reescreve metadados, canonical, Open Graph/Twitter Card, sitemap e JSON-LD para a marca Burgers N' Smoke. O Schema.org público declara operação exclusiva por delivery em Campinas/SP, sem endereço de retirada no local.
+- O app React reconhece `burgersnsmoke.com` e `www.burgersnsmoke.com` como hosts de burger e registra as páginas satélite para renderizar a mesma landing após a hidratação do cliente.
 - O `MeuCuiabar` já tem host próprio, mas ainda usa parte do frontend transplantado do Base44.
 - O módulo `worker/whatsapp-intelligence/` segue isolado por feature flag e não substitui a arquitetura canônica de `worker/whatsapp/`.
 - O blog foi retirado da superfície principal e preservado apenas como frente separável.

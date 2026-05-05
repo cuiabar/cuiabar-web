@@ -60,6 +60,24 @@ const PRESET_TEMPLATES = [
     content: 'Olá, {{name}}! 😊\n\nObrigado por nos visitar no dia {{date}}!\n\nQue nota você daria para a sua experiência no Cuiabar?\n(De 0 a 10)\n\nSua opinião é muito importante para nós! ⭐',
   },
   {
+    name: 'Avaliação com Foto - Burgers N Smoke',
+    category: 'nps',
+    content:
+      "Olá, {{name}}! Obrigado por pedir no Burgers N' Smoke.\n\nSe o pedido chegou bem, sua avaliação ajuda muito uma marca local de Campinas. Conte no Google o que você pediu, de qual bairro pediu e, se puder, publique uma foto do burger ou do momento.\n\nAvaliar agora:\nhttps://search.google.com/local/writereview?placeid=ChIJj_Gqjx_dtCsRcbWUydE_MzU",
+  },
+  {
+    name: 'Avaliação com Momento - Villa Cuiabar',
+    category: 'nps',
+    content:
+      'Olá, {{name}}! Obrigado por viver esse momento no Cuiabar.\n\nSe puder, deixe uma avaliação no Google contando com quem você veio, qual prato, almoço, show ou ocasião marcou a visita. Fotos reais ajudam outras famílias e grupos de Campinas a escolherem melhor.\n\nAvaliar agora:\nhttps://search.google.com/local/writereview?placeid=ChIJUSe03CrGyJQRdxa-RvdwUXA',
+  },
+  {
+    name: 'Pedido de Foto no Google - Pós-Entrega',
+    category: 'pos_venda',
+    content:
+      'Que bom que seu pedido chegou, {{name}}. Se estiver tudo certo, manda uma foto no Google e conta rapidinho como foi a experiência.\n\nPode citar o item pedido, o bairro e o momento: jantar em casa, encontro com amigos, família ou aquela fome da noite.\n\nLink de avaliação:\n{{review_link}}',
+  },
+  {
     name: 'Promoção Especial',
     category: 'promocoes',
     content: '🎉 *PROMOÇÃO ESPECIAL* 🎉\n\n{{promo_title}}\n\n{{promo_description}}\n\n📅 Válido até: {{promo_date}}\n\n Não perca! Reserve já pelo nosso site ou responda essa mensagem. 🍖',

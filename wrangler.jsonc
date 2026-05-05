@@ -15,7 +15,17 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
     "html_handling": "auto-trailing-slash",
-    "run_worker_first": ["/", "/burger*", "/burguer*"]
+    "run_worker_first": [
+      "/",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/api/*",
+      "/burger*",
+      "/burguer*",
+      "/hamburgueria-campinas*",
+      "/smash-burger-campinas*",
+      "/delivery-burger-campinas*"
+    ]
   },
   "routes": [
     {
@@ -28,6 +38,14 @@
     },
     {
       "pattern": "reservas.cuiabar.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "burgersnsmoke.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.burgersnsmoke.com",
       "custom_domain": true
     },
     {

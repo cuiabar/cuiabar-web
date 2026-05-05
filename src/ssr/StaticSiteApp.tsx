@@ -17,6 +17,13 @@ import EspetariaCuiabarPage from '../pages/EspetariaCuiabarPage';
 import LinksPage from '../pages/LinksPage';
 import LocalGuidePage from '../pages/LocalGuidePage';
 
+const burgerSatellitePaths = [
+  '/hamburgueria-campinas',
+  '/smash-burger-campinas',
+  '/delivery-burger-campinas',
+  '/burger-defumado-campinas',
+];
+
 export const StaticSiteApp = () => (
   <Layout>
     <Routes>
@@ -28,6 +35,9 @@ export const StaticSiteApp = () => (
       <Route path="/blog" element={<BlogSubdomainRedirectPage />} />
       <Route path="/blog/:slug" element={<BlogSubdomainRedirectPage />} />
       <Route path="/burguer" element={<BurguerCuiabarPage />} />
+      {burgerSatellitePaths.map((path) => (
+        <Route key={path} path={path} element={<BurguerCuiabarPage />} />
+      ))}
       <Route path="/espetaria" element={<EspetariaCuiabarPage />} />
       <Route path="/links" element={<LinksPage />} />
       <Route path="/menu" element={<MenuPage />} />

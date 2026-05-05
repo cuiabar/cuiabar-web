@@ -24,7 +24,7 @@ const ReservationChrome = ({ children }: { children: ReactNode }) => (
     </header>
     <main>{children}</main>
     <footer className="px-4 pb-8 pt-2 text-center text-sm text-steel sm:px-6 lg:px-8">
-      <p className="mx-auto max-w-3xl">Reserva publica do Cuiabar preparada para mobile, confirmacao organizada e operacao compativel com Cloudflare.</p>
+      <p className="mx-auto max-w-3xl">Reservas automaticas temporariamente pausadas. Atendimento oficial pelo WhatsApp da loja.</p>
     </footer>
   </div>
 );

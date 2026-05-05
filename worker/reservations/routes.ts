@@ -2,8 +2,8 @@ import type { Hono } from 'hono';
 import { csvResponse, HttpError, requireJsonBody } from '../lib/http';
 import type { AppVariables, Env } from '../types';
 import { RESERVATION_STATUSES } from './constants';
-import { changeReservationStatus, createReservation, listReservations } from './service';
-import type { ReservationListFilters, ReservationRequestPayload, ReservationStatus } from './types';
+import { changeReservationStatus, listReservations } from './service';
+import type { ReservationListFilters, ReservationStatus } from './types';
 
 type ReservationApp = Hono<{ Bindings: Env; Variables: AppVariables }>;
 
@@ -95,9 +95,13 @@ export const registerReservationRoutes = (app: ReservationApp) => {
   setCorsHeaders(app);
 
   app.post('/api/reservations', async (c) => {
-    const payload = await requireJsonBody<ReservationRequestPayload>(c.req.raw);
-    const reservation = await createReservation(c.env, c.req.raw, payload);
-    return c.json({ ok: true, reservation }, 201 as never);
+    return c.json(
+      {
+        ok: false,
+        error: 'Servico de reservas automaticas indisponivel. Chame a loja no WhatsApp: (19) 3305-8878.',
+      },
+      503,
+    );
   });
 
   app.get('/api/admin/reservations/export.csv', async (c) => {

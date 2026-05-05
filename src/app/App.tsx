@@ -23,7 +23,15 @@ const isProRefeicaoHost = () =>
   typeof window !== 'undefined' && window.location.hostname.toLowerCase() === 'prorefeicao.cuiabar.com';
 
 const isBurgerHost = () =>
-  typeof window !== 'undefined' && window.location.hostname.toLowerCase() === 'burger.cuiabar.com';
+  typeof window !== 'undefined' &&
+  ['burger.cuiabar.com', 'burgersnsmoke.com', 'www.burgersnsmoke.com'].includes(window.location.hostname.toLowerCase());
+
+const burgerSatellitePaths = [
+  '/hamburgueria-campinas',
+  '/smash-burger-campinas',
+  '/delivery-burger-campinas',
+  '/burger-defumado-campinas',
+];
 
 export const App = () => (
   <Suspense fallback={<div className="container-shell py-24">Carregando Villa Cuiabar...</div>}>
@@ -42,6 +50,9 @@ export const App = () => (
         <Route path="/burger" element={<ClientRedirect to="/burguer" />} />
         <Route path="/burguer-cuiabar" element={<ClientRedirect to="/burguer" />} />
         <Route path="/burguer" element={<BurguerCuiabarPage />} />
+        {burgerSatellitePaths.map((path) => (
+          <Route key={path} path={path} element={<BurguerCuiabarPage />} />
+        ))}
         <Route path="/marmita" element={<ClientRedirect to="/expresso" />} />
         <Route path="/delivery" element={<ClientRedirect to="/expresso" />} />
         <Route path="/online-ordering" element={<ClientRedirect to="/expresso" />} />

@@ -3,16 +3,19 @@
   "defaultImage": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
   "routes": {
     "/": {
-      "title": "Cuiabar | Escolha sua experiência em Campinas",
-      "description": "Portal de entrada da Cuiabar para escolher entre Presencial, Expresso e Espetaria, com navegação própria para restaurante, delivery e boteco em Campinas.",
+      "title": "Cuiabar | Restaurante, delivery e reservas em Campinas",
+      "description": "Cuiabar em Campinas: peça agora, reserve sua mesa ou veja o menu da casa. Atendimento no Jardim Aurélia para almoço, delivery, burger, espetaria e momentos em família.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
-      "imageAlt": "Portal de experiências da Cuiabar em Campinas",
+      "imageAlt": "Entrada do Cuiabar em Campinas com atalhos para pedido, reserva e menu",
       "type": "website",
       "changefreq": "daily",
       "priority": "0.92",
       "keywords": [
         "Cuiabar Campinas",
         "Villa Cuiabar",
+        "pedir Cuiabar",
+        "reservar Cuiabar",
+        "menu Cuiabar",
         "delivery Campinas",
         "restaurante em Campinas",
         "espetaria em Campinas",
@@ -22,33 +25,33 @@
         {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "name": "Portal de experiências Cuiabar",
+          "name": "Cuiabar | Restaurante, delivery e reservas em Campinas",
           "url": "https://cuiabar.com/",
-          "description": "Entrada principal da Cuiabar para escolher entre Presencial, Expresso e Espetaria.",
+          "description": "Entrada principal da Cuiabar para pedir agora, reservar mesa ou consultar o menu.",
           "inLanguage": "pt-BR"
         },
         {
           "@context": "https://schema.org",
           "@type": "ItemList",
-          "name": "Experiências Cuiabar",
+          "name": "Ações principais Cuiabar",
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Presencial",
-              "url": "https://cuiabar.com/presencial"
+              "name": "Pedir agora",
+              "url": "https://expresso.cuiabar.com"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Expresso",
-              "url": "https://cuiabar.com/expresso"
+              "name": "Reservar mesa",
+              "url": "https://cuiabar.com/reservas"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Espetaria",
-              "url": "https://cuiabar.com/espetaria"
+              "name": "Ver menu",
+              "url": "https://cuiabar.com/menu"
             }
           ]
         }
@@ -609,8 +612,8 @@
       ]
     },
     "/reservas": {
-      "title": "Reservas | Restaurante no Jardim Aurélia com música ao vivo",
-      "description": "Faça sua reserva no Villa Cuiabar, no Jardim Aurélia, pelo portal oficial de reservas online para mesas, aniversários, grupos e noites com música ao vivo em Campinas.",
+      "title": "Reservas | Atendimento pelo WhatsApp no Villa Cuiabar",
+      "description": "O sistema automatico de reservas do Villa Cuiabar esta temporariamente indisponivel. Chame a loja pelo WhatsApp para consultar mesa, horario, grupos e noites com musica ao vivo em Campinas.",
       "image": "https://cuiabar.com/home/home-salao-dia-da-mulher.jpg",
       "imageAlt": "Salão do Villa Cuiabar pronto para receber reservas em Campinas",
       "type": "website",
@@ -630,7 +633,7 @@
           "@type": "WebPage",
           "name": "Reservas Villa Cuiabar",
           "url": "https://cuiabar.com/reservas",
-          "description": "Página oficial de reservas online do Villa Cuiabar, no Jardim Aurélia, com acesso ao portal reservas.cuiabar.com."
+          "description": "Pagina oficial de reservas do Villa Cuiabar, no Jardim Aurelia, com atendimento temporariamente direcionado ao WhatsApp da loja."
         },
         {
           "@context": "https://schema.org",
@@ -641,7 +644,7 @@
               "name": "Como faço minha reserva?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "As reservas e confirmações são feitas no portal oficial reservas.cuiabar.com, com data, horário, quantidade de pessoas e preferências em um único fluxo."
+                "text": "No momento, o sistema automatico esta indisponivel. Para reservar, chame a equipe pelo WhatsApp oficial da loja: (19) 3305-8878."
               }
             },
             {

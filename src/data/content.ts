@@ -43,7 +43,7 @@ export const menuHighlights: MenuHighlight[] = [
 export const reservationFaqs: FaqItem[] = [
   {
     question: 'Como faço minha reserva?',
-    answer: 'As reservas sao feitas no portal oficial reservas.cuiabar.com, com data, horario, quantidade de pessoas e preferencias em um unico fluxo.',
+    answer: 'No momento, o sistema automatico esta indisponivel. Para reservar, chame a equipe pelo WhatsApp oficial da loja: (19) 3305-8878.',
   },
   {
     question: 'Quais sao os horarios de servico da casa?',
@@ -52,7 +52,7 @@ export const reservationFaqs: FaqItem[] = [
   },
   {
     question: 'Onde faço a reserva da mesa?',
-    answer: 'Voce pode entrar pela pagina cuiabar.com/reservas e seguir para o portal oficial com o fluxo completo de reserva.',
+    answer: 'A solicitacao deve ser feita pelo WhatsApp da loja. Informe data, horario, quantidade de pessoas e observacoes importantes.',
   },
 ];
 

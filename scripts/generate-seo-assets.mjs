@@ -76,8 +76,18 @@ const toAbsoluteUrl = (value) => {
   return `${siteOrigin}${value.startsWith('/') ? value : `/${value}`}`;
 };
 
+const normalizeCanonicalPath = (routePath, routeSeo) => {
+  const canonicalPath = routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath);
+
+  if (canonicalPath === '/') {
+    return '/';
+  }
+
+  return `${canonicalPath.replace(/\/+$/, '')}/`;
+};
+
 const buildCanonicalUrl = (routePath, routeSeo) =>
-  routeSeo.canonicalUrl ?? `${siteOrigin}${routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath)}`;
+  routeSeo.canonicalUrl ?? `${siteOrigin}${normalizeCanonicalPath(routePath, routeSeo)}`;
 
 const normalizePrice = (value) => {
   if (!value) {

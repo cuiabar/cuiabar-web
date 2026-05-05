@@ -1,6 +1,6 @@
 # Runbooks - indice
 
-Atualizado em: 2026-04-21
+Atualizado em: 2026-05-04
 
 ## Objetivo
 
@@ -15,7 +15,10 @@ Esta pasta agrupa runbooks e guias operacionais que antes ficavam soltos na raiz
 - `EMAIL-SETUP.md`
 - `GMAIL-OAUTH-SETUP.md`
 - `GOOGLE-CALENDAR-SETUP.md`
+- `google-ads-mcp.md`
+- `google-business-avaliacoes-com-foto.md`
 - `META-CAPI-SETUP.md`
+- `meta-ads-actions.md`
 - `README-RESERVAS.md`
 - `RESERVAS-SETUP.md`
 - `SEO-SETUP.md`
