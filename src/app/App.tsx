@@ -8,55 +8,41 @@ const PresencialPage = lazy(() => import('../pages/PresencialPage'));
 const MenuPage = lazy(() => import('../pages/MenuPage'));
 const ProRefeicaoPage = lazy(() => import('../pages/ProRefeicaoPage'));
 const ExpressoPage = lazy(() => import('../pages/ExpressoPage'));
+const DeliveryPage = lazy(() => import('../pages/DeliveryPage'));
 const PesquisaPage = lazy(() => import('../pages/PesquisaPage'));
 const ReservasPage = lazy(() => import('../pages/ReservasPage'));
 const AgendaPage = lazy(() => import('../pages/AgendaPage'));
 const AgendaEventPage = lazy(() => import('../pages/AgendaEventPage'));
 const BlogSubdomainRedirectPage = lazy(() => import('../pages/BlogSubdomainRedirectPage'));
 const VagasPage = lazy(() => import('../pages/VagasPage'));
-const BurguerCuiabarPage = lazy(() => import('../pages/BurguerCuiabarPage'));
 const EspetariaCuiabarPage = lazy(() => import('../pages/EspetariaCuiabarPage'));
 const LinksPage = lazy(() => import('../pages/LinksPage'));
 const LocalGuidePage = lazy(() => import('../pages/LocalGuidePage'));
+const OsHome = lazy(() => import('../modules/os/pages/OsHome'));
+const OsAtendimentoPage = lazy(() => import('../modules/os/pages/AtendimentoPage'));
+const OsDeliveryPage = lazy(() => import('../modules/os/pages/DeliveryPage'));
+const OsPopsPage = lazy(() => import('../modules/os/pages/PopsPage'));
+const OsConversaoPage = lazy(() => import('../modules/os/pages/ConversaoPage'));
+const OsRecomendacoesPage = lazy(() => import('../modules/os/pages/RecomendacoesPage'));
 
 const isProRefeicaoHost = () =>
   typeof window !== 'undefined' && window.location.hostname.toLowerCase() === 'prorefeicao.cuiabar.com';
-
-const isBurgerHost = () =>
-  typeof window !== 'undefined' &&
-  ['burger.cuiabar.com', 'burgersnsmoke.com', 'www.burgersnsmoke.com'].includes(window.location.hostname.toLowerCase());
-
-const burgerSatellitePaths = [
-  '/hamburgueria-campinas',
-  '/smash-burger-campinas',
-  '/delivery-burger-campinas',
-  '/burger-defumado-campinas',
-];
 
 export const App = () => (
   <Suspense fallback={<div className="container-shell py-24">Carregando Villa Cuiabar...</div>}>
     <Layout>
       <Routes>
-        <Route
-          path="/"
-          element={isProRefeicaoHost() ? <ProRefeicaoPage /> : isBurgerHost() ? <BurguerCuiabarPage /> : <HomePage />}
-        />
+        <Route path="/" element={isProRefeicaoHost() ? <ProRefeicaoPage /> : <HomePage />} />
         <Route path="/presencial" element={<PresencialPage />} />
         <Route path="/expresso" element={<ExpressoPage />} />
         <Route path="/bio" element={<ClientRedirect to="/links" />} />
         <Route path="/acessos" element={<ClientRedirect to="/links" />} />
         <Route path="/canal" element={<ClientRedirect to="/links" />} />
         <Route path="/asianrestaurant" element={<ClientRedirect to="/presencial" />} />
-        <Route path="/burger" element={<ClientRedirect to="/burguer" />} />
-        <Route path="/burguer-cuiabar" element={<ClientRedirect to="/burguer" />} />
-        <Route path="/burguer" element={<BurguerCuiabarPage />} />
-        {burgerSatellitePaths.map((path) => (
-          <Route key={path} path={path} element={<BurguerCuiabarPage />} />
-        ))}
         <Route path="/marmita" element={<ClientRedirect to="/expresso" />} />
-        <Route path="/delivery" element={<ClientRedirect to="/expresso" />} />
-        <Route path="/online-ordering" element={<ClientRedirect to="/expresso" />} />
-        <Route path="/services-5" element={<ClientRedirect to="/expresso" />} />
+        <Route path="/delivery" element={<DeliveryPage />} />
+        <Route path="/online-ordering" element={<ClientRedirect to="/delivery" />} />
+        <Route path="/services-5" element={<ClientRedirect to="/delivery" />} />
         <Route path="/espetaria" element={<EspetariaCuiabarPage />} />
         <Route path="/agenda" element={<AgendaPage />} />
         <Route path="/agenda/:eventSlug" element={<AgendaEventPage />} />
@@ -65,13 +51,19 @@ export const App = () => (
         <Route path="/links" element={<LinksPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/prorefeicao" element={<ClientRedirect to="https://prorefeicao.cuiabar.com" />} />
-        <Route path="/pedidos-online" element={<ClientRedirect to="/expresso" />} />
+        <Route path="/pedidos-online" element={<ClientRedirect to="/delivery" />} />
         <Route path="/pesquisa" element={<PesquisaPage />} />
         <Route path="/reservas" element={<ReservasPage />} />
-        <Route path="/restaurante-jardim-aurelia-campinas" element={<LocalGuidePage pageKey="jardimAureliaRestaurant" />} />
-        <Route path="/bar-jardim-aurelia-musica-ao-vivo" element={<LocalGuidePage pageKey="jardimAureliaBar" />} />
-        <Route path="/restaurante-perto-do-enxuto-dunlop" element={<LocalGuidePage pageKey="enxutoDunlop" />} />
+        <Route path="/restaurante-brasileiro-campinas" element={<LocalGuidePage pageKey="restauranteCampinas" />} />
+        <Route path="/bar-musica-ao-vivo-campinas" element={<LocalGuidePage pageKey="barMusicaCampinas" />} />
+        <Route path="/restaurante-delivery-campinas" element={<LocalGuidePage pageKey="restauranteDeliveryCampinas" />} />
         <Route path="/vagas" element={<VagasPage />} />
+        <Route path="/os" element={<OsHome />} />
+        <Route path="/os/atendimento" element={<OsAtendimentoPage />} />
+        <Route path="/os/delivery" element={<OsDeliveryPage />} />
+        <Route path="/os/pops" element={<OsPopsPage />} />
+        <Route path="/os/conversao" element={<OsConversaoPage />} />
+        <Route path="/os/recomendacoes" element={<OsRecomendacoesPage />} />
       </Routes>
     </Layout>
   </Suspense>

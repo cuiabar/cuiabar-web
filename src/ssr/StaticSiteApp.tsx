@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from '../components/Layout';
 import ExpressoPage from '../pages/ExpressoPage';
+import DeliveryPage from '../pages/DeliveryPage';
 import HomePage from '../pages/HomePage';
 import MenuPage from '../pages/MenuPage';
 import ProRefeicaoPage from '../pages/ProRefeicaoPage';
@@ -12,17 +13,15 @@ import AgendaPage from '../pages/AgendaPage';
 import AgendaEventPage from '../pages/AgendaEventPage';
 import BlogSubdomainRedirectPage from '../pages/BlogSubdomainRedirectPage';
 import VagasPage from '../pages/VagasPage';
-import BurguerCuiabarPage from '../pages/BurguerCuiabarPage';
 import EspetariaCuiabarPage from '../pages/EspetariaCuiabarPage';
 import LinksPage from '../pages/LinksPage';
 import LocalGuidePage from '../pages/LocalGuidePage';
-
-const burgerSatellitePaths = [
-  '/hamburgueria-campinas',
-  '/smash-burger-campinas',
-  '/delivery-burger-campinas',
-  '/burger-defumado-campinas',
-];
+import OsHome from '../modules/os/pages/OsHome';
+import OsAtendimentoPage from '../modules/os/pages/AtendimentoPage';
+import OsDeliveryPage from '../modules/os/pages/DeliveryPage';
+import OsPopsPage from '../modules/os/pages/PopsPage';
+import OsConversaoPage from '../modules/os/pages/ConversaoPage';
+import OsRecomendacoesPage from '../modules/os/pages/RecomendacoesPage';
 
 export const StaticSiteApp = () => (
   <Layout>
@@ -34,10 +33,7 @@ export const StaticSiteApp = () => (
       <Route path="/agenda/:eventSlug" element={<AgendaEventPage />} />
       <Route path="/blog" element={<BlogSubdomainRedirectPage />} />
       <Route path="/blog/:slug" element={<BlogSubdomainRedirectPage />} />
-      <Route path="/burguer" element={<BurguerCuiabarPage />} />
-      {burgerSatellitePaths.map((path) => (
-        <Route key={path} path={path} element={<BurguerCuiabarPage />} />
-      ))}
+      <Route path="/delivery" element={<DeliveryPage />} />
       <Route path="/espetaria" element={<EspetariaCuiabarPage />} />
       <Route path="/links" element={<LinksPage />} />
       <Route path="/menu" element={<MenuPage />} />
@@ -45,10 +41,16 @@ export const StaticSiteApp = () => (
       <Route path="/pedidos-online" element={<PedidosOnlinePage />} />
       <Route path="/pesquisa" element={<PesquisaPage />} />
       <Route path="/reservas" element={<ReservasPage />} />
-      <Route path="/restaurante-jardim-aurelia-campinas" element={<LocalGuidePage pageKey="jardimAureliaRestaurant" />} />
-      <Route path="/bar-jardim-aurelia-musica-ao-vivo" element={<LocalGuidePage pageKey="jardimAureliaBar" />} />
-      <Route path="/restaurante-perto-do-enxuto-dunlop" element={<LocalGuidePage pageKey="enxutoDunlop" />} />
+      <Route path="/restaurante-brasileiro-campinas" element={<LocalGuidePage pageKey="restauranteCampinas" />} />
+      <Route path="/bar-musica-ao-vivo-campinas" element={<LocalGuidePage pageKey="barMusicaCampinas" />} />
+      <Route path="/restaurante-delivery-campinas" element={<LocalGuidePage pageKey="restauranteDeliveryCampinas" />} />
       <Route path="/vagas" element={<VagasPage />} />
+      <Route path="/os" element={<OsHome />} />
+      <Route path="/os/atendimento" element={<OsAtendimentoPage />} />
+      <Route path="/os/delivery" element={<OsDeliveryPage />} />
+      <Route path="/os/pops" element={<OsPopsPage />} />
+      <Route path="/os/conversao" element={<OsConversaoPage />} />
+      <Route path="/os/recomendacoes" element={<OsRecomendacoesPage />} />
     </Routes>
   </Layout>
 );
