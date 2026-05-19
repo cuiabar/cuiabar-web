@@ -30,12 +30,12 @@ export interface Env {
     CRM_INTEGRATION_MODE?: string;
     CRM_BASE_URL?: string;
     CRM_INTERNAL_TOKEN?: string;
+    EMAIL_MCP_INTERNAL_TOKEN?: string;
     CLOUDFLARE_ACCOUNT_ID?: string;
     CLOUDFLARE_AI_API_TOKEN?: string;
     WHATSAPP_AI_MODEL?: string;
     WHATSAPP_AI_MODE?: string;
     WHATSAPP_MENU_URL?: string;
-    WHATSAPP_BURGER_URL?: string;
     WHATSAPP_DELIVERY_URL?: string;
     WHATSAPP_EXPRESSO_URL?: string;
     WHATSAPP_CHANNEL_URL?: string;

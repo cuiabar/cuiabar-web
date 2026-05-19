@@ -1,7 +1,6 @@
 export type WhatsAppIntent =
   | 'menu'
   | 'delivery'
-  | 'hamburguer'
   | 'marmita'
   | 'reserva'
   | 'evento'
@@ -28,7 +27,6 @@ export interface BusinessContext {
   restaurantShortName: string;
   tone: string;
   menuUrl: string;
-  burgerUrl: string;
   deliveryUrl: string;
   expressoUrl: string;
   whatsappChannelUrl: string;

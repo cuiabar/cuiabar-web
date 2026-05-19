@@ -8,10 +8,10 @@ Esta pasta agrupa runbooks e guias operacionais que antes ficavam soltos na raiz
 
 ## Conteudo
 
-- `BURGER-CARDAPIO-E-ASSETS.md`
 - `DEPLOY-CLOUDFLARE.md`
 - `DEPLOY-RESERVAS-CLOUDFLARE.md`
 - `EMAIL-DELIVERABILITY.md`
+- `email-mcp.md`
 - `EMAIL-SETUP.md`
 - `GMAIL-OAUTH-SETUP.md`
 - `GOOGLE-CALENDAR-SETUP.md`
@@ -23,6 +23,7 @@ Esta pasta agrupa runbooks e guias operacionais que antes ficavam soltos na raiz
 - `RESERVAS-SETUP.md`
 - `SEO-SETUP.md`
 - `SEO-TECHNICAL-PLAN.md`
+- `whatsapp-marketing-mcp.md`
 
 ## Regra pratica
 

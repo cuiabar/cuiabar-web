@@ -1,0 +1,25 @@
+{
+  "name": "@cuiabar/whatsapp-marketing-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Controlled WhatsApp marketing MCP and GPT Actions API for consented Cuiabar communications.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "deploy": "wrangler deploy -c wrangler.jsonc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20260313.1",
+    "typescript": "5.9.3",
+    "wrangler": "4.71.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+

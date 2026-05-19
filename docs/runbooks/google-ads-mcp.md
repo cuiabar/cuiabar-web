@@ -1,8 +1,8 @@
-# Google Ads MCP somente leitura
+# Google Ads MCP
 
 ## Objetivo
 
-Disponibilizar dados de Google Ads para o ChatGPT por MCP remoto, sem permitir escrita, pausa de campanhas, mudanca de verba ou qualquer chamada `mutate`.
+Disponibilizar dados de Google Ads para o ChatGPT por MCP remoto e permitir criacao controlada de publicidade de pesquisa, sem expor `mutate` generico nem ferramentas de pausa, exclusao ou edicao ampla de campanhas.
 
 ## Local do servico
 
@@ -57,12 +57,14 @@ Escopo OAuth necessario:
 https://www.googleapis.com/auth/adwords
 ```
 
-## Garantias de somente leitura
+## Escrita controlada
 
-- O servidor usa apenas `customers:listAccessibleCustomers` e `googleAds:searchStream`.
-- Nao existe ferramenta de `mutate`.
+- As ferramentas de relatorio continuam usando `customers:listAccessibleCustomers` e `googleAds:searchStream`.
 - A ferramenta generica `run_readonly_gaql` aceita apenas consultas iniciadas com `SELECT`.
 - Termos de escrita como `MUTATE`, `CREATE`, `UPDATE`, `DELETE`, `PAUSE`, `ENABLE`, `SET`, `INSERT`, `DROP` e similares sao bloqueados antes de chamar a API.
+- A ferramenta `create_search_ad_bundle` usa `googleAds:mutate` apenas para criar um pacote novo de campanha Search: orcamento, campanha, grupo, palavras-chave e anuncio responsivo.
+- Por padrao `create_search_ad_bundle` roda com `validateOnly=true`. Para criar de fato, enviar `validateOnly=false` e `confirmWrite="CRIAR_PUBLICIDADE_GOOGLE_ADS"`.
+- Campanha, grupo e anuncio sao criados pausados por padrao; ativacao em producao deve ser decisao humana explicita.
 
 ## Instalar no ChatGPT
 
@@ -93,7 +95,7 @@ Bearer
 ops-artifacts/google-ads-mcp/mcp-bearer-token.local
 ```
 
-6. Instrua o GPT a usar apenas leitura e nunca sugerir alterações diretas em campanhas sem validação humana.
+6. Instrua o GPT a validar primeiro e criar publicidade apenas quando houver pedido humano explicito.
 
 Endpoints disponíveis para Actions:
 
@@ -104,6 +106,16 @@ Endpoints disponíveis para Actions:
 - `GET /actions/search-terms`
 - `GET /actions/budgets`
 - `POST /actions/gaql`
+- `POST /actions/create-search-ad-bundle`
+- `POST /actions/gaql-v2`
+- `POST /actions/mutate-v2`
+- `POST /actions/create-search-ad-bundle-v2`
+
+Endpoints V2:
+
+- `gaql-v2` retorna erro estruturado (`ok:false`, `step`, `error`, `query`, `customerId`) quando a API rejeita uma consulta.
+- `mutate-v2` aceita `mutateOperations` livre ou `mutateOperationsJson`, com `validateOnly` e `partialFailure`.
+- `create-search-ad-bundle-v2` cria o pacote Search sem exigir `confirmWrite`; a permissao de escrita e dada pelo Bearer token da Action e pelas credenciais Google Ads.
 
 ### Opção alternativa: MCP remoto
 
@@ -150,7 +162,7 @@ https://google-ads-mcp.cuiabar.com/sse
 Authorization: Bearer <MCP_BEARER_TOKEN>
 ```
 
-6. Atualizar a lista de ferramentas e manter apenas ferramentas de leitura habilitadas.
+6. Atualizar a lista de ferramentas e habilitar a ferramenta de criacao apenas para uso com confirmacao humana.
 
 ## Validacao
 

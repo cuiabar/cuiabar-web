@@ -16,7 +16,7 @@ A ProRefeição é a operação **B2B corporativa** do Villa Cuiabar. A promessa
 2. **Padronização** — mesma apresentação em cada lote, independente do turno
 3. **Apresentação profissional** — comida que chega digna para cliente corporativo
 
-A foto tem que vender exatamente essas três coisas de um olhar. Foto de prato servido em louça é linguagem visual do salão/delivery residencial e confunde o comprador B2B.
+A foto tem que vender exatamente essas três coisas de um olhar. Foto de prato servido em louça é linguagem visual de consumo casual e confunde o comprador B2B.
 
 ## Estilo de referência — checklist obrigatório
 
@@ -36,7 +36,7 @@ Para deixar claro — exemplos de fotos **rejeitadas**:
 
 - Prato de louça (redondo ou quadrado) servido em cima de mesa de madeira
 - Flat lay com vários pratos, potes e ingredientes espalhados
-- Foto de salão com marmita sobre bandeja de entrega
+- Foto com marmita sobre bandeja de entrega em ambiente identificável
 - Close macro só da comida, sem mostrar a embalagem
 - Foto com acompanhante humano (mão, garçom, entregador)
 - Foto com iluminação ambiente/amarelada de cozinha real

@@ -5,17 +5,15 @@ import { useSeo } from '../hooks/useSeo';
 const vacancies = [
   {
     title: 'Garçom / Atendente',
-    image: '/vagas/garcom-atendente.jpg',
     available: true,
     description:
-      'Vaga para atendimento ao cliente, apoio no salão e rotina de serviço com atenção, agilidade e boa comunicação.',
-    points: ['Atendimento no salão e suporte ao cliente', 'Organização da operação durante o serviço', 'Preenchimento da candidatura pelo formulário online'],
+      'Vaga para atendimento ao cliente e rotina de serviço com atenção, agilidade e boa comunicação.',
+    points: ['Atendimento e suporte ao cliente', 'Organização da operação durante o serviço', 'Preenchimento da candidatura pelo formulário online'],
     link: 'https://form.jotform.com/260333305064042',
     buttonLabel: 'Candidatar-se para Garçom / Atendente',
   },
   {
     title: 'Aux. Cozinha',
-    image: '/vagas/copa-aux-limpeza.jpg',
     available: true,
     description:
       'Vaga para apoio à cozinha, preparo inicial, organização da praça e suporte à rotina operacional com atenção e agilidade.',
@@ -25,11 +23,10 @@ const vacancies = [
   },
   {
     title: 'Copa / Aux. Limpeza',
-    image: '/vagas/copa-aux-limpeza.jpg',
     available: true,
     description:
-      'Vaga focada em apoio operacional, limpeza, organização de ambiente e suporte à rotina interna do restaurante.',
-    points: ['Apoio à copa e limpeza dos ambientes', 'Organização da operação interna no dia a dia', 'Preenchimento da candidatura pelo formulário online'],
+      'Vaga focada em apoio operacional, limpeza, organização e suporte à rotina interna do restaurante.',
+    points: ['Apoio à copa e limpeza', 'Organização da operação interna no dia a dia', 'Preenchimento da candidatura pelo formulário online'],
     link: 'https://form.jotform.com/260704346211043',
     buttonLabel: 'Candidatar-se para Copa / Aux. Limpeza',
   },
@@ -52,14 +49,11 @@ const VagasPage = () => {
               candidatura é feito direto pelo Jotform.
             </p>
           </div>
-          <div className="relative min-h-[280px]">
-            <img
-              src="/vagas/garcom-atendente.jpg"
-              alt="Elaine em ambiente de atendimento no Villa Cuiabar"
-              loading="eager"
-              className="media-lift h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-cocoa/65 via-cocoa/10 to-transparent" />
+          <div className="flex min-h-[280px] items-center justify-center bg-[linear-gradient(145deg,#511215,#a94f2a)] p-8 text-white">
+            <div className="max-w-xs">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Seleção aberta</p>
+              <p className="mt-4 font-heading text-4xl leading-tight">Atendimento, cozinha e operação</p>
+            </div>
           </div>
         </div>
       </Reveal>
@@ -72,13 +66,8 @@ const VagasPage = () => {
             delay={index * 90}
             className={`card overflow-hidden p-0 ${vacancy.available ? '' : 'border-stone-300 bg-stone-100/90'}`}
           >
-            <div className="relative">
-              <img
-                src={vacancy.image}
-                alt={vacancy.title}
-                loading="lazy"
-                className={`h-64 w-full object-cover ${vacancy.available ? 'media-lift' : 'grayscale-[0.95] saturate-0 opacity-80'}`}
-              />
+            <div className="relative flex h-52 items-center justify-center bg-[linear-gradient(145deg,#fff6ea,#f1d8bb)] px-6 text-center">
+              <p className="font-heading text-3xl leading-tight text-cocoa">{vacancy.title}</p>
               {!vacancy.available ? (
                 <>
                   <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,rgba(255,255,255,0.08)_0,rgba(255,255,255,0.08)_14px,rgba(57,57,57,0.18)_14px,rgba(57,57,57,0.18)_28px)]" />

@@ -1,0 +1,155 @@
+- generic [ref=e2]:
+  - link "Pular para o conteúdo principal" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Villa Cuiabar" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: Villa Cuiabar
+      - navigation [ref=e9]:
+        - link "Início" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Cardápio" [ref=e11] [cursor=pointer]:
+          - /url: /menu
+        - link "Nossos Cortes" [ref=e12] [cursor=pointer]:
+          - /url: /#nossos-cortes
+        - link "Música ao Vivo" [ref=e13] [cursor=pointer]:
+          - /url: /agenda
+        - link "Delivery" [ref=e14] [cursor=pointer]:
+          - /url: /delivery
+        - link "ProRefeição" [ref=e15] [cursor=pointer]:
+          - /url: https://prorefeicao.cuiabar.com
+        - link "Contato" [ref=e16] [cursor=pointer]:
+          - /url: /#contato
+        - link "WhatsApp" [ref=e17] [cursor=pointer]:
+          - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+  - main [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: Campinas
+        - heading "Restaurante brasileiro para almoco, jantar e reservas em Campinas" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Para quem procura um restaurante brasileiro em Campinas, o Villa Cuiabar combina comida da casa, bar completo, atendimento familiar e reservas online em um so lugar.
+        - generic [ref=e25]:
+          - generic [ref=e26]: Restaurante
+          - generic [ref=e27]: Campinas
+          - generic [ref=e28]: Comida brasileira
+          - generic [ref=e29]: Reservas online
+        - generic [ref=e30]:
+          - link "Reservar online" [ref=e31] [cursor=pointer]:
+            - /url: https://reservas.cuiabar.com
+          - link "Ver menu da casa" [ref=e32] [cursor=pointer]:
+            - /url: /menu
+      - generic [ref=e33]:
+        - article [ref=e34]:
+          - heading "Almoco e jantar com mais previsibilidade" [level=2] [ref=e35]
+          - paragraph [ref=e36]: A casa atende quem quer almocar bem durante a semana e voltar para o presencial em noites selecionadas com reserva organizada.
+        - article [ref=e37]:
+          - heading "Espaco familiar com conforto para criancas" [level=2] [ref=e38]
+          - paragraph [ref=e39]: A operação foi pensada para encontros em familia, com atendimento que recebe bem adultos e pequenos.
+        - article [ref=e40]:
+          - heading "Bar, porcoes e clima de encontro" [level=2] [ref=e41]
+          - paragraph [ref=e42]: Bar completo, petiscos, pratos da casa e estrutura para aniversarios, grupos e encontros casuais.
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Sinais locais
+          - heading "Por que esta pagina importa para a regiao" [level=2] [ref=e46]
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: Base forte para quem procura comida brasileira em Campinas.
+            - paragraph [ref=e49]: Boa opcao para quem quer combinar almoço, jantar, bar e música em um mesmo atendimento.
+            - paragraph [ref=e50]: Reserva oficial em reservas.cuiabar.com para mesas, grupos e comemoracoes.
+          - generic [ref=e51]:
+            - paragraph [ref=e52]: Atendimento
+            - paragraph [ref=e53]: Para reservas, horários e orientação de atendimento, use os canais oficiais do Villa Cuiabar.
+        - generic [ref=e54]:
+          - paragraph [ref=e55]: Perguntas frequentes
+          - generic [ref=e56]:
+            - article [ref=e57]:
+              - heading "O Villa Cuiabar atende em Campinas?" [level=3] [ref=e58]
+              - paragraph [ref=e59]: Sim. A casa atende em Campinas. Para localização, horários e reservas, use os canais oficiais.
+            - article [ref=e60]:
+              - heading "Tem espaco para ir com criancas?" [level=3] [ref=e61]
+              - paragraph [ref=e62]: Temos ambiente familiar com brinquedo para criancas, o que ajuda bastante em almocos de fim de semana, aniversarios e encontros em familia.
+            - article [ref=e63]:
+              - heading "Como fazer reserva?" [level=3] [ref=e64]
+              - paragraph [ref=e65]: A reserva oficial e feita em reservas.cuiabar.com, com data, horario, quantidade de pessoas e observacoes em um fluxo unico.
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: Paginas relacionadas
+        - generic [ref=e68]:
+          - link "Bar e musica Bar com musica ao vivo, shows e reservas em Campinas Para quem busca bar em Campinas com musica ao vivo, noites de shows, porcoes, drinks e reserva organizada, o Villa Cuiabar concentra bar completo, atendimento familiar e programacao presencial." [ref=e69] [cursor=pointer]:
+            - /url: /bar-musica-ao-vivo-campinas
+            - paragraph [ref=e70]: Bar e musica
+            - heading "Bar com musica ao vivo, shows e reservas em Campinas" [level=2] [ref=e71]
+            - paragraph [ref=e72]: Para quem busca bar em Campinas com musica ao vivo, noites de shows, porcoes, drinks e reserva organizada, o Villa Cuiabar concentra bar completo, atendimento familiar e programacao presencial.
+          - link "Campinas Restaurante brasileiro com almoco, jantar e delivery em Campinas Quem procura restaurante brasileiro em Campinas encontra no Villa Cuiabar uma opção forte para almoco, jantar, delivery e reservas." [ref=e73] [cursor=pointer]:
+            - /url: /restaurante-delivery-campinas
+            - paragraph [ref=e74]: Campinas
+            - heading "Restaurante brasileiro com almoco, jantar e delivery em Campinas" [level=2] [ref=e75]
+            - paragraph [ref=e76]: Quem procura restaurante brasileiro em Campinas encontra no Villa Cuiabar uma opção forte para almoco, jantar, delivery e reservas.
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - heading "Villa Cuiabar" [level=3] [ref=e81]
+        - paragraph [ref=e82]: Restaurante brasileiro em Campinas com costela, fraldinha, linguiça cuiabana, bar completo e agenda de música ao vivo.
+        - generic [ref=e83]:
+          - generic [ref=e84]: Espaço kids
+          - generic [ref=e85]: Música sex-dom
+      - navigation "Links rápidos do rodapé" [ref=e86]:
+        - heading "Links rápidos" [level=4] [ref=e87]
+        - list [ref=e88]:
+          - listitem [ref=e89]:
+            - link "Início" [ref=e90] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e91]:
+            - link "Cardápio" [ref=e92] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e93]:
+            - link "Nossos Cortes" [ref=e94] [cursor=pointer]:
+              - /url: /#nossos-cortes
+          - listitem [ref=e95]:
+            - link "Música ao Vivo" [ref=e96] [cursor=pointer]:
+              - /url: /agenda
+          - listitem [ref=e97]:
+            - link "Delivery" [ref=e98] [cursor=pointer]:
+              - /url: /delivery
+          - listitem [ref=e99]:
+            - link "ProRefeição - abre em nova aba" [ref=e100] [cursor=pointer]:
+              - /url: https://prorefeicao.cuiabar.com
+              - text: ProRefeição
+          - listitem [ref=e101]:
+            - link "Contato" [ref=e102] [cursor=pointer]:
+              - /url: /#contato
+      - generic [ref=e103]:
+        - heading "Contato" [level=4] [ref=e104]
+        - list [ref=e105]:
+          - listitem [ref=e106]: (19) 3305-8878
+          - listitem [ref=e107]: cuiabar@cuiabar.net
+          - listitem [ref=e108]: Atendimento em Campinas/SP
+          - listitem [ref=e109]:
+            - link "Abrir Instagram do Villa Cuiabar em nova aba" [ref=e110] [cursor=pointer]:
+              - /url: https://instagram.com/cuiabar
+              - text: Instagram
+          - listitem [ref=e111]:
+            - link "Abrir Facebook do Villa Cuiabar em nova aba" [ref=e112] [cursor=pointer]:
+              - /url: https://facebook.com/villacuiabar
+              - text: Facebook
+      - generic [ref=e113]:
+        - heading "Horários" [level=4] [ref=e114]
+        - generic [ref=e117]:
+          - paragraph [ref=e118]:
+            - img [ref=e119]
+            - text: Fechado no momento
+          - paragraph [ref=e122]: "Próxima abertura: hoje, 11h."
+        - list [ref=e123]:
+          - listitem [ref=e124]: "Delivery: todos os dias, das 11h às 14:30"
+          - listitem [ref=e125]: "Presencial: quinta, das 11h às 14:30"
+          - listitem [ref=e126]: "Presencial: sexta, das 11h às 14:30 e das 18h às 23h"
+          - listitem [ref=e127]: "Presencial: sábado, das 11h às 15h e das 18h às 23h"
+        - paragraph [ref=e128]: Programação musical no fim de semana, comida brasileira e atendimento pelo WhatsApp oficial.
+        - link "Falar com o Villa Cuiabar pelo WhatsApp" [ref=e129] [cursor=pointer]:
+          - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+          - text: Falar no WhatsApp
+    - generic [ref=e130]: © 2026 Villa Cuiabar | Campinas. Todos os direitos reservados.
+  - link "Falar com o Villa Cuiabar pelo WhatsApp" [ref=e131] [cursor=pointer]:
+    - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+    - generic [ref=e132]: 💬
+    - generic [ref=e133]: WhatsApp

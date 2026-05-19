@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Read-only Meta Ads API for custom GPT Actions.",
+  "description": "Meta Ads reporting and controlled ad creation API for custom GPT Actions.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",

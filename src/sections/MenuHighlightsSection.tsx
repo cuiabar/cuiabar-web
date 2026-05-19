@@ -15,7 +15,22 @@ export const MenuHighlightsSection = () => (
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {menuHighlights.map((item, index) => (
           <Reveal key={item.name} as="article" delay={index * 80} className="overflow-hidden rounded-2xl border border-sand/50 bg-white shadow-soft transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-26px_rgba(51,35,19,0.55)]">
-            <img src={item.image} alt={item.name} loading="lazy" className="media-lift h-44 w-full object-cover" />
+            <picture>
+              {item.imageWebp ? <source srcSet={item.imageWebp} type="image/webp" /> : null}
+              <img
+                src={item.image}
+                alt={item.name}
+                width={item.width}
+                height={item.height}
+                loading="lazy"
+                decoding="async"
+                className={
+                  item.width && item.width <= 80
+                    ? 'media-lift h-44 w-full bg-sand/30 object-contain p-8'
+                    : 'media-lift h-44 w-full object-cover'
+                }
+              />
+            </picture>
             <div className="p-4">
               <p className="text-xs uppercase tracking-wider text-terracotta">{item.category}</p>
               <h3 className="mt-1 font-heading text-2xl">{item.name}</h3>

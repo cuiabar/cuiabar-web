@@ -1,6 +1,6 @@
-# Google Ads MCP somente leitura
+# Google Ads MCP
 
-Servidor MCP remoto para instalar no ChatGPT e consultar Google Ads sem expor funcoes de escrita.
+Servidor MCP remoto para instalar no ChatGPT e consultar Google Ads, com criacao controlada de publicidade de pesquisa.
 
 ## Link MCP
 
@@ -74,5 +74,34 @@ curl http://localhost:8788/health
 - `get_geo_performance`
 - `get_budget_status`
 - `run_readonly_gaql`
+- `create_search_ad_bundle`
+- `runGoogleAdsGaqlV2`
+- `mutateGoogleAdsResourcesV2`
+- `createGoogleAdsSearchAdBundleV2`
 
-Todas as ferramentas usam apenas endpoints de leitura. O servidor nao implementa `mutate`, criacao, edicao, pausa, ativacao, exclusao ou alteracao de verba.
+## Escrita controlada
+
+A ferramenta `create_search_ad_bundle` usa `googleAds:mutate` para criar um pacote de campanha de pesquisa:
+
+- orcamento diario
+- campanha Search
+- grupo de anuncios
+- palavras-chave
+- anuncio responsivo de pesquisa
+
+Por padrao ela roda com `validateOnly=true`, para validar sem publicar. Para criar de fato, envie:
+
+```json
+{
+  "validateOnly": false,
+  "confirmWrite": "CRIAR_PUBLICIDADE_GOOGLE_ADS"
+}
+```
+
+Campanha, grupo e anuncio ficam `PAUSED` por padrao. A ferramenta generica `run_readonly_gaql` continua limitada a `SELECT`.
+
+## Actions V2
+
+Use `runGoogleAdsGaqlV2` para consultas GAQL com erro estruturado (`ok:false`) quando a Google Ads API rejeitar campos ou sintaxe.
+
+Use `mutateGoogleAdsResourcesV2` para escrita livre via `mutateOperations` ou `mutateOperationsJson`. O Bearer token da Action e a credencial Google Ads autorizada definem a permissao de escrita; `validateOnly=true` continua disponivel para simular.

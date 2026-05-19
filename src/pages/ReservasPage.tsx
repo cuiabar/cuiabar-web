@@ -46,7 +46,7 @@ const ReservasPage = () => {
             </p>
           </div>
           <p className="mt-5 text-sm text-steel">
-            A pagina atende quem busca reserva de restaurante no Jardim Aurelia e no eixo da John Boyd Dunlop, com uma entrada unica para mesas, aniversarios e grupos.
+            A página atende quem busca reserva no Villa Cuiabar, com uma entrada única para mesas, aniversários e grupos.
           </p>
         </div>
         <div className="card p-8">

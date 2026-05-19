@@ -59,15 +59,20 @@ Segredos recorrentes:
 - `GOOGLE_ADS_CLIENT_ID`
 - `GOOGLE_ADS_CLIENT_SECRET`
 - `GOOGLE_ADS_REFRESH_TOKEN`
+- `EMAIL_MCP_BEARER_TOKEN`
+- `GMAIL_SENDER_EMAIL`
+- `GMAIL_SENDER_NAME`
+- `DEFAULT_REPLY_TO`
 - `MCP_BEARER_TOKEN`
 - `GOOGLE_GEMINI_API_KEY`
 
 Observações:
 
 - O `MeuCuiabar` usa Google OAuth no Worker para autenticação e coleta de consentimentos.
+- O Email MCP fica em `services/email-mcp/` e expõe Actions para GPT personalizado em `https://email-mcp.cuiabar.com/openapi.json`. Usa Gmail API oficial, `EMAIL_MCP_BEARER_TOKEN` para autorizar editores, `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`/`GOOGLE_REFRESH_TOKEN` para OAuth e `GMAIL_SENDER_EMAIL=clientes@cuiabar.net` como remetente real. O runbook fica em `docs/runbooks/email-mcp.md`.
 - O Google Search Console exige OAuth com escopo `https://www.googleapis.com/auth/webmasters` para listar propriedades e submeter sitemaps via API. Em 2026-05-05, o login local `cuiabar@cuiabar.net` no `gcloud` estava ativo, mas sem esse escopo, retornando `ACCESS_TOKEN_SCOPE_INSUFFICIENT`.
 - O Google Business Profile está autorizado para leitura operacional de perfis, métricas, avaliações, posts e mídia. A operação usa OAuth com escopos `business.manage` e, quando necessário para gestão de APIs do projeto, `cloud-platform`.
-- O Google Ads tem um MCP remoto somente leitura publicado em `https://google-ads-mcp.cuiabar.com/sse`, com código em `services/google-ads-mcp/` e runbook em `docs/runbooks/google-ads-mcp.md`. O serviço usa o escopo OAuth `https://www.googleapis.com/auth/adwords`, o endpoint REST `googleAds:searchStream` e bloqueia qualquer ferramenta de escrita ou comando GAQL fora de `SELECT`.
+- O Google Ads tem um MCP remoto publicado em `https://google-ads-mcp.cuiabar.com/sse`, com código em `services/google-ads-mcp/` e runbook em `docs/runbooks/google-ads-mcp.md`. O serviço usa o escopo OAuth `https://www.googleapis.com/auth/adwords`, mantém relatórios por `googleAds:searchStream`, bloqueia GAQL fora de `SELECT`, retorna erros estruturados em `gaql-v2` e expõe escrita por `mutate-v2`/`create-search-ad-bundle-v2` para editores autenticados.
 - A integração com Gemini está apenas inventariada. Não há uso ativo dessa API no runtime do site, do CRM ou do Worker neste momento.
 
 ## Meta
@@ -88,7 +93,7 @@ Segredos esperados:
 
 Observações:
 
-- O Meta Ads tem uma API de GPT Actions somente leitura publicada em `https://meta-ads-actions.cuiabar.com/openapi.json`, com código em `services/meta-ads-actions/` e runbook em `docs/runbooks/meta-ads-actions.md`. O serviço não expõe endpoints de escrita e depende de token Meta com `ads_read`.
+- O Meta Ads tem uma API de GPT Actions publicada em `https://meta-ads-actions.cuiabar.com/openapi.json`, com código em `services/meta-ads-actions/` e runbook em `docs/runbooks/meta-ads-actions.md`. O serviço mantém endpoints de relatório, expõe escrita para editores autenticados por Bearer token e inclui camada genérica `meta-graph-request`/batch para qualquer node/edge da Marketing API com payload livre; depende de token Meta com `ads_read` para leitura e `ads_management` para criação.
 
 ## WhatsApp e atendimento
 
@@ -117,6 +122,27 @@ Segredos do módulo dedicado:
 - `WEBHOOK_SHARED_SECRET`
 - `CRM_INTERNAL_SECRET`
 - `BAILEYS_GATEWAY_TOKEN`
+
+### WhatsApp Marketing MCP
+
+Servico separado para GPT Actions e MCP remoto em `whatsapp-marketing-mcp.cuiabar.com`, com codigo em `services/whatsapp-marketing-mcp/`.
+
+Segredos esperados:
+
+- `MCP_BEARER_TOKEN`
+- `GHCO_COMMS_BRIDGE_TOKEN`
+
+Variaveis:
+
+- `GHCO_COMMS_BRIDGE_URL`
+- `MARKETING_MAX_BATCH_SIZE`
+- `MARKETING_MIN_DELAY_SECONDS`
+- `MARKETING_MAX_DAILY_RECIPIENTS`
+
+Observacao:
+
+- O servico aceita modo de treino/validacao sem exigir consentimento, opt-out e identificacao textual no payload, para permitir treinamento do GPT. Envio real continua exigindo comprovante operacional de consentimento, confirmacao explicita e nao deve ser usado para contorno de bloqueios, lista comprada ou automacao agressiva.
+- O GPT Actions expõe formatacao WhatsApp em `/actions/format-message`, envio unitario de texto em `/actions/send-single`, form de custo zero em `/actions/send-form` e envio unitario de foto, video, audio ou arquivo em `/actions/send-media`. `/actions/send-numbered-menu` continua como alias. Midia remota deve usar `mediaUrl` HTTPS.
 
 ## CRM e reservas
 

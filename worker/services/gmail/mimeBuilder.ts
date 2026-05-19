@@ -6,7 +6,7 @@ export interface MimePayload {
   replyTo?: string | null;
   html: string;
   text: string;
-  listUnsubscribeUrl: string;
+  listUnsubscribeUrl?: string | null;
   headers?: Record<string, string>;
 }
 
@@ -49,8 +49,8 @@ export const buildMimeMessage = (payload: MimePayload) => {
     payload.replyTo ? `Reply-To: ${payload.replyTo}` : null,
     `Subject: ${encodeHeader(payload.subject)}`,
     'MIME-Version: 1.0',
-    `List-Unsubscribe: <${payload.listUnsubscribeUrl}>`,
-    'List-Unsubscribe-Post: List-Unsubscribe=One-Click',
+    payload.listUnsubscribeUrl ? `List-Unsubscribe: <${payload.listUnsubscribeUrl}>` : null,
+    payload.listUnsubscribeUrl ? 'List-Unsubscribe-Post: List-Unsubscribe=One-Click' : null,
     `Content-Type: multipart/alternative; boundary="${boundary}"`,
     ...Object.entries(payload.headers ?? {}).map(([key, value]) => `${key}: ${value}`),
   ].filter(Boolean);

@@ -1,6 +1,6 @@
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { GoogleAdsClient, normalizeCustomerId } from "./googleAdsClient.js";
-import { createGoogleAdsMcpServer } from "./mcpServer.js";
+import { buildSearchAdBundleOperations, createGoogleAdsMcpServer } from "./mcpServer.js";
 
 type Env = {
   GOOGLE_ADS_CLIENT_ID?: string;
@@ -33,40 +33,41 @@ const REQUIRED_ENV: Array<keyof Env> = [
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
-    const origin = url.origin;
+    try {
+      const url = new URL(request.url);
+      const origin = url.origin;
 
-    if (url.pathname === "/" || url.pathname === "/health") {
+      if (url.pathname === "/" || url.pathname === "/health") {
       const missing = REQUIRED_ENV.filter((key) => !env[key]);
       return json({
         ok: missing.length === 0,
         service: "google-ads-mcp",
-        mode: "read-only",
+        mode: "read-write-controlled",
         endpoint: "https://google-ads-mcp.cuiabar.com/sse",
         apiVersion: env.GOOGLE_ADS_API_VERSION ?? "v24",
         missingSecrets: missing
       });
     }
 
-    if (url.pathname === "/.well-known/oauth-authorization-server" || url.pathname === "/.well-known/openid-configuration") {
+      if (url.pathname === "/.well-known/oauth-authorization-server" || url.pathname === "/.well-known/openid-configuration") {
       return json(authorizationServerMetadata(origin));
-    }
+      }
 
-    if (
+      if (
       url.pathname === "/.well-known/oauth-protected-resource" ||
       url.pathname === "/.well-known/oauth-protected-resource/sse" ||
       url.pathname === "/.well-known/oauth-protected-resource/mcp"
-    ) {
+      ) {
       return json({
         resource: origin,
         authorization_servers: [origin],
-        scopes_supported: ["google_ads.read"],
+        scopes_supported: ["google_ads.read", "google_ads.write"],
         bearer_methods_supported: ["header"],
         resource_documentation: "https://google-ads-mcp.cuiabar.com/health"
       });
-    }
+      }
 
-    if (url.pathname === "/register" && request.method === "POST") {
+      if (url.pathname === "/register" && request.method === "POST") {
       const body = await readJson(request);
       const redirectUris = Array.isArray(body.redirect_uris) ? body.redirect_uris : [];
       return json(
@@ -79,47 +80,47 @@ export default {
           grant_types: ["authorization_code", "refresh_token"],
           response_types: ["code"],
           token_endpoint_auth_method: "client_secret_post",
-          scope: "google_ads.read"
+          scope: "google_ads.read google_ads.write"
         },
         201
       );
-    }
+      }
 
-    if (url.pathname === "/authorize" && request.method === "GET") {
+      if (url.pathname === "/authorize" && request.method === "GET") {
       return authorizationPage(url);
-    }
+      }
 
-    if (url.pathname === "/authorize" && request.method === "POST") {
+      if (url.pathname === "/authorize" && request.method === "POST") {
       return handleAuthorizePost(request, env);
-    }
+      }
 
-    if (url.pathname === "/token" && request.method === "POST") {
+      if (url.pathname === "/token" && request.method === "POST") {
       return handleTokenRequest(request, env);
-    }
+      }
 
-    if (url.pathname === "/openapi.json") {
+      if (url.pathname === "/openapi.json") {
       return json(openApiSchema(origin));
-    }
+      }
 
-    if (url.pathname.startsWith("/actions/")) {
-      return handleActionRequest(request, env);
-    }
+      if (url.pathname.startsWith("/actions/")) {
+        return await handleActionRequest(request, env);
+      }
 
-    if (url.pathname !== "/sse" && url.pathname !== "/mcp") {
+      if (url.pathname !== "/sse" && url.pathname !== "/mcp") {
       return json({ error: "Not found" }, 404);
-    }
+      }
 
-    const authError = await requireBearerToken(request, env);
-    if (authError) {
+      const authError = await requireBearerToken(request, env);
+      if (authError) {
       return authError;
-    }
+      }
 
-    const missing = REQUIRED_ENV.filter((key) => !env[key]);
-    if (missing.length > 0) {
+      const missing = REQUIRED_ENV.filter((key) => !env[key]);
+      if (missing.length > 0) {
       return json({ error: "Google Ads secrets ausentes.", missingSecrets: missing }, 503);
-    }
+      }
 
-    const googleAds = new GoogleAdsClient({
+      const googleAds = new GoogleAdsClient({
       apiVersion: env.GOOGLE_ADS_API_VERSION ?? "v24",
       clientId: env.GOOGLE_ADS_CLIENT_ID!,
       clientSecret: env.GOOGLE_ADS_CLIENT_SECRET!,
@@ -129,18 +130,21 @@ export default {
       loginCustomerId: env.GOOGLE_ADS_LOGIN_CUSTOMER_ID
     });
 
-    const server = createGoogleAdsMcpServer(googleAds, {
+      const server = createGoogleAdsMcpServer(googleAds, {
       publicUrl: "https://google-ads-mcp.cuiabar.com/sse",
       apiVersion: env.GOOGLE_ADS_API_VERSION ?? "v24"
     });
 
-    const transport = new WebStandardStreamableHTTPServerTransport({
+      const transport = new WebStandardStreamableHTTPServerTransport({
       sessionIdGenerator: undefined,
       enableJsonResponse: false
     });
 
-    await server.connect(transport);
-    return transport.handleRequest(request);
+      await server.connect(transport);
+      return transport.handleRequest(request);
+    } catch (error) {
+      return json(toErrorPayload(error), 500);
+    }
   }
 };
 
@@ -173,7 +177,7 @@ function authorizationServerMetadata(origin: string): Record<string, unknown> {
     grant_types_supported: ["authorization_code", "refresh_token"],
     code_challenge_methods_supported: ["S256", "plain"],
     token_endpoint_auth_methods_supported: ["client_secret_post", "client_secret_basic", "none"],
-    scopes_supported: ["google_ads.read"],
+    scopes_supported: ["google_ads.read", "google_ads.write"],
     service_documentation: `${origin}/health`
   };
 }
@@ -204,7 +208,7 @@ async function handleActionRequest(request: Request, env: Env): Promise<Response
     return json({
       ok: true,
       service: "google-ads-actions",
-      mode: "read-only",
+      mode: "read-write-controlled",
       apiVersion: env.GOOGLE_ADS_API_VERSION ?? "v24"
     });
   }
@@ -273,7 +277,110 @@ async function handleActionRequest(request: Request, env: Env): Promise<Response
     const body = await readJson(request);
     const query = String(body.query ?? "");
     const customerId = typeof body.customerId === "string" ? body.customerId : undefined;
-    return json(await googleAds.searchStream(query, customerId));
+    try {
+      return json(await googleAds.searchStream(query, customerId));
+    } catch (error) {
+      return json({ ok: false, step: "gaql", ...toErrorPayload(error) }, 400);
+    }
+  }
+
+  if (url.pathname === "/actions/gaql-v2" && request.method === "POST") {
+    const body = await readJson(request);
+    const query = String(body.query ?? body.queryJson ?? "");
+    const customerId = typeof body.customerId === "string" ? body.customerId : undefined;
+    try {
+      return json({ ok: true, rows: await googleAds.searchStream(query, customerId) });
+    } catch (error) {
+      return json({ ok: false, step: "gaql", ...toErrorPayload(error), query, customerId }, 400);
+    }
+  }
+
+  if (url.pathname === "/actions/mutate-v2" && request.method === "POST") {
+    const body = await readJson(request);
+    const customerId = typeof body.customerId === "string" ? body.customerId : undefined;
+    const validateOnly = body.validateOnly !== false;
+    const partialFailure = body.partialFailure === true;
+    const mutateOperations = parseMutateOperations(body);
+    try {
+      return json({
+        ok: true,
+        mode: validateOnly ? "validate-only" : "written",
+        response: await googleAds.mutate(mutateOperations, customerId, { validateOnly, partialFailure })
+      });
+    } catch (error) {
+      return json({ ok: false, step: "mutate", ...toErrorPayload(error) }, 400);
+    }
+  }
+
+  if (url.pathname === "/actions/create-search-ad-bundle" && request.method === "POST") {
+    const body = await readJson(request);
+    const validateOnly = body.validateOnly !== false;
+    const confirmWrite = String(body.confirmWrite ?? "");
+    if (!validateOnly && confirmWrite !== "CRIAR_PUBLICIDADE_GOOGLE_ADS") {
+      return json(
+        {
+          error:
+            'Para criar publicidade de fato, envie confirmWrite="CRIAR_PUBLICIDADE_GOOGLE_ADS". Use validateOnly=true para apenas validar.'
+        },
+        400
+      );
+    }
+
+    const customerId = normalizeCustomerId(String(body.customerId ?? googleAds.getDefaultCustomerId()));
+    const operations = buildSearchAdBundleOperations({
+      customerId,
+      campaignName: requiredString(body.campaignName, "campaignName"),
+      adGroupName: requiredString(body.adGroupName, "adGroupName"),
+      finalUrls: requiredHttpsUrls(body.finalUrls),
+      dailyBudgetMicros: requiredInteger(body.dailyBudgetMicros, "dailyBudgetMicros", 1_000_000, 5_000_000_000),
+      headlines: requiredTextArray(body.headlines, "headlines", 3, 15, 30),
+      descriptions: requiredTextArray(body.descriptions, "descriptions", 2, 4, 90),
+      keywords: requiredKeywords(body.keywords),
+      cpcBidMicros:
+        body.cpcBidMicros === undefined
+          ? undefined
+          : requiredInteger(body.cpcBidMicros, "cpcBidMicros", 10_000, 100_000_000),
+      campaignStatus: body.campaignStatus === "ENABLED" ? "ENABLED" : "PAUSED",
+      adGroupStatus: body.adGroupStatus === "ENABLED" ? "ENABLED" : "PAUSED"
+    });
+
+    return json(
+      await googleAds.mutate(operations, customerId, {
+        validateOnly,
+        partialFailure: false
+      })
+    );
+  }
+
+  if (url.pathname === "/actions/create-search-ad-bundle-v2" && request.method === "POST") {
+    const body = expandJsonFields(await readJson(request));
+    const customerId = normalizeCustomerId(String(body.customerId ?? googleAds.getDefaultCustomerId()));
+    const operations = buildSearchAdBundleOperations({
+      customerId,
+      campaignName: requiredString(body.campaignName, "campaignName"),
+      adGroupName: requiredString(body.adGroupName, "adGroupName"),
+      finalUrls: requiredHttpsUrls(body.finalUrls),
+      dailyBudgetMicros: requiredInteger(body.dailyBudgetMicros, "dailyBudgetMicros", 1_000_000, 5_000_000_000),
+      headlines: requiredTextArray(body.headlines, "headlines", 3, 15, 30),
+      descriptions: requiredTextArray(body.descriptions, "descriptions", 2, 4, 90),
+      keywords: requiredKeywords(body.keywords),
+      cpcBidMicros:
+        body.cpcBidMicros === undefined
+          ? undefined
+          : requiredInteger(body.cpcBidMicros, "cpcBidMicros", 10_000, 100_000_000),
+      campaignStatus: body.campaignStatus === "ENABLED" ? "ENABLED" : "PAUSED",
+      adGroupStatus: body.adGroupStatus === "ENABLED" ? "ENABLED" : "PAUSED"
+    });
+    const validateOnly = body.validateOnly !== false;
+    try {
+      return json({
+        ok: true,
+        mode: validateOnly ? "validate-only" : "written",
+        response: await googleAds.mutate(operations, customerId, { validateOnly, partialFailure: false })
+      });
+    } catch (error) {
+      return json({ ok: false, step: "create-search-ad-bundle", ...toErrorPayload(error) }, 400);
+    }
   }
 
   return json({ error: "Not found" }, 404);
@@ -311,7 +418,7 @@ function authorizationPage(url: URL): Response {
 <body>
   <main>
     <h1>Autorizar Google Ads MCP</h1>
-    <p>Informe o token privado do MCP para liberar acesso somente leitura ao ChatGPT.</p>
+    <p>Informe o token privado do MCP para liberar acesso de leitura e criacao controlada ao ChatGPT.</p>
     <form method="post" action="/authorize">
       ${hiddenFields}
       <label>Token MCP
@@ -331,9 +438,10 @@ function openApiSchema(origin: string): Record<string, unknown> {
   return {
     openapi: "3.1.0",
     info: {
-      title: "Cuiabar Google Ads Read-Only API",
+      title: "Cuiabar Google Ads API",
       version: "0.1.0",
-      description: "Read-only Google Ads reporting API for a custom GPT. No mutate/write endpoints are exposed."
+      description:
+        "Google Ads reporting and controlled ad creation API for a custom GPT. Generic mutate/write endpoints are not exposed."
     },
     servers: [{ url: origin }],
     components: {
@@ -443,6 +551,154 @@ function openApiSchema(origin: string): Record<string, unknown> {
           },
           responses: { "200": { description: "GAQL rows" } }
         }
+      },
+      "/actions/gaql-v2": {
+        post: {
+          operationId: "runGoogleAdsGaqlV2",
+          summary: "Run a GAQL SELECT query and return structured errors",
+          security,
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  required: ["query"],
+                  properties: {
+                    query: { type: "string" },
+                    queryJson: { type: "string", description: "Fallback string for the query." },
+                    customerId: { type: "string" }
+                  }
+                }
+              }
+            }
+          },
+          responses: { "200": { description: "Rows or structured error" } }
+        }
+      },
+      "/actions/mutate-v2": {
+        post: {
+          operationId: "mutateGoogleAdsResourcesV2",
+          summary: "Run Google Ads mutate operations with free payload",
+          security,
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  additionalProperties: true,
+                  properties: {
+                    customerId: { type: "string" },
+                    mutateOperations: {
+                      type: "array",
+                      items: { type: "object", additionalProperties: true }
+                    },
+                    mutateOperationsJson: { type: "string", description: "Fallback JSON array for mutateOperations." },
+                    validateOnly: { type: "boolean", default: true },
+                    partialFailure: { type: "boolean", default: false }
+                  }
+                }
+              }
+            }
+          },
+          responses: { "200": { description: "Google Ads mutate response or structured error" } }
+        }
+      },
+      "/actions/create-search-ad-bundle": {
+        post: {
+          operationId: "createGoogleAdsSearchAdBundle",
+          summary: "Create or validate a Google Ads Search campaign bundle",
+          security,
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  required: [
+                    "campaignName",
+                    "adGroupName",
+                    "finalUrls",
+                    "dailyBudgetMicros",
+                    "headlines",
+                    "descriptions",
+                    "keywords"
+                  ],
+                  properties: {
+                    campaignName: { type: "string", maxLength: 120 },
+                    adGroupName: { type: "string", maxLength: 120 },
+                    finalUrls: { type: "array", minItems: 1, maxItems: 5, items: { type: "string", format: "uri" } },
+                    dailyBudgetMicros: { type: "integer", minimum: 1000000, maximum: 5000000000 },
+                    headlines: { type: "array", minItems: 3, maxItems: 15, items: { type: "string", maxLength: 30 } },
+                    descriptions: { type: "array", minItems: 2, maxItems: 4, items: { type: "string", maxLength: 90 } },
+                    keywords: {
+                      type: "array",
+                      minItems: 1,
+                      maxItems: 50,
+                      items: {
+                        type: "object",
+                        required: ["text"],
+                        properties: {
+                          text: { type: "string", maxLength: 80 },
+                          matchType: { type: "string", enum: ["EXACT", "PHRASE", "BROAD"], default: "PHRASE" }
+                        }
+                      }
+                    },
+                    customerId: { type: "string" },
+                    cpcBidMicros: { type: "integer", minimum: 10000, maximum: 100000000 },
+                    campaignStatus: { type: "string", enum: ["PAUSED", "ENABLED"], default: "PAUSED" },
+                    adGroupStatus: { type: "string", enum: ["PAUSED", "ENABLED"], default: "PAUSED" },
+                    validateOnly: { type: "boolean", default: true },
+                    confirmWrite: {
+                      type: "string",
+                      description: "Required as CRIAR_PUBLICIDADE_GOOGLE_ADS when validateOnly is false."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          responses: { "200": { description: "Google Ads mutate response" } }
+        }
+      },
+      "/actions/create-search-ad-bundle-v2": {
+        post: {
+          operationId: "createGoogleAdsSearchAdBundleV2",
+          summary: "Create or validate a Google Ads Search campaign bundle without confirmWrite",
+          security,
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  additionalProperties: true,
+                  required: ["campaignName", "adGroupName", "dailyBudgetMicros"],
+                  properties: {
+                    campaignName: { type: "string", maxLength: 120 },
+                    adGroupName: { type: "string", maxLength: 120 },
+                    finalUrls: { type: "array", minItems: 1, maxItems: 5, items: { type: "string", format: "uri" } },
+                    finalUrlsJson: { type: "string" },
+                    dailyBudgetMicros: { type: "integer", minimum: 1000000, maximum: 5000000000 },
+                    headlines: { type: "array", minItems: 3, maxItems: 15, items: { type: "string", maxLength: 30 } },
+                    headlinesJson: { type: "string" },
+                    descriptions: { type: "array", minItems: 2, maxItems: 4, items: { type: "string", maxLength: 90 } },
+                    descriptionsJson: { type: "string" },
+                    keywords: { type: "array", minItems: 1, maxItems: 50, items: { type: "object", additionalProperties: true } },
+                    keywordsJson: { type: "string" },
+                    customerId: { type: "string" },
+                    cpcBidMicros: { type: "integer", minimum: 10000, maximum: 100000000 },
+                    campaignStatus: { type: "string", enum: ["PAUSED", "ENABLED"], default: "PAUSED" },
+                    adGroupStatus: { type: "string", enum: ["PAUSED", "ENABLED"], default: "PAUSED" },
+                    validateOnly: { type: "boolean", default: true }
+                  }
+                }
+              }
+            }
+          },
+          responses: { "200": { description: "Google Ads mutate response or structured error" } }
+        }
       }
     }
   };
@@ -462,7 +718,7 @@ async function handleAuthorizePost(request: Request, env: Env): Promise<Response
   const codeChallenge = String(form.get("code_challenge") ?? "");
   const codeChallengeMethod = String(form.get("code_challenge_method") || "plain");
   const state = String(form.get("state") ?? "");
-  const scope = String(form.get("scope") || "google_ads.read");
+  const scope = String(form.get("scope") || "google_ads.read google_ads.write");
 
   if (responseType !== "code" || !redirectUri || !clientId) {
     return json({ error: "invalid_request" }, 400);
@@ -529,7 +785,7 @@ async function handleTokenRequest(request: Request, env: Env): Promise<Response>
   return json({ error: "unsupported_grant_type" }, 400);
 }
 
-async function issueTokens(env: Env, scope = "google_ads.read"): Promise<Response> {
+async function issueTokens(env: Env, scope = "google_ads.read google_ads.write"): Promise<Response> {
   const now = Math.floor(Date.now() / 1000);
   const accessToken = await signPayload({ type: "access", exp: now + 3600, scope }, env);
   const refreshToken = await signPayload({ type: "refresh", exp: now + 60 * 60 * 24 * 30, scope }, env);
@@ -548,7 +804,7 @@ function unauthorized(request: Request): Response {
   const resourceMetadata = `${url.origin}/.well-known/oauth-protected-resource`;
 
   return json({ error: "Bearer token invalido." }, 401, {
-    "WWW-Authenticate": `Bearer resource_metadata="${resourceMetadata}", scope="google_ads.read"`
+    "WWW-Authenticate": `Bearer resource_metadata="${resourceMetadata}", scope="google_ads.read google_ads.write"`
   });
 }
 
@@ -658,6 +914,112 @@ function requiredDate(value: string | null, name: string): string {
     throw new Error(`Parametro ${name} deve estar no formato YYYY-MM-DD.`);
   }
   return value;
+}
+
+function requiredString(value: unknown, name: string): string {
+  if (typeof value !== "string" || value.trim().length === 0) {
+    throw new Error(`Parametro ${name} e obrigatorio.`);
+  }
+
+  return value.trim();
+}
+
+function requiredInteger(value: unknown, name: string, min: number, max: number): number {
+  const parsed = typeof value === "number" ? value : Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isInteger(parsed) || parsed < min || parsed > max) {
+    throw new Error(`Parametro ${name} deve ser inteiro entre ${min} e ${max}.`);
+  }
+
+  return parsed;
+}
+
+function requiredTextArray(value: unknown, name: string, minItems: number, maxItems: number, maxLength: number): string[] {
+  if (!Array.isArray(value) || value.length < minItems || value.length > maxItems) {
+    throw new Error(`Parametro ${name} deve ter entre ${minItems} e ${maxItems} itens.`);
+  }
+
+  return value.map((item) => {
+    const text = requiredString(item, name);
+    if (text.length > maxLength) {
+      throw new Error(`Cada item de ${name} deve ter no maximo ${maxLength} caracteres.`);
+    }
+    return text;
+  });
+}
+
+function requiredHttpsUrls(value: unknown): string[] {
+  const urls = requiredTextArray(value, "finalUrls", 1, 5, 2048);
+  urls.forEach((url) => {
+    if (!url.startsWith("https://")) {
+      throw new Error("Todas as finalUrls devem usar HTTPS.");
+    }
+    new URL(url);
+  });
+  return urls;
+}
+
+function requiredKeywords(value: unknown): Array<{ text: string; matchType: "EXACT" | "PHRASE" | "BROAD" }> {
+  if (!Array.isArray(value) || value.length < 1 || value.length > 50) {
+    throw new Error("Parametro keywords deve ter entre 1 e 50 itens.");
+  }
+
+  return value.map((item) => {
+    if (!item || typeof item !== "object") {
+      throw new Error("Cada keyword deve ser um objeto.");
+    }
+
+    const data = item as Record<string, unknown>;
+    const text = requiredString(data.text, "keywords.text");
+    if (text.length > 80) {
+      throw new Error("Cada keyword deve ter no maximo 80 caracteres.");
+    }
+
+    const matchType = data.matchType === "EXACT" || data.matchType === "BROAD" ? data.matchType : "PHRASE";
+    return { text, matchType };
+  });
+}
+
+function parseMutateOperations(body: Record<string, unknown>) {
+  if (Array.isArray(body.mutateOperations)) {
+    return body.mutateOperations as Array<Record<string, unknown>>;
+  }
+  if (typeof body.mutateOperationsJson === "string") {
+    const parsed = JSON.parse(body.mutateOperationsJson) as unknown;
+    if (Array.isArray(parsed)) {
+      return parsed as Array<Record<string, unknown>>;
+    }
+  }
+  throw new Error("Informe mutateOperations como array ou mutateOperationsJson como JSON array.");
+}
+
+function expandJsonFields(body: Record<string, unknown>): Record<string, unknown> {
+  return {
+    ...body,
+    finalUrls: body.finalUrls ?? parseJsonArray(body.finalUrlsJson),
+    headlines: body.headlines ?? parseJsonArray(body.headlinesJson),
+    descriptions: body.descriptions ?? parseJsonArray(body.descriptionsJson),
+    keywords: body.keywords ?? parseJsonArray(body.keywordsJson)
+  };
+}
+
+function parseJsonArray(value: unknown): unknown[] | undefined {
+  if (value === undefined || value === null || value === "") {
+    return undefined;
+  }
+  if (typeof value !== "string") {
+    throw new Error("Campo JSON precisa ser string.");
+  }
+  const parsed = JSON.parse(value) as unknown;
+  if (!Array.isArray(parsed)) {
+    throw new Error("Campo JSON precisa representar um array.");
+  }
+  return parsed;
+}
+
+function toErrorPayload(error: unknown): Record<string, unknown> {
+  return {
+    error: error instanceof Error ? error.message : String(error)
+  };
 }
 
 async function readJson(request: Request): Promise<Record<string, unknown>> {

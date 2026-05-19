@@ -5,12 +5,6 @@ import { siteConfig } from '../data/siteConfig';
 const whatsAppHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 const reservationPageHref = siteConfig.reservationPageUrl;
 
-const OwnedPhotoBadge = () => (
-  <span className="absolute left-3 top-3 rounded-full border border-white/35 bg-black/50 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-    Fotos próprias
-  </span>
-);
-
 export const HeroSection = () => (
   <section className="container-shell grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-20">
     <Reveal className="lg:pr-4">
@@ -30,7 +24,7 @@ export const HeroSection = () => (
               <span className="ml-2 font-body text-base font-semibold uppercase tracking-[0.18em] text-cocoa/70 sm:text-lg">por prato</span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-steel sm:text-[0.98rem]">
-              Visite-nos e confira os combos e descontos do almoço presencial no salão.
+              Consulte horários, disponibilidade e condições pelo WhatsApp oficial da casa.
             </p>
           </div>
           <Link className="btn-secondary w-fit shrink-0" to={reservationPageHref}>
@@ -46,14 +40,13 @@ export const HeroSection = () => (
     <Reveal delay={140} className="card overflow-hidden p-3">
       <div className="grid gap-3 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="relative overflow-hidden rounded-2xl">
-          <OwnedPhotoBadge />
           <picture className="block">
-            <source srcSet="/home/home-salao-dia-da-mulher.webp" type="image/webp" />
+            <source srcSet="/menu/costela-cuiabar.webp" type="image/webp" />
             <img
-              src="/home/home-salao-dia-da-mulher.jpg"
-              alt="Salão do Villa Cuiabar com mesas montadas e ambiente acolhedor"
-              width="1200"
-              height="900"
+              src="/menu/costela-cuiabar.png"
+              alt="Costela Cuiabar servida com acompanhamentos"
+              width="600"
+              height="600"
               loading="eager"
               {...({ fetchpriority: 'high' } as Record<string, string>)}
               decoding="async"
@@ -63,14 +56,13 @@ export const HeroSection = () => (
         </div>
         <div className="grid gap-3">
           <div className="relative overflow-hidden rounded-2xl">
-            <OwnedPhotoBadge />
             <picture className="block">
-              <source srcSet="/home/home-mascote-salao.webp" type="image/webp" />
+              <source srcSet="/menu/bife-chorizo.webp" type="image/webp" />
               <img
-                src="/home/home-mascote-salao.jpg"
-                alt="Entrada do salão do Villa Cuiabar com o mascote da casa"
-                width="900"
-                height="1350"
+                src="/menu/bife-chorizo.png"
+                alt="Bife Chorizo do Villa Cuiabar"
+                width="600"
+                height="600"
                 loading="lazy"
                 decoding="async"
                 className="media-lift h-[203px] w-full object-cover"
@@ -78,9 +70,9 @@ export const HeroSection = () => (
             </picture>
           </div>
           <div className="rounded-2xl bg-[linear-gradient(160deg,#fff6ea_0%,#f7e4d0_100%)] p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">Ambiente próprio</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">Comida brasileira</p>
             <p className="mt-3 text-sm leading-relaxed text-steel">
-              Espaço familiar, clima acolhedor e estrutura preparada para almoço, encontros e noites com música ao vivo.
+              Costela, cortes nobres, pratos bem servidos, delivery no almoço e programação musical nos dias de casa aberta.
             </p>
           </div>
         </div>

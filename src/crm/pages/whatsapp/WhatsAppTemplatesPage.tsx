@@ -60,12 +60,6 @@ const PRESET_TEMPLATES = [
     content: 'Olá, {{name}}! 😊\n\nObrigado por nos visitar no dia {{date}}!\n\nQue nota você daria para a sua experiência no Cuiabar?\n(De 0 a 10)\n\nSua opinião é muito importante para nós! ⭐',
   },
   {
-    name: 'Avaliação com Foto - Burgers N Smoke',
-    category: 'nps',
-    content:
-      "Olá, {{name}}! Obrigado por pedir no Burgers N' Smoke.\n\nSe o pedido chegou bem, sua avaliação ajuda muito uma marca local de Campinas. Conte no Google o que você pediu, de qual bairro pediu e, se puder, publique uma foto do burger ou do momento.\n\nAvaliar agora:\nhttps://search.google.com/local/writereview?placeid=ChIJj_Gqjx_dtCsRcbWUydE_MzU",
-  },
-  {
     name: 'Avaliação com Momento - Villa Cuiabar',
     category: 'nps',
     content:

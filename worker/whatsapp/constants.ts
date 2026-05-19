@@ -10,7 +10,6 @@ export const HUMAN_HANDOFF_FALLBACK_THRESHOLD = 2;
 export const ALLOWED_INTENTS: WhatsAppIntent[] = [
   'menu',
   'delivery',
-  'hamburguer',
   'marmita',
   'reserva',
   'evento',
@@ -26,11 +25,10 @@ export const DEFAULT_BUSINESS_CONTEXT: BusinessContext = {
   restaurantShortName: 'Villa Cuiabar',
   tone: 'comercial, natural, objetivo e util',
   menuUrl: 'https://cuiabar.com/menu',
-  burgerUrl: 'https://cuiabar.com/burguer',
   deliveryUrl: 'https://cuiabar.com/delivery',
   expressoUrl: 'https://expresso.cuiabar.com',
   whatsappChannelUrl: 'https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a',
-  address: 'Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurelia - Campinas/SP',
+  address: 'Campinas/SP',
   hoursSummary:
     'Delivery no almoco todos os dias, delivery a noite de quarta a sabado e atendimento presencial com musica ao vivo as sextas, sabados e domingos.',
   phoneDisplay: '(19) 3305-8878',
@@ -40,11 +38,10 @@ export const DEFAULT_BUSINESS_CONTEXT: BusinessContext = {
 export const INTENT_KEYWORDS: Record<WhatsAppIntent, string[]> = {
   menu: ['menu', 'cardapio', 'cardápio', 'pratos', 'comidas'],
   delivery: ['delivery', 'entrega', 'pedir', 'pedido', 'ifood', 'ifood', '99food', '99 food', 'expresso'],
-  hamburguer: ['hamburguer', 'hambúrguer', 'burger', 'smash', 'lanche'],
   marmita: ['marmita', 'executivo', 'prato do dia', 'prorefeicao', 'pro refeicao', 'quentinha'],
   reserva: ['reserva', 'reservar', 'mesa', 'agendar', 'agendamento'],
   evento: ['evento', 'aniversario', 'aniversário', 'confraternizacao', 'confraternização', 'comemoracao', 'comemoração'],
-  localizacao: ['onde fica', 'endereco', 'endereço', 'localizacao', 'localização', 'mapa', 'como chegar'],
+  localizacao: ['onde fica', 'endereco', 'contato', 'localizacao', 'localização', 'mapa', 'como chegar'],
   horarios: ['horario', 'horário', 'funciona', 'aberto', 'fecha', 'abre'],
   reclamacao: ['reclamacao', 'reclamação', 'problema', 'atraso', 'ruim', 'horrivel', 'horrível', 'cancelar pedido'],
   humano: ['humano', 'atendente', 'pessoa', 'falar com alguem', 'falar com alguém', 'gerente', 'suporte'],

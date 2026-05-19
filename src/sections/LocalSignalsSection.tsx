@@ -7,9 +7,9 @@ export const LocalSignalsSection = () => (
   <section className="container-shell py-12">
     <Reveal className="card p-6 sm:p-8">
       <SectionHeading
-        eyebrow="Bairro e regiao"
-        title="Villa Cuiabar no radar de Jardim Aurelia e Dunlop"
-        description="Paginas criadas para reforcar a associacao da casa com o bairro, o eixo da John Boyd Dunlop, reservas, espaco kids e musica ao vivo."
+        eyebrow="Campinas"
+        title="Villa Cuiabar no radar de Campinas"
+        description="Páginas criadas para organizar reservas, delivery, cardápio e música ao vivo sem expor informações sensíveis de localização."
       />
       <div className="mt-8 grid gap-4 lg:grid-cols-3">
         {localGuideList.map((guide, index) => (

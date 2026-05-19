@@ -86,8 +86,7 @@ const PesquisaPage = () => {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-terracotta">Pesquisa Google</p>
         <h1 className="mt-3 font-heading text-4xl text-cocoa sm:text-5xl">Busque conteúdos e páginas do Cuiabar</h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-steel">
-          Use a pesquisa para encontrar páginas do restaurante, menu, Burguer Cuiabar, ProRefeição, vagas, reservas e outros conteúdos
-          indexados pelo Google.
+          Use a pesquisa para encontrar páginas do restaurante, menu, ProRefeição, vagas, reservas e outros conteúdos indexados pelo Google.
         </p>
       </Reveal>
 

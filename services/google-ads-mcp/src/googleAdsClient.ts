@@ -17,12 +17,17 @@ type OAuthTokenResponse = {
 };
 
 export type SearchStreamResult = Record<string, unknown>;
+export type MutateOperation = Record<string, unknown>;
 
 export class GoogleAdsClient {
   private accessToken: string | null = null;
   private accessTokenExpiresAt = 0;
 
   constructor(private readonly config: GoogleAdsConfig) {}
+
+  getDefaultCustomerId(): string {
+    return this.config.customerId;
+  }
 
   async listAccessibleCustomers(): Promise<unknown> {
     const accessToken = await this.getAccessToken();
@@ -66,6 +71,36 @@ export class GoogleAdsClient {
       }
       return [];
     });
+  }
+
+  async mutate(
+    mutateOperations: MutateOperation[],
+    customerId = this.config.customerId,
+    options: { validateOnly?: boolean; partialFailure?: boolean } = {}
+  ): Promise<unknown> {
+    if (mutateOperations.length === 0) {
+      throw new Error("A mutacao precisa conter ao menos uma operacao.");
+    }
+
+    const accessToken = await this.getAccessToken();
+    const cleanCustomerId = normalizeCustomerId(customerId);
+    const response = await fetch(
+      `https://googleads.googleapis.com/${this.config.apiVersion}/customers/${cleanCustomerId}/googleAds:mutate`,
+      {
+        method: "POST",
+        headers: {
+          ...this.headers(accessToken),
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          mutateOperations,
+          partialFailure: options.partialFailure ?? false,
+          validateOnly: options.validateOnly ?? false
+        })
+      }
+    );
+
+    return this.parseResponse(response);
   }
 
   private async getAccessToken(): Promise<string> {
@@ -114,13 +149,22 @@ export class GoogleAdsClient {
 
   private async parseResponse(response: Response): Promise<unknown> {
     const text = await response.text();
-    const payload = text ? JSON.parse(text) : null;
+    const payload = text ? safeJsonParse(text) : null;
 
     if (!response.ok) {
-      throw new Error(`Google Ads API ${response.status}: ${JSON.stringify(payload)}`);
+      const requestId = response.headers.get("request-id") ?? response.headers.get("x-request-id");
+      throw new Error(`Google Ads API ${response.status}${requestId ? ` requestId=${requestId}` : ""}: ${JSON.stringify(payload)}`);
     }
 
     return payload;
+  }
+}
+
+function safeJsonParse(text: string): unknown {
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { raw: text };
   }
 }
 

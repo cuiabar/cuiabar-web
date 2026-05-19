@@ -17,6 +17,9 @@ export type MenuHighlight = {
   description: string;
   price: string;
   image: string;
+  imageWebp?: string;
+  width?: number;
+  height?: number;
 };
 
 export type AgendaHighlight = {

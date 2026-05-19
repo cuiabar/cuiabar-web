@@ -35,10 +35,10 @@ const classifyInternalPath = (pathname: string) => {
       return { eventName: 'open_links_page' };
     case '/menu':
       return { eventName: 'open_menu_page' };
+    case '/delivery':
+      return { eventName: 'open_delivery_page' };
     case '/pesquisa':
       return { eventName: 'open_pesquisa_page' };
-    case '/burguer':
-      return { eventName: 'open_burguer_page' };
     case '/prorefeicao':
       return { eventName: 'open_prorefeicao_page' };
     case '/reservas':
@@ -65,10 +65,10 @@ const getContentName = (pathname: string) => {
   }
 
   switch (normalizedPath) {
-    case '/burguer':
-      return 'burguer_cuiabar';
     case '/prorefeicao':
       return 'prorefeicao';
+    case '/delivery':
+      return 'delivery_cuiabar';
     case '/menu':
       return 'menu_villa_cuiabar';
     default:
@@ -105,8 +105,8 @@ export const AnalyticsTracker = () => {
       case '/agenda':
         trackViewContent('agenda_musica_ao_vivo', { content_category: 'agenda' });
         break;
-      case '/burguer':
-        trackViewContent('burguer_cuiabar', { content_category: 'burguer' });
+      case '/delivery':
+        trackViewContent('delivery_cuiabar', { content_category: 'delivery' });
         break;
       case '/prorefeicao':
         trackViewContent('prorefeicao', { content_category: 'corporativo' });

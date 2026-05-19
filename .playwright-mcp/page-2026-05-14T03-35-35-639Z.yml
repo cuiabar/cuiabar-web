@@ -1,0 +1,119 @@
+- generic [ref=e2]:
+  - link "Pular para o conteúdo principal" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e4]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e10]:
+          - paragraph [ref=e11]: Links oficiais
+          - heading "Cuiabar" [level=1] [ref=e12]
+        - paragraph [ref=e13]: Entre no link certo em segundos e consulte o funcionamento atual da casa antes de sair.
+        - paragraph [ref=e14]: "Uma página direta, oficial e pensada para quem quer resolver rápido: reservar, pedir, falar com a equipe ou confirmar horários."
+        - generic [ref=e15]:
+          - link "Reservar mesa" [ref=e16] [cursor=pointer]:
+            - /url: /reservas
+          - link "Pedir no site" [ref=e17] [cursor=pointer]:
+            - /url: https://expresso.cuiabar.com
+        - generic [ref=e18]:
+          - generic [ref=e19]: 🪑 Reservas pelo site oficial
+          - generic [ref=e20]: 🍴 Delivery todos os dias no almoço
+          - generic [ref=e21]: 💬 Atendimento direto
+        - paragraph [ref=e22]: Reservas, pedidos, atendimento e horários oficiais em um só lugar.
+      - navigation "Links oficiais da Cuiabar" [ref=e23]:
+        - generic [ref=e24]:
+          - link "Entrar no canal do WhatsApp" [ref=e25] [cursor=pointer]:
+            - /url: https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a
+            - generic [ref=e26]:
+              - generic [ref=e27]: 📣
+              - generic [ref=e28]:
+                - paragraph [ref=e29]: Novidades
+                - heading "Entrar no canal do WhatsApp" [level=2] [ref=e30]
+                - paragraph [ref=e31]: Promoções, avisos, eventos e atualizações oficiais.
+            - generic [ref=e32]: ↗
+          - link "Falar com o restaurante" [ref=e33] [cursor=pointer]:
+            - /url: https://wa.me/551933058878
+            - generic [ref=e34]:
+              - generic [ref=e35]: 💬
+              - generic [ref=e36]:
+                - paragraph [ref=e37]: Atendimento
+                - heading "Falar com o restaurante" [level=2] [ref=e38]
+                - paragraph [ref=e39]: Contato direto com a equipe pelo WhatsApp.
+            - generic [ref=e40]: ↗
+          - link "Reservas Reservar mesa Abra cuiabar.com/reservas e siga para o fluxo oficial de reserva." [ref=e41] [cursor=pointer]:
+            - /url: /reservas
+            - generic [ref=e42]:
+              - generic [ref=e43]: 🪑
+              - generic [ref=e44]:
+                - paragraph [ref=e45]: Reservas
+                - heading "Reservar mesa" [level=2] [ref=e46]
+                - paragraph [ref=e47]: Abra cuiabar.com/reservas e siga para o fluxo oficial de reserva.
+            - generic [ref=e48]: ↗
+          - link "Fazer pedido direto" [ref=e49] [cursor=pointer]:
+            - /url: https://expresso.cuiabar.com
+            - generic [ref=e50]:
+              - generic [ref=e51]: 🍽️
+              - generic [ref=e52]:
+                - paragraph [ref=e53]: Pedido
+                - heading "Fazer pedido direto" [level=2] [ref=e54]
+                - paragraph [ref=e55]: Acesse o canal oficial de pedidos online.
+            - generic [ref=e56]: ↗
+          - link "Oportunidades Trabalhe com a gente Veja vagas abertas e envie sua candidatura." [ref=e57] [cursor=pointer]:
+            - /url: /vagas
+            - generic [ref=e58]:
+              - generic [ref=e59]: 👩‍🍳
+              - generic [ref=e60]:
+                - paragraph [ref=e61]: Oportunidades
+                - heading "Trabalhe com a gente" [level=2] [ref=e62]
+                - paragraph [ref=e63]: Veja vagas abertas e envie sua candidatura.
+            - generic [ref=e64]: ↗
+      - complementary [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]: ✨
+          - generic [ref=e68]:
+            - paragraph [ref=e69]: Canal em destaque
+            - paragraph [ref=e70]: Receba promoções, agenda, novidades da casa e avisos importantes em primeira mão.
+      - region "Horários de serviço da casa" [ref=e71]:
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: Funcionamento
+          - generic [ref=e74]:
+            - generic [ref=e75]:
+              - heading "Horários de serviço da casa" [level=2] [ref=e76]
+              - paragraph [ref=e77]: Confira abaixo os horários confirmados para delivery e atendimento presencial.
+              - paragraph [ref=e78]: Consulte horários, reservas e canais oficiais antes de sair ou fazer seu pedido.
+            - generic [ref=e79]:
+              - article [ref=e80]:
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - paragraph [ref=e83]: Delivery
+                    - heading "Todos os dias" [level=3] [ref=e84]
+                  - generic [ref=e85]: 11h às 14:30
+                - paragraph [ref=e86]: Almoço com pedido direto pelo site oficial.
+              - article [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]:
+                    - paragraph [ref=e90]: Presencial
+                    - heading "Quinta" [level=3] [ref=e91]
+                  - generic [ref=e92]: 11h às 14:30
+                - paragraph [ref=e93]: Atendimento presencial para almoço.
+              - article [ref=e94]:
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - paragraph [ref=e97]: Presencial
+                    - heading "Sexta" [level=3] [ref=e98]
+                  - generic [ref=e99]: 11h às 14:30 • 18h às 23h
+                - paragraph [ref=e100]: Almoço e noite com atendimento presencial.
+              - article [ref=e101]:
+                - generic [ref=e102]:
+                  - generic [ref=e103]:
+                    - paragraph [ref=e104]: Presencial
+                    - heading "Sábado" [level=3] [ref=e105]
+                  - generic [ref=e106]: 11h às 15h • 18h às 23h
+                - paragraph [ref=e107]: Almoço estendido e serviço noturno.
+              - article [ref=e108]:
+                - paragraph [ref=e109]: Atendimento
+                - paragraph [ref=e110]: Atendimento em Campinas/SP com reservas, pedidos e dúvidas pelos canais oficiais.
+                - link "Abrir reservas" [ref=e111] [cursor=pointer]:
+                  - /url: /reservas
+      - generic [ref=e112]:
+        - paragraph [ref=e113]: Cuiabar • Campinas/SP
+        - paragraph [ref=e114]: © 2026
