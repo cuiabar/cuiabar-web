@@ -11,19 +11,21 @@ export const Layout = ({ children }: PropsWithChildren) => {
   const hostname = typeof window !== 'undefined' ? window.location.hostname.toLowerCase() : '';
   const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isLinksRoute = ['/links', '/bio', '/acessos'].includes(normalizedPath);
-  const isBurgerHost = hostname === 'burger.cuiabar.com';
-  const isBurgerRoute = isBurgerHost || normalizedPath.startsWith('/burguer') || normalizedPath.startsWith('/burger');
+  const isDeliveryRoute = normalizedPath === '/delivery';
   const isReservationsRoute = normalizedPath === '/reservas';
+  const isOsRoute = normalizedPath === '/os' || normalizedPath.startsWith('/os/');
   const isProRefeicaoHost = hostname === 'prorefeicao.cuiabar.com';
   const isProRefeicaoSurface = isProRefeicaoHost || normalizedPath === '/prorefeicao';
-  const isExperienceHubRoute = normalizedPath === '/' && !isProRefeicaoHost;
 
-  if (isLinksRoute || isBurgerRoute || isProRefeicaoSurface || isExperienceHubRoute) {
+  if (isLinksRoute || isDeliveryRoute || isOsRoute || isProRefeicaoSurface) {
     return (
       <>
         <AnalyticsTracker />
         <ScrollManager />
-        <main>
+        <a href="#main-content" className="skip-link">
+          Pular para o conteúdo principal
+        </a>
+        <main id="main-content" tabIndex={-1}>
           <div key={location.pathname} className="page-transition">
             {children}
           </div>
@@ -36,8 +38,11 @@ export const Layout = ({ children }: PropsWithChildren) => {
     <>
       <AnalyticsTracker />
       <ScrollManager />
+      <a href="#main-content" className="skip-link">
+        Pular para o conteúdo principal
+      </a>
       <Header hideWhatsAppActions={isReservationsRoute} />
-      <main className="pt-24">
+      <main id="main-content" tabIndex={-1} className="pt-24">
         <div key={location.pathname} className="page-transition">
           {children}
         </div>

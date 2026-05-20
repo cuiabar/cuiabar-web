@@ -3,7 +3,6 @@ import { generateGroundedReplyWithAi, getAiModelName } from './aiService';
 import { CHANNEL_INVITE_COOLDOWN_MS, HUMAN_HANDOFF_FALLBACK_THRESHOLD } from './constants';
 import { advanceReservationFlow } from './reservationFlow';
 import {
-  burgerTemplate,
   complaintTemplate,
   deliveryTemplate,
   eventTemplate,
@@ -137,19 +136,6 @@ export const evaluateRules = async (
         templateKey: 'delivery',
         ruleName: 'delivery_link',
         intent: 'delivery',
-      },
-    };
-  }
-
-  if (params.intent.intent === 'hamburguer') {
-    return {
-      intent: params.intent,
-      tags: ['burger_interest'],
-      reply: {
-        text: burgerTemplate(context, shouldInviteChannel(params.session)),
-        templateKey: 'burger',
-        ruleName: 'burger_link',
-        intent: 'hamburguer',
       },
     };
   }

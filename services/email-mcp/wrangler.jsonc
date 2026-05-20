@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "email-mcp",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-05-18",
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "email-mcp.cuiabar.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "GMAIL_SENDER_EMAIL": "clientes@cuiabar.net",
+    "GMAIL_SENDER_NAME": "Cuiabar",
+    "CRM_GMAIL_SEND_URL": "https://crm.cuiabar.com/api/internal/gmail/send",
+    "EMAIL_MAX_RECIPIENTS": "50",
+    "EMAIL_MAX_ATTACHMENT_BYTES": "10485760"
+  }
+}

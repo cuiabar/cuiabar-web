@@ -2,7 +2,6 @@ import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import seoRoutesJson from '../src/data/seoRoutes.json' with { type: 'json' };
-import burgerMenuJson from '../src/data/burgerMenu.json' with { type: 'json' };
 import menuData from '../src/data/menu.json' with { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,27 +9,7 @@ const __dirname = path.dirname(__filename);
 const distDir = path.resolve(__dirname, '../dist');
 const ssrDir = path.resolve(__dirname, '../.ssr');
 
-const burgerMenu = burgerMenuJson;
 const seoConfig = structuredClone(seoRoutesJson);
-
-if (seoConfig.routes['/burguer']) {
-  seoConfig.routes['/burguer'] = {
-    ...seoConfig.routes['/burguer'],
-    image: burgerMenu.ogImage,
-    imageAlt: burgerMenu.ogImageAlt,
-    schema: [],
-  };
-}
-
-for (const aliasPath of ['/burger', '/burguer-cuiabar']) {
-  if (seoConfig.routes[aliasPath]) {
-    seoConfig.routes[aliasPath] = {
-      ...seoConfig.routes[aliasPath],
-      image: burgerMenu.ogImage,
-      imageAlt: burgerMenu.ogImageAlt,
-    };
-  }
-}
 
 const siteOrigin = seoConfig.siteOrigin;
 const defaultImage = seoConfig.defaultImage;
@@ -39,7 +18,6 @@ const buildDate = new Date().toISOString().slice(0, 10);
 const siteName = 'Villa Cuiabar';
 const twitterHandle = '@cuiabar';
 const menuSections = menuData;
-const burgerCanonicalUrl = 'https://burger.cuiabar.com/';
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
 
 const escapeHtml = (value) =>
@@ -76,8 +54,18 @@ const toAbsoluteUrl = (value) => {
   return `${siteOrigin}${value.startsWith('/') ? value : `/${value}`}`;
 };
 
+const normalizeCanonicalPath = (routePath, routeSeo) => {
+  const canonicalPath = routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath);
+
+  if (canonicalPath === '/') {
+    return '/';
+  }
+
+  return `${canonicalPath.replace(/\/+$/, '')}/`;
+};
+
 const buildCanonicalUrl = (routePath, routeSeo) =>
-  routeSeo.canonicalUrl ?? `${siteOrigin}${routeSeo.canonicalPath ?? (routePath === '/' ? '/' : routePath)}`;
+  routeSeo.canonicalUrl ?? `${siteOrigin}${normalizeCanonicalPath(routePath, routeSeo)}`;
 
 const normalizePrice = (value) => {
   if (!value) {
@@ -151,84 +139,9 @@ const buildMenuStructuredData = () => {
   };
 };
 
-const buildBurgerStructuredData = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'Menu',
-  name: 'Cardapio Burger Cuiabar',
-  url: burgerCanonicalUrl,
-  inLanguage: 'pt-BR',
-  description: 'Landing oficial do Burger Cuiabar com burgers, favoritos da casa e combos para pedir agora.',
-  hasMenuSection: [
-    {
-      '@type': 'MenuSection',
-      name: 'Burgers',
-      hasMenuItem: burgerMenu.burgers.map((item) => ({
-        '@type': 'MenuItem',
-        name: item.name,
-        description: `${item.description} ${item.tagline}`.trim(),
-        image: toAbsoluteUrl(item.image),
-        offers: buildOffer(normalizePrice(item.storePrice)),
-      })),
-    },
-    {
-      '@type': 'MenuSection',
-      name: 'Combos',
-      hasMenuItem: burgerMenu.combos.map((item) => ({
-        '@type': 'MenuItem',
-        name: item.name,
-        description: `${item.description} ${item.note}`.trim(),
-        offers: buildOffer(normalizePrice(item.storePrice)),
-      })),
-    },
-  ],
-});
-
-const buildBurgerFaqStructuredData = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Onde eu peco Burger Cuiabar?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'O pedido pode ser feito no site oficial burger.cuiabar.com, com apoio adicional no iFood e na 99Food.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quais sao os burgers mais pedidos?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'O Cuiabar, O Brabo e O Colosso aparecem como destaques para quem quer decidir rapido.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Tem combo pronto?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sim. Combo Raiz e Combo Cuiabar permitem escolher frita ou bebida lata. O Combo Brabo ja vem com frita e bebida.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Qual burger escolher se eu quiser frango?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'O Crocante e a opcao direta para frango empanado. O Insano entrega versao dupla com honey mustard para quem quer uma escolha mais intensa.',
-      },
-    },
-  ],
-});
-
 const buildRouteSpecificSchemas = (routePath) => {
   if (routePath === '/menu') {
     return [buildMenuStructuredData()];
-  }
-
-  if (routePath === '/burguer') {
-    return [buildBurgerStructuredData(), buildBurgerFaqStructuredData()];
   }
 
   return [];

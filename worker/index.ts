@@ -5,11 +5,13 @@ const app = createApp();
 const BLOG_EDITOR_PATH = '/editor';
 const MEUCUIABAR_LEGACY_PATH = '/meucuiabar';
 const MEUCUIABAR_HOST = 'meu.cuiabar.com';
-const BURGER_HOST = 'burger.cuiabar.com';
-const BURGER_ROOT = `https://${BURGER_HOST}/`;
+const BURGER_ARCHIVED_HOST = 'burger.cuiabar.com';
+const BURGER_STANDALONE_ROOT = 'https://burgersnsmoke.com/';
+const MAIN_SITE_ORIGIN = 'https://cuiabar.com';
 
 const isEditorRequest = (url: URL) => url.hostname === 'blog.cuiabar.com' && (url.pathname === BLOG_EDITOR_PATH || url.pathname.startsWith(`${BLOG_EDITOR_PATH}/`));
 const isInternalPortalHost = (hostname: string) => hostname === 'crm.cuiabar.com' || hostname === MEUCUIABAR_HOST;
+const normalizePathname = (pathname: string) => (pathname === '/' ? '/' : pathname.replace(/\/+$/, '') || '/');
 
 const stripEditorPrefix = (pathname: string) => {
   const nextPath = pathname.slice(BLOG_EDITOR_PATH.length);
@@ -91,6 +93,77 @@ const redirectLegacyMeuCuiabarRoute = (url: URL) => {
   return Response.redirect(destination.toString(), 308);
 };
 
+const buildBurgerNSmokeRedirect = (url: URL) => {
+  const normalizedPath = normalizePathname(url.pathname);
+
+  const legacyBurgerPaths = new Set([
+    '/burger',
+    '/burguer',
+    '/burguer-cuiabar',
+    '/burger-n-smoke',
+    '/hamburgueria-campinas',
+    '/smash-burger-campinas',
+    '/delivery-burger-campinas',
+    '/burger-defumado-campinas',
+  ]);
+
+  return legacyBurgerPaths.has(normalizedPath) ? BURGER_STANDALONE_ROOT : null;
+};
+
+const buildPublicSiteRedirect = (url: URL) => {
+  const normalizedPath = normalizePathname(url.pathname);
+  const burgerRedirect = buildBurgerNSmokeRedirect(url);
+
+  if (burgerRedirect) {
+    return burgerRedirect;
+  }
+
+  if (normalizedPath === '/blog' || normalizedPath.startsWith('/blog/')) {
+    return 'https://cuiabar.com/presencial/';
+  }
+
+  if (normalizedPath === '/agenda' || normalizedPath.startsWith('/agenda/') || normalizedPath === '/bar-musica-ao-vivo-campinas' || normalizedPath === '/bar-jardim-aurelia-musica-ao-vivo') {
+    return 'https://cuiabar.com/presencial/#agenda-casa';
+  }
+
+  if (normalizedPath === '/prorefeicao') {
+    return 'https://prorefeicao.cuiabar.com/';
+  }
+
+  const mirroredPublicPaths = new Set([
+    '/',
+    '/menu',
+    '/reservas',
+    '/vagas',
+    '/links',
+    '/presencial',
+    '/expresso',
+    '/espetaria',
+    '/delivery',
+    '/marmita',
+    '/online-ordering',
+    '/pedidos-online',
+    '/services-5',
+    '/bio',
+    '/acessos',
+    '/canal',
+    '/asianrestaurant',
+    '/restaurante-brasileiro-campinas',
+    '/restaurante-delivery-campinas',
+    '/restaurante-jardim-aurelia-campinas',
+    '/restaurante-perto-do-enxuto-dunlop',
+  ]);
+
+  if (!mirroredPublicPaths.has(normalizedPath)) {
+    return null;
+  }
+
+  const destination = new URL(MAIN_SITE_ORIGIN);
+  destination.pathname = normalizedPath === '/' ? '/' : `${normalizedPath}/`;
+  destination.search = url.search;
+  return destination.toString();
+};
+
 const withInternalPortalHeaders = async (request: Request, env: Env) => {
   const assetResponse = await env.ASSETS.fetch(request);
   const headers = new Headers(assetResponse.headers);
@@ -102,42 +175,6 @@ const withInternalPortalHeaders = async (request: Request, env: Env) => {
     statusText: assetResponse.statusText,
     headers,
   });
-};
-
-const serveBurgerHost = async (request: Request, env: Env) => {
-  const url = new URL(request.url);
-
-  if (url.pathname === '/burger' || url.pathname === '/burguer') {
-    url.pathname = '/';
-    return Response.redirect(url.toString(), 301);
-  }
-
-  if (url.pathname !== '/') {
-    return env.ASSETS.fetch(request);
-  }
-
-  const assetUrl = new URL(request.url);
-  assetUrl.pathname = '/burguer/';
-  const assetRequest = new Request(assetUrl.toString(), request);
-  const assetResponse = await env.ASSETS.fetch(assetRequest);
-
-  return new HTMLRewriter()
-    .on('link[rel="canonical"]', {
-      element(element) {
-        element.setAttribute('href', BURGER_ROOT);
-      },
-    })
-    .on('meta[property="og:url"]', {
-      element(element) {
-        element.setAttribute('content', BURGER_ROOT);
-      },
-    })
-    .on('meta[name="twitter:url"]', {
-      element(element) {
-        element.setAttribute('content', BURGER_ROOT);
-      },
-    })
-    .transform(assetResponse);
 };
 
 export default {
@@ -153,6 +190,14 @@ export default {
       return redirectLegacyMeuCuiabarRoute(url);
     }
 
+    if (url.hostname === 'crm.cuiabar.com') {
+      const publicSiteRedirect = buildPublicSiteRedirect(url);
+
+      if (publicSiteRedirect) {
+        return Response.redirect(publicSiteRedirect, 301);
+      }
+    }
+
     if (
       pathname.startsWith('/api/') ||
       pathname.startsWith('/c/') ||
@@ -165,8 +210,8 @@ export default {
       return app.fetch(request, env, ctx);
     }
 
-    if (url.hostname === BURGER_HOST) {
-      return serveBurgerHost(request, env);
+    if (url.hostname === BURGER_ARCHIVED_HOST || url.hostname === `www.${BURGER_ARCHIVED_HOST}`) {
+      return Response.redirect(BURGER_STANDALONE_ROOT, 301);
     }
 
     if (isInternalPortalHost(url.hostname)) {

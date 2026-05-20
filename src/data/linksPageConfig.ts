@@ -1,8 +1,5 @@
 import { siteConfig } from './siteConfig';
 
-const ADDRESS_LABEL = siteConfig.address;
-const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Av.%20Brigadeiro%20Rafael%20Tobias%20de%20Aguiar%2C%201121%20-%20Jardim%20Aurelia%20-%20Campinas%2FSP';
 const JOBS_URL = '/vagas';
 
 export const linksPageConfig = {
@@ -19,14 +16,12 @@ export const linksPageConfig = {
   directOrderUrl: 'https://expresso.cuiabar.com',
   reservationsUrl: '/reservas',
   jobsUrl: JOBS_URL,
-  addressLabel: ADDRESS_LABEL,
-  mapsUrl: MAPS_URL,
   serviceHoursTitle: 'Horários de serviço da casa',
   serviceHoursText: 'Confira abaixo os horários confirmados para delivery e atendimento presencial.',
   serviceHoursLabel: 'Funcionamento',
-  addressCardLabel: 'Endereço',
+  addressCardLabel: 'Atendimento',
   venueCopy:
-    'Visite o salão da Cuiabar em Campinas, aproveite o almoço presencial e consulte os horários antes de sair.',
+    'Consulte horários, reservas e canais oficiais antes de sair ou fazer seu pedido.',
   footerCopy: 'Cuiabar • Campinas/SP',
   logoUrl: siteConfig.logoUrl,
   serviceHours: [
@@ -43,7 +38,7 @@ export const linksPageConfig = {
       label: 'Presencial',
       days: 'Quinta',
       hours: '11h às 14:30',
-      note: 'Salão aberto para almoço presencial.',
+      note: 'Atendimento presencial para almoço.',
       isFeatured: false,
     },
     {
@@ -51,7 +46,7 @@ export const linksPageConfig = {
       label: 'Presencial',
       days: 'Sexta',
       hours: '11h às 14:30 • 18h às 23h',
-      note: 'Almoço e noite no salão.',
+      note: 'Almoço e noite com atendimento presencial.',
       isFeatured: false,
     },
     {
@@ -107,15 +102,6 @@ export const linksPageConfig = {
       title: 'Trabalhe com a gente',
       subtitle: 'Veja vagas abertas e envie sua candidatura.',
       href: JOBS_URL,
-      isFeatured: false,
-    },
-    {
-      id: 'maps',
-      emoji: '📍',
-      eyebrow: 'Localização',
-      title: 'Como chegar',
-      subtitle: 'Abra o endereço no Google Maps.',
-      href: MAPS_URL,
       isFeatured: false,
     },
   ] as const,

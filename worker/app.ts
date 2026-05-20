@@ -128,6 +128,7 @@ const CSRF_EXEMPT_PATHS = [
   '/api/auth/login',
   '/api/bootstrap/admin',
   '/api/gmail/oauth/exchange',
+  '/api/internal/gmail/send',
   '/api/meucuiabar/auth/google/exchange',
   '/api/internal/whatsapp/crm/sync',
 ];
@@ -1613,6 +1614,60 @@ export const createApp = () => {
       timestamp: nowIso(),
     }),
   );
+
+  app.post('/api/internal/gmail/send', async (c) => {
+    const expected = c.env.EMAIL_MCP_INTERNAL_TOKEN?.trim();
+    if (!expected) {
+      throw new HttpError(503, 'Token interno do Email MCP nao configurado.');
+    }
+
+    const provided = c.req.header('x-internal-token')?.trim();
+    if (!provided || provided !== expected) {
+      throw new HttpError(401, 'Token interno invalido.');
+    }
+
+    const body = await requireJsonBody<{
+      to: string;
+      subject: string;
+      text?: string;
+      html?: string;
+      replyTo?: string | null;
+      listUnsubscribeUrl?: string | null;
+      messageType?: 'transactional' | 'editorial' | 'marketing';
+      headers?: Record<string, string>;
+    }>(c.req.raw);
+
+    const to = ensureEmail(body.to);
+    const subject = body.subject?.trim();
+    const html = body.html?.trim() || '';
+    const text = body.text?.trim() || html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+    if (!subject) {
+      throw new HttpError(400, 'Assunto obrigatorio.');
+    }
+
+    if (!text && !html) {
+      throw new HttpError(400, 'Corpo do e-mail obrigatorio.');
+    }
+
+    const result = await sendViaGmail(c.env, {
+      fromName: getConfiguredSenderName(c.env),
+      fromEmail: c.env.GMAIL_SENDER_EMAIL || c.env.DEFAULT_FROM_EMAIL,
+      to,
+      subject,
+      replyTo: body.replyTo ?? c.env.DEFAULT_REPLY_TO,
+      html: html || `<p>${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>')}</p>`,
+      text,
+      listUnsubscribeUrl: body.messageType === 'marketing' && body.listUnsubscribeUrl ? body.listUnsubscribeUrl : '',
+      headers: {
+        'X-Email-MCP': 'true',
+        'X-Cuiabar-Message-Type': body.messageType || 'editorial',
+        ...(body.headers ?? {}),
+      },
+    });
+
+    return c.json({ ok: true, result });
+  });
 
   registerReservationRoutes(app);
   registerWhatsAppRoutes(app);

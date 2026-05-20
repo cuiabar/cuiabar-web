@@ -6,37 +6,37 @@ import { useSeo } from '../hooks/useSeo';
 import '../styles/reservations.css';
 
 const ReservasPage = () => {
-  const reservationsAppUrl = siteConfig.reservationPortalUrl;
+  const whatsappHref = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Ola! Quero fazer uma reserva no Cuiabar.')}`;
 
   useSeo(getRouteSeo('/reservas'));
 
   return (
     <section className="container-shell space-y-10 py-14">
       <Reveal as="header" className="card p-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-terracotta">Portal oficial de reservas</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-terracotta">Reservas Cuiabar</p>
         <h1 className="mt-3 font-heading text-5xl">Reservas no Villa Cuiabar</h1>
         <p className="mt-3 max-w-3xl text-steel">
-          Faça sua reserva online em um fluxo proprio, rapido e organizado para o Villa Cuiabar, no Jardim Aurelia, pensado para almoco, jantar e noites com musica ao vivo em Campinas.
+          O sistema automatico de reservas esta temporariamente indisponivel. Para consultar mesa, horario ou grupo, fale direto com a equipe pelo WhatsApp da loja.
         </p>
         <div className="mt-8">
-          <a href={reservationsAppUrl} className="reservation-cta">
+          <a href={whatsappHref} target="_blank" rel="noreferrer" className="reservation-cta">
             <span className="reservation-cta__glow" aria-hidden="true" />
             <span className="reservation-cta__border" aria-hidden="true" />
             <span className="reservation-cta__content">
-              <span className="reservation-cta__eyebrow">Reserva imediata</span>
-              <span className="reservation-cta__label">Reservar online</span>
-              <span className="reservation-cta__hint">Acessar reservas.cuiabar.com</span>
+              <span className="reservation-cta__eyebrow">Atendimento da loja</span>
+              <span className="reservation-cta__label">Chamar no WhatsApp</span>
+              <span className="reservation-cta__hint">{siteConfig.phone}</span>
             </span>
           </a>
-          <p className="mt-4 text-sm text-steel">Use o portal oficial para escolher data, horario, quantidade de pessoas e preferencias da mesa em um unico envio.</p>
+          <p className="mt-4 text-sm text-steel">A equipe confirma disponibilidade e orienta os proximos passos pelo atendimento oficial.</p>
         </div>
       </Reveal>
       <Reveal as="section" delay={80} className="grid gap-8 lg:grid-cols-2">
         <div className="card p-8">
-          <h2 className="font-heading text-3xl">Novo portal de reservas</h2>
+          <h2 className="font-heading text-3xl">Servico indisponivel</h2>
           <p className="mt-3 text-steel">
-            Em <strong>reservas.cuiabar.com</strong> voce escolhe data, horario, quantidade de pessoas, preferencias de mesa, restricoes alimentares e
-            observacoes em uma unica confirmacao.
+            O fluxo online de reservas foi pausado para evitar confirmacoes automaticas fora da operacao atual.
+            Enquanto isso, toda solicitacao deve passar pelo WhatsApp da loja.
           </p>
           <div className="mt-6 rounded-xl border border-sand/50 bg-white p-4">
             <p className="text-sm font-semibold text-cocoa">Politica de tolerancia</p>
@@ -46,20 +46,20 @@ const ReservasPage = () => {
             </p>
           </div>
           <p className="mt-5 text-sm text-steel">
-            A pagina atende quem busca reserva de restaurante no Jardim Aurelia e no eixo da John Boyd Dunlop, com uma entrada unica para mesas, aniversarios e grupos.
+            A página atende quem busca reserva no Villa Cuiabar, com uma entrada única para mesas, aniversários e grupos.
           </p>
         </div>
         <div className="card p-8">
-          <h2 className="font-heading text-3xl">Como funciona</h2>
+          <h2 className="font-heading text-3xl">Como pedir atendimento</h2>
           <div className="mt-5 space-y-4 text-steel">
             <p>
-              Escolha o periodo, informe o numero de pessoas, diga se ha criancas ou restricoes alimentares e registre observacoes importantes em poucos passos.
+              Chame no WhatsApp, informe a data desejada, horario, quantidade de pessoas e qualquer observacao importante.
             </p>
             <p>
-              Ao concluir, voce recebe uma confirmacao clara da solicitacao e nossa equipe acompanha tudo pelo painel interno de reservas.
+              A equipe responde diretamente no atendimento da loja e confirma o que estiver disponivel para o dia.
             </p>
             <p className="rounded-xl border border-sand/50 bg-white px-4 py-3 text-sm">
-              O acesso oficial fica em <strong>reservas.cuiabar.com</strong> e concentra o fluxo recomendado para clientes do restaurante.
+              WhatsApp oficial: <strong>{siteConfig.phone}</strong>
             </p>
           </div>
         </div>
@@ -76,16 +76,16 @@ const ReservasPage = () => {
         </div>
       </Reveal>
       <Reveal delay={120} className="card p-8 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-terracotta">Pronto para escolher sua mesa?</p>
-        <h2 className="mt-3 font-heading text-4xl">Faça sua reserva online</h2>
-        <p className="mt-3 text-steel">Entre no portal oficial e conclua sua solicitacao com mais conforto e organizacao.</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-terracotta">Atendimento direto</p>
+        <h2 className="mt-3 font-heading text-4xl">Chame a loja no WhatsApp</h2>
+        <p className="mt-3 text-steel">Nossa equipe verifica a disponibilidade e responde pelo canal oficial.</p>
         <div className="mt-8 flex justify-center">
-          <a href={reservationsAppUrl} className="reservation-cta reservation-cta--compact">
+          <a href={whatsappHref} target="_blank" rel="noreferrer" className="reservation-cta reservation-cta--compact">
             <span className="reservation-cta__glow" aria-hidden="true" />
             <span className="reservation-cta__border" aria-hidden="true" />
             <span className="reservation-cta__content">
-              <span className="reservation-cta__label">Reservar online</span>
-              <span className="reservation-cta__hint">Ir para reservas.cuiabar.com</span>
+              <span className="reservation-cta__label">Chamar no WhatsApp</span>
+              <span className="reservation-cta__hint">{siteConfig.phone}</span>
             </span>
           </a>
         </div>

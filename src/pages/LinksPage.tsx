@@ -169,13 +169,9 @@ const LinksPage = () => {
                 ))}
                 <article className="rounded-[1.5rem] border border-cocoa/10 bg-white/70 px-4 py-4">
                   <p className="text-[0.68rem] uppercase tracking-[0.24em] text-steel/80">{linksPageConfig.addressCardLabel}</p>
-                  <a
-                    href={linksPageConfig.mapsUrl}
-                    className="mt-3 inline-flex text-sm leading-relaxed text-cocoa transition hover:text-terracotta focus-visible:text-terracotta sm:text-[0.95rem]"
-                    aria-label={`Abrir no Google Maps: ${linksPageConfig.addressLabel}`}
-                  >
-                    {linksPageConfig.addressLabel}
-                  </a>
+                  <p className="mt-3 text-sm leading-relaxed text-cocoa sm:text-[0.95rem]">
+                    Atendimento em Campinas/SP com reservas, pedidos e dúvidas pelos canais oficiais.
+                  </p>
                   <Link to={linksPageConfig.reservationsUrl} className="links-address-cta">
                     Abrir reservas
                   </Link>

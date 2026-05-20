@@ -1,6 +1,6 @@
 import { siteConfig } from './siteConfig';
 
-export type LocalGuideKey = 'jardimAureliaRestaurant' | 'jardimAureliaBar' | 'enxutoDunlop';
+export type LocalGuideKey = 'restauranteCampinas' | 'barMusicaCampinas' | 'restauranteDeliveryCampinas';
 
 type LocalGuideCta = {
   label: string;
@@ -32,14 +32,14 @@ export type LocalGuide = {
 };
 
 export const localGuides: Record<LocalGuideKey, LocalGuide> = {
-  jardimAureliaRestaurant: {
-    key: 'jardimAureliaRestaurant',
-    path: '/restaurante-jardim-aurelia-campinas',
-    eyebrow: 'Jardim Aurelia',
-    title: 'Restaurante no Jardim Aurelia para almoco, jantar e reservas em Campinas',
+  restauranteCampinas: {
+    key: 'restauranteCampinas',
+    path: '/restaurante-brasileiro-campinas',
+    eyebrow: 'Campinas',
+    title: 'Restaurante brasileiro para almoco, jantar e reservas em Campinas',
     description:
-      `Para quem procura um restaurante no Jardim Aurelia, com acesso facil pelo eixo da ${siteConfig.corridor}, o Villa Cuiabar combina comida brasileira, bar completo, ambiente familiar e reservas online em um so lugar.`,
-    chips: ['Restaurante', 'Jardim Aurelia', 'Espaco kids', 'Reservas online'],
+      'Para quem procura um restaurante brasileiro em Campinas, o Villa Cuiabar combina comida da casa, bar completo, atendimento familiar e reservas online em um so lugar.',
+    chips: ['Restaurante', 'Campinas', 'Comida brasileira', 'Reservas online'],
     highlights: [
       {
         title: 'Almoco e jantar com mais previsibilidade',
@@ -47,7 +47,7 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       },
       {
         title: 'Espaco familiar com conforto para criancas',
-        description: 'O ambiente foi pensado para encontros em familia, com brinquedo para criancas e uma operacao que recebe bem adultos e pequenos.',
+        description: 'A operação foi pensada para encontros em familia, com atendimento que recebe bem adultos e pequenos.',
       },
       {
         title: 'Bar, porcoes e clima de encontro',
@@ -55,14 +55,14 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       },
     ],
     visitSignals: [
-      'Base forte para quem mora ou circula pelo Jardim Aurelia.',
-      `Boa opcao para quem vem da ${siteConfig.corridor} e quer parar sem desviar muito da regiao.`,
+      'Base forte para quem procura comida brasileira em Campinas.',
+      'Boa opcao para quem quer combinar almoço, jantar, bar e música em um mesmo atendimento.',
       'Reserva oficial em reservas.cuiabar.com para mesas, grupos e comemoracoes.',
     ],
     faqs: [
       {
-        question: 'O Villa Cuiabar fica no Jardim Aurelia?',
-        answer: 'Sim. A casa fica na Avenida Brigadeiro Rafael Tobias de Aguiar, em Campinas, com acesso facil para quem circula pelo Jardim Aurelia e pelo corredor da Dunlop.',
+        question: 'O Villa Cuiabar atende em Campinas?',
+        answer: 'Sim. A casa atende em Campinas. Para localização, horários e reservas, use os canais oficiais.',
       },
       {
         question: 'Tem espaco para ir com criancas?',
@@ -78,13 +78,13 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       { label: 'Ver menu da casa', href: '/menu' },
     ],
   },
-  jardimAureliaBar: {
-    key: 'jardimAureliaBar',
-    path: '/bar-jardim-aurelia-musica-ao-vivo',
+  barMusicaCampinas: {
+    key: 'barMusicaCampinas',
+    path: '/bar-musica-ao-vivo-campinas',
     eyebrow: 'Bar e musica',
-    title: 'Bar no Jardim Aurelia com musica ao vivo, shows e reservas em Campinas',
+    title: 'Bar com musica ao vivo, shows e reservas em Campinas',
     description:
-      'Para quem busca bar no Jardim Aurelia com musica ao vivo, noites de shows, porcoes, drinks e reserva organizada, o Villa Cuiabar concentra bar completo, ambiente familiar e programacao presencial em Campinas.',
+      'Para quem busca bar em Campinas com musica ao vivo, noites de shows, porcoes, drinks e reserva organizada, o Villa Cuiabar concentra bar completo, atendimento familiar e programacao presencial.',
     chips: ['Bar', 'Musicas ao vivo', 'Shows', 'Reservas'],
     highlights: [
       {
@@ -97,13 +97,13 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       },
       {
         title: 'Casa para familia e amigos',
-        description: 'Mesmo nas noites com shows, a operacao preserva o ambiente acolhedor de quem quer sair com criancas, amigos ou familia.',
+        description: 'Mesmo nas noites com shows, a operacao preserva atendimento acolhedor para quem quer sair com criancas, amigos ou familia.',
       },
     ],
     visitSignals: [
       'Mencione a programacao da semana e reserve cedo para os dias com maior movimento.',
-      'O bar completo acompanha pratos, porcoes, burgers e menu principal da casa.',
-      `Bom ponto de encontro para quem esta no Jardim Aurelia, na Dunlop ou em bairros vizinhos de Campinas.`,
+      'O bar completo acompanha pratos, porcoes e menu principal da casa.',
+      'Bom ponto de encontro para quem procura música ao vivo e comida brasileira em Campinas.',
     ],
     faqs: [
       {
@@ -124,18 +124,18 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       { label: 'Acompanhar agenda', href: '/' },
     ],
   },
-  enxutoDunlop: {
-    key: 'enxutoDunlop',
-    path: '/restaurante-perto-do-enxuto-dunlop',
-    eyebrow: 'Dunlop',
-    title: 'Restaurante perto do Enxuto Dunlop e do Atacadao Dunlop em Campinas',
+  restauranteDeliveryCampinas: {
+    key: 'restauranteDeliveryCampinas',
+    path: '/restaurante-delivery-campinas',
+    eyebrow: 'Campinas',
+    title: 'Restaurante brasileiro com almoco, jantar e delivery em Campinas',
     description:
-      `Quem procura restaurante perto do Enxuto Dunlop, do Atacadao Dunlop ou em todo o eixo da ${siteConfig.corridor} encontra no Villa Cuiabar uma parada forte para almoco, jantar, delivery e reservas em Campinas.`,
-    chips: ['Enxuto Dunlop', 'Atacadao Dunlop', 'John Boyd Dunlop', 'Almoco e reservas'],
+      'Quem procura restaurante brasileiro em Campinas encontra no Villa Cuiabar uma opção forte para almoco, jantar, delivery e reservas.',
+    chips: ['Campinas', 'Almoco', 'Jantar', 'Reservas'],
     highlights: [
       {
-        title: 'Parada pratica para quem circula pela Dunlop',
-        description: 'A localizacao funciona bem para quem esta no corredor comercial da John Boyd Dunlop e quer comer bem sem se afastar muito da rota.',
+        title: 'Opção prática para comer bem',
+        description: 'A operação funciona bem para quem quer comer bem em Campinas sem perder tempo escolhendo canal de pedido ou reserva.',
       },
       {
         title: 'Opcao para almoco, jantar e encontro',
@@ -147,22 +147,22 @@ export const localGuides: Record<LocalGuideKey, LocalGuide> = {
       },
     ],
     visitSignals: [
-      'Boa referencia para quem sai do Enxuto Dunlop e procura restaurante nas proximidades.',
-      'Tambem atende bem quem vem do Atacadao Dunlop, da John Boyd Dunlop ou de bairros vizinhos.',
-      'Menu completo da casa, burgers, delivery e reservas em um so dominio oficial.',
+      'Boa referencia para quem procura restaurante brasileiro em Campinas.',
+      'Atendimento organizado por canais oficiais de reserva, WhatsApp e delivery.',
+      'Menu completo da casa, delivery e reservas em um so dominio oficial.',
     ],
     faqs: [
       {
-        question: 'O Villa Cuiabar fica perto do Enxuto Dunlop?',
-        answer: 'Sim. A casa esta em uma regiao de acesso pratico para quem circula pelo eixo da John Boyd Dunlop e procura refeicao perto do Enxuto Dunlop.',
+        question: 'Como consulto localização e atendimento?',
+        answer: 'Use os canais oficiais do Villa Cuiabar para confirmar localização, horários e disponibilidade antes de sair.',
       },
       {
-        question: 'Tambem vale para quem esta perto do Atacadao Dunlop?',
-        answer: 'Sim. A localizacao atende bem quem esta na area comercial da Dunlop e quer uma opcao de almoco, jantar ou reserva em Campinas.',
+        question: 'Também tem delivery?',
+        answer: 'Sim. O site mantém canais oficiais para pedido direto, iFood e 99Food.',
       },
       {
         question: 'Da para reservar antes de chegar?',
-        answer: 'Sim. O portal oficial reservas.cuiabar.com permite organizar a chegada antes de sair da Dunlop ou do bairro.',
+        answer: 'Sim. O portal oficial reservas.cuiabar.com permite organizar a chegada com antecedência.',
       },
     ],
     ctas: [

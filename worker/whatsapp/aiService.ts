@@ -102,7 +102,7 @@ export const classifyIntentWithAi = async (
 
   const prompt = [
     'Voce classifica mensagens de WhatsApp do Villa Cuiabar.',
-    'Escolha exatamente um intent da lista: menu, delivery, hamburguer, marmita, reserva, evento, localizacao, horarios, reclamacao, humano, unknown.',
+    'Escolha exatamente um intent da lista: menu, delivery, marmita, reserva, evento, localizacao, horarios, reclamacao, humano, unknown.',
     'Retorne apenas JSON no formato {"intent":"...","confidence":0.0,"matchedKeywords":["..."]}.',
     'Se houver risco de inventar, use unknown.',
     `Ultimo intent conhecido: ${session.lastIntent ?? 'unknown'}.`,

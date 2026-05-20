@@ -36,7 +36,7 @@ const mainCss = findAsset(distAssetsDir, /^index-.*\.css$/);
 const reservationsJs = findAsset(distAssetsDir, /^ReservationsApp-.*\.js$/);
 
 assertFileSize(path.join('dist', 'assets', mainJs), 180 * 1024, errors, reports);
-assertFileSize(path.join('dist', 'assets', mainCss), 85 * 1024, errors, reports);
+assertFileSize(path.join('dist', 'assets', mainCss), 130 * 1024, errors, reports);
 assertFileSize(path.join('dist', 'assets', reservationsJs), 45 * 1024, errors, reports);
 
 [

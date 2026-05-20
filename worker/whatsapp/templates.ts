@@ -9,9 +9,6 @@ export const menuTemplate = (context: BusinessContext, inviteChannel: boolean) =
 export const deliveryTemplate = (context: BusinessContext, inviteChannel: boolean) =>
   `Para pedir com a melhor condicao direto com a casa, o melhor caminho costuma ser ${context.expressoUrl}. Se quiser comparar, nossa pagina de delivery esta em ${context.deliveryUrl}.${maybeInviteChannel(context, inviteChannel)}`;
 
-export const burgerTemplate = (context: BusinessContext, inviteChannel: boolean) =>
-  `Se a ideia e burguer, te direciono direto para ${context.burgerUrl}. Se preferir, eu tambem posso te passar o link de pedido com melhor condicao.${maybeInviteChannel(context, inviteChannel)}`;
-
 export const marmitaTemplate = (context: BusinessContext, inviteChannel: boolean) =>
   `Para marmita e executivos, o pedido direto fica em ${context.expressoUrl}. Esse costuma ser o canal com melhor condicao.${maybeInviteChannel(context, inviteChannel)}`;
 

@@ -66,10 +66,9 @@ const AgendaEventPage = () => {
             <p className="rounded-xl border border-sand/50 bg-white px-4 py-3 text-sm leading-relaxed">{program.reservationHint}</p>
           </div>
           <div className="mt-6 rounded-2xl border border-sand/50 bg-butter p-5">
-            <p className="text-sm font-semibold text-cocoa">Base local</p>
+            <p className="text-sm font-semibold text-cocoa">Atendimento</p>
             <p className="mt-2 text-sm leading-relaxed text-steel">
-              A casa fica no Jardim Aurelia, com acesso pelo eixo da John Boyd Dunlop, e conversa tanto com quem quer sair para ouvir musica
-              quanto com quem quer jantar, reservar ou reunir amigos.
+              Para confirmar localização, disponibilidade e orientação de chegada, use os canais oficiais antes de sair.
             </p>
           </div>
         </Reveal>
@@ -83,10 +82,10 @@ const AgendaEventPage = () => {
             <Link to="/menu" className="rounded-xl border border-sand/50 bg-white px-4 py-4 text-sm font-semibold text-cocoa transition hover:-translate-y-0.5 hover:shadow-soft">
               Ver menu da casa
             </Link>
-            <Link to="/bar-jardim-aurelia-musica-ao-vivo" className="rounded-xl border border-sand/50 bg-white px-4 py-4 text-sm font-semibold text-cocoa transition hover:-translate-y-0.5 hover:shadow-soft">
+            <Link to="/bar-musica-ao-vivo-campinas" className="rounded-xl border border-sand/50 bg-white px-4 py-4 text-sm font-semibold text-cocoa transition hover:-translate-y-0.5 hover:shadow-soft">
               Ler o guia local de bar e shows
             </Link>
-            <Link to="/restaurante-jardim-aurelia-campinas" className="rounded-xl border border-sand/50 bg-white px-4 py-4 text-sm font-semibold text-cocoa transition hover:-translate-y-0.5 hover:shadow-soft">
+            <Link to="/restaurante-brasileiro-campinas" className="rounded-xl border border-sand/50 bg-white px-4 py-4 text-sm font-semibold text-cocoa transition hover:-translate-y-0.5 hover:shadow-soft">
               Abrir o guia local do restaurante
             </Link>
           </div>

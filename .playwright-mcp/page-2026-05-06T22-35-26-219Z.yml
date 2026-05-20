@@ -1,0 +1,132 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Villa Cuiabar" [ref=e5] [cursor=pointer]:
+        - /url: /presencial
+        - generic [ref=e7]: Villa Cuiabar
+      - navigation [ref=e8]:
+        - link "Experiências" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - link "Presencial" [ref=e10] [cursor=pointer]:
+          - /url: /presencial
+        - link "Agenda" [ref=e11] [cursor=pointer]:
+          - /url: /agenda
+        - link "Menu" [ref=e12] [cursor=pointer]:
+          - /url: /menu
+        - link "Delivery" [ref=e13] [cursor=pointer]:
+          - /url: /delivery
+        - link "Expresso" [ref=e14] [cursor=pointer]:
+          - /url: /expresso
+        - link "Espetaria" [ref=e15] [cursor=pointer]:
+          - /url: /espetaria
+        - link "ProRefeição" [ref=e16] [cursor=pointer]:
+          - /url: https://prorefeicao.cuiabar.com
+        - link "Reservas" [ref=e17] [cursor=pointer]:
+          - /url: /reservas
+        - link "Vagas" [ref=e18] [cursor=pointer]:
+          - /url: /vagas
+        - link "WhatsApp" [ref=e19] [cursor=pointer]:
+          - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+  - main [ref=e20]:
+    - main [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - paragraph [ref=e25]: Delivery Cuiabar
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - heading "Escolha o canal de pedido." [level=1] [ref=e28]
+              - paragraph [ref=e29]: "Quatro acessos oficiais, sem mistura de marcas: pedido direto, iFood, 99Food do restaurante e 99Food da marmitaria."
+            - generic [ref=e30]: Atendimento no Jardim Aurélia, Campinas/SP. Para dúvidas sobre pedido, use o canal direto da loja.
+        - generic [ref=e31]:
+          - link "Pedido direto da loja Canal próprio para pedir com a equipe Cuiabar, sem intermediários. Pedir direto" [ref=e32] [cursor=pointer]:
+            - /url: https://expresso.cuiabar.com
+            - generic [ref=e33]:
+              - img [ref=e35]
+              - img [ref=e40]
+            - heading "Pedido direto da loja" [level=2] [ref=e43]
+            - paragraph [ref=e44]: Canal próprio para pedir com a equipe Cuiabar, sem intermediários.
+            - generic [ref=e45]: Pedir direto
+          - link "iFood do restaurante Loja oficial do restaurante no iFood. Abrir iFood" [ref=e46] [cursor=pointer]:
+            - /url: https://www.ifood.com.br/delivery/campinas-sp/villa-cuiabar--executivos--pratos-do-dia-jardim-aurelia/1af0e396-a7c8-46e1-b1a5-dd06486bb4ad
+            - generic [ref=e47]:
+              - img [ref=e49]
+              - img [ref=e52]
+            - heading "iFood do restaurante" [level=2] [ref=e55]
+            - paragraph [ref=e56]: Loja oficial do restaurante no iFood.
+            - generic [ref=e57]: Abrir iFood
+          - link "99Food do restaurante Acesso do restaurante no 99Food. Abrir 99Food" [ref=e58] [cursor=pointer]:
+            - /url: https://oia.99app.com/dlp9/C94oJv?area=BR
+            - generic [ref=e59]:
+              - img [ref=e61]
+              - img [ref=e66]
+            - heading "99Food do restaurante" [level=2] [ref=e69]
+            - paragraph [ref=e70]: Acesso do restaurante no 99Food.
+            - generic [ref=e71]: Abrir 99Food
+          - link "99Food da marmitaria Canal da operação Expresso para pratos do dia e marmitas. Abrir Expresso" [ref=e72] [cursor=pointer]:
+            - /url: https://oia.99app.com/dlp9/C94oJv?area=BR
+            - generic [ref=e73]:
+              - img [ref=e75]
+              - img [ref=e80]
+            - heading "99Food da marmitaria" [level=2] [ref=e83]
+            - paragraph [ref=e84]: Canal da operação Expresso para pratos do dia e marmitas.
+            - generic [ref=e85]: Abrir Expresso
+  - contentinfo [ref=e86]:
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - heading "Villa Cuiabar" [level=3] [ref=e90]
+        - paragraph [ref=e91]: Delivery no almoço todos os dias, presencial de quinta a sábado e operação corporativa em Campinas.
+      - generic [ref=e92]:
+        - heading "Links rápidos" [level=4] [ref=e93]
+        - list [ref=e94]:
+          - listitem [ref=e95]:
+            - link "Experiências" [ref=e96] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e97]:
+            - link "Presencial" [ref=e98] [cursor=pointer]:
+              - /url: /presencial
+          - listitem [ref=e99]:
+            - link "Agenda" [ref=e100] [cursor=pointer]:
+              - /url: /agenda
+          - listitem [ref=e101]:
+            - link "Menu" [ref=e102] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e103]:
+            - link "Delivery" [ref=e104] [cursor=pointer]:
+              - /url: /delivery
+          - listitem [ref=e105]:
+            - link "Expresso" [ref=e106] [cursor=pointer]:
+              - /url: /expresso
+          - listitem [ref=e107]:
+            - link "Espetaria" [ref=e108] [cursor=pointer]:
+              - /url: /espetaria
+          - listitem [ref=e109]:
+            - link "ProRefeição" [ref=e110] [cursor=pointer]:
+              - /url: https://prorefeicao.cuiabar.com
+          - listitem [ref=e111]:
+            - link "Reservas" [ref=e112] [cursor=pointer]:
+              - /url: /reservas
+          - listitem [ref=e113]:
+            - link "Vagas" [ref=e114] [cursor=pointer]:
+              - /url: /vagas
+      - generic [ref=e115]:
+        - heading "Contato" [level=4] [ref=e116]
+        - list [ref=e117]:
+          - listitem [ref=e118]: (19) 3305-8878
+          - listitem [ref=e119]: cuiabar@cuiabar.net
+          - listitem [ref=e120]: Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia - Campinas/SP
+          - listitem [ref=e121]:
+            - link "Instagram" [ref=e122] [cursor=pointer]:
+              - /url: https://instagram.com/cuiabar
+          - listitem [ref=e123]:
+            - link "Facebook" [ref=e124] [cursor=pointer]:
+              - /url: https://facebook.com/villacuiabar
+      - generic [ref=e125]:
+        - heading "Horários" [level=4] [ref=e126]
+        - list [ref=e127]:
+          - listitem [ref=e128]: "Delivery: todos os dias, das 11h às 14:30"
+          - listitem [ref=e129]: "Presencial: quinta, das 11h às 14:30"
+          - listitem [ref=e130]: "Presencial: sexta, das 11h às 14:30 e das 18h às 23h"
+          - listitem [ref=e131]: "Presencial: sábado, das 11h às 15h e das 18h às 23h"
+        - link "Falar no WhatsApp" [ref=e132] [cursor=pointer]:
+          - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+    - generic [ref=e133]: © 2026 Villa Cuiabar | Campinas. Todos os direitos reservados.

@@ -236,7 +236,7 @@ const ProRefeicaoPage = () => {
             <h2 className="pro-section-title">Uma landing mais clara precisa dizer onde o ProRefeição realmente funciona bem.</h2>
             <p className="pro-section-body">
               A proposta é mais útil para operações com recorrência, times distribuídos e necessidade de uma refeição corporativa em Campinas
-              que já nasça com lógica de atendimento, não como adaptação do salão ou do delivery casual.
+              que já nasça com lógica de atendimento, não como adaptação do consumo casual.
             </p>
 
             <ul className="pro-audience-list">
@@ -352,7 +352,7 @@ const ProRefeicaoPage = () => {
                 <ul className="pro-cta-aside-list">
                   <li>Quantidade aproximada por dia ou por turno</li>
                   <li>Se o atendimento será no almoço, jantar ou ambos</li>
-                  <li>Endereço ou região da operação em Campinas</li>
+                  <li>Região de atendimento em Campinas</li>
                   <li>Frequência semanal ou necessidade recorrente</li>
                 </ul>
               </aside>

@@ -1,6 +1,6 @@
 # Ambiente local e IDs operacionais
 
-Atualizado em: 2026-04-13 14:46 BRT
+Atualizado em: 2026-05-15 14:52 BRT
 
 ## Objetivo
 
@@ -41,6 +41,9 @@ Observacao:
 
 - Tipo: `Baileys + WhatsApp Web`
 - Health endpoint local: `http://127.0.0.1:8788/health`
+- Health endpoint via tunnel para `GHCO Comunicacoes`: `https://ghco-comms-bridge-origin.cuiabar.com/health`
+- Tunnel Cloudflare usado: `interno-cuiabar` (`ca756fc0-f2d1-4126-8281-bd3ed3ff5089`)
+- Config local do tunnel: `C:\Users\usuario\.cloudflared\config.yml`
 - Runtime root principal: `C:\ProgramData\VillaCuiabar`
 - Runtime do bridge: `C:\ProgramData\VillaCuiabar\whatsapp-baileys-runtime`
 - Logs do bridge: `C:\ProgramData\VillaCuiabar\logs`
@@ -66,6 +69,13 @@ Observacao:
 
 - neste snapshot o bridge esta aguardando novo pareamento por QR
 - nao existe hoje um `bridge_instance_id` persistente no codigo; a identidade operacional do bridge fica representada por `machineName`, runtime root e health endpoint
+
+Snapshot adicional em `2026-05-15T14:52:00-03:00` para o bridge `GHCO Comunicacoes`:
+
+- `connection`: `open`
+- `me`: `551933058878:5@s.whatsapp.net`
+- `lastError`: `null`
+- tunnel publico tecnico ativo em `ghco-comms-bridge-origin.cuiabar.com`
 
 ## Autostart / watchdog
 

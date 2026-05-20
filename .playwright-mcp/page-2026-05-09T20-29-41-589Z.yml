@@ -1,0 +1,96 @@
+- generic [ref=e2]:
+  - link "Pular para o conteúdo principal" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Ir para a página inicial do Villa Cuiabar" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: Villa Cuiabar
+      - link "Chamar Villa Cuiabar pelo WhatsApp" [ref=e9] [cursor=pointer]:
+        - /url: https://wa.me/551933058878?text=Ol%C3%A1!%20Quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Dia%20das%20M%C3%A3es%20no%20Villa%20Cuiabar.
+        - text: WhatsApp
+  - main [ref=e10]:
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e17]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e18]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e19]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e20]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e21]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e22]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+          - generic [ref=e23]: Dia das Mães no Villa Cuiabar · 10/05 domingo · almoço em família · música ao vivo
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: Domingo, 10/05
+              - generic [ref=e28]: Ordem de chegada
+            - heading "Dia das Mães no Villa Cuiabar." [level=1] [ref=e29]
+            - paragraph [ref=e30]: Neste domingo, esperamos sua família para viver um almoço especial, com comida brasileira, acolhimento e a tradição da casa no Jardim Aurélia.
+            - generic [ref=e31]:
+              - link "Chamar no WhatsApp" [ref=e32] [cursor=pointer]:
+                - /url: https://wa.me/551933058878?text=Ol%C3%A1!%20Quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Dia%20das%20M%C3%A3es%20no%20Villa%20Cuiabar.
+                - img [ref=e33]
+                - text: Chamar no WhatsApp
+              - link "iFood restaurante" [ref=e35] [cursor=pointer]:
+                - /url: https://www.ifood.com.br/delivery/campinas-sp/villa-cuiabar--executivos--pratos-do-dia-jardim-aurelia/1af0e396-a7c8-46e1-b1a5-dd06486bb4ad
+              - link "99Food restaurante" [ref=e36] [cursor=pointer]:
+                - /url: https://oia.99app.com/dlp9/C94oJv?area=BR
+            - generic [ref=e37]:
+              - img [ref=e38]
+              - paragraph [ref=e41]: Av. Brigadeiro Rafael Tobias de Aguiar, 1121 - Jardim Aurélia - Campinas/SP. Atendimento presencial especial neste domingo e delivery pelos canais oficiais.
+          - generic [ref=e42]:
+            - img "Salão do Villa Cuiabar preparado para encontros em família" [ref=e46]
+            - generic [ref=e47]:
+              - paragraph [ref=e48]: Tradição, sabor e família.
+              - paragraph [ref=e49]: A casa estará preparada para receber o domingo mais afetivo do ano.
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading "O que saber antes de vir." [level=2] [ref=e53]
+          - paragraph [ref=e54]: Informações essenciais para o Dia das Mães no Villa Cuiabar.
+        - generic [ref=e55]:
+          - article [ref=e56]:
+            - img [ref=e57]
+            - heading "Atendimento por ordem de chegada" [level=3] [ref=e59]
+            - paragraph [ref=e60]: Neste domingo de Dia das Mães, a casa trabalha sem reserva automática. Chegue com a família e nossa equipe organiza a recepção conforme a chegada.
+          - article [ref=e61]:
+            - img [ref=e62]
+            - heading "Cardápio especial do dia" [level=3] [ref=e65]
+            - paragraph [ref=e66]: O cardápio especial será consultado diretamente na casa. O cardápio online está em reforma para voltar mais completo.
+          - article [ref=e67]:
+            - img [ref=e68]
+            - heading "Família em primeiro lugar" [level=3] [ref=e70]
+            - paragraph [ref=e71]: Uma data para reunir mães, filhos, avós e amigos em volta de boa comida, música e atendimento cuidadoso.
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - img [ref=e75]
+          - heading "Show especial no domingo." [level=2] [ref=e78]
+          - paragraph [ref=e79]: A apresentação musical do Dia das Mães terá espaço de destaque aqui na home. Envie a arte da banda e eu encaixo mantendo a página limpa, legível e com foco em conversão.
+        - generic [ref=e80]:
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: Arte da banda
+            - paragraph [ref=e84]: Espaço reservado para o criativo oficial do show de Dia das Mães.
+          - paragraph [ref=e85]: "Melhor envio: 1920 x 1080 px em PNG ou JPG, sem texto muito próximo das bordas. Também posso adaptar uma versão quadrada 1080 x 1080 px para redes."
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - heading "Sobre nós." [level=2] [ref=e89]
+          - paragraph [ref=e90]: Tradição, Sabor e Família
+        - generic [ref=e91]:
+          - paragraph [ref=e92]: "O Villa Cuiabar nasceu em 2017 com um propósito simples: ser um espaço onde boas cervejas e momentos descontraídos se encontrassem. Mas logo percebemos que poderíamos ir além. Em 2018, abraçamos um novo desafio e transformamos o bar em um restaurante e grill, focado em oferecer uma experiência gastronômica completa, com pratos bem servidos e cheios de sabor."
+          - paragraph [ref=e93]: "Sempre atentos ao que nossos clientes buscavam, em 2019 tomamos uma decisão ousada: tornar nossos almoços mais acessíveis, sem abrir mão da qualidade. E quando a pandemia chegou, em vez de recuar, enfrentamos o desafio de peito aberto, reinventando nosso atendimento para continuar servindo com excelência."
+          - paragraph [ref=e94]: Nosso crescimento seguiu firme. Em 2022, lançamos o Expresso Cuiabar, nossa marmitaria, levando praticidade e o mesmo sabor inconfundível para o dia a dia de ainda mais pessoas. Hoje, seguimos expandindo, inovando e aprimorando cada detalhe para entregar o melhor custo-benefício da região de Campinas.
+          - paragraph [ref=e95]: Mas, acima de tudo, o Villa Cuiabar é sobre família. Foi dentro dela que tudo começou, e é por ela que seguimos firmes, superando desafios e construindo nossa história. E são nossos clientes, que confiam e fazem parte dessa jornada, que nos motivam a evoluir a cada dia.
+          - paragraph [ref=e96]: "Villa Cuiabar: onde tradição e sabor se encontram para servir bem, sempre."
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - heading "Fale com a equipe." [level=2] [ref=e100]
+          - paragraph [ref=e101]: Para dúvidas sobre chegada, atendimento e funcionamento do Dia das Mães.
+        - link "Chamar no WhatsApp" [ref=e102] [cursor=pointer]:
+          - /url: https://wa.me/551933058878?text=Ol%C3%A1!%20Quero%20informa%C3%A7%C3%B5es%20sobre%20o%20Dia%20das%20M%C3%A3es%20no%20Villa%20Cuiabar.
+          - img [ref=e103]
+          - text: Chamar no WhatsApp
+  - link "Falar com o Villa Cuiabar pelo WhatsApp" [ref=e105] [cursor=pointer]:
+    - /url: https://wa.me/551933058878?text=Ol%C3%A1%2C%20tudo%20bem%3F
+    - generic [ref=e106]: 💬
+    - generic [ref=e107]: WhatsApp

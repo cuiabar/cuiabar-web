@@ -15,35 +15,47 @@ export const menuHighlights: MenuHighlight[] = [
     category: 'Corte nobre',
     description: 'Contrafilé alto e marmorizado, servido com mandioca frita da casa.',
     price: 'R$ 56,00',
-    image: 'https://static.wixstatic.com/media/f30eee_089ca416fa0f43868ce21b3a0abf46d8~mv2.png',
+    image: '/menu/bife-chorizo.png',
+    imageWebp: '/menu/bife-chorizo.webp',
+    width: 600,
+    height: 600,
   },
   {
     name: 'Costela Cuiabar',
     category: 'Especial da casa',
     description: 'Costela bovina sem osso, assada no bafo e servida com mandioca frita.',
     price: 'R$ 41,00',
-    image: 'https://static.wixstatic.com/media/f30eee_f034abb51d4d498eb80fcd74901bafbd~mv2.png',
+    image: '/menu/costela-cuiabar.png',
+    imageWebp: '/menu/costela-cuiabar.webp',
+    width: 600,
+    height: 600,
   },
   {
     name: 'Pancetinha',
     category: 'Petisco',
     description: 'Torresmo de rolo carnudo, assado e depois frito, com fritas e barbecue.',
     price: 'R$ 42,00',
-    image: 'https://static.wixstatic.com/media/f30eee_b9aa5997e2aa4a0bac11814ce1e355f9~mv2.png',
+    image: '/menu/pancetinha.png',
+    imageWebp: '/menu/pancetinha.webp',
+    width: 600,
+    height: 600,
   },
   {
     name: 'Parmignon',
     category: 'Parmegiana',
     description: 'Parmegiana de mignon com arroz e fritas.',
     price: 'R$ 59,00',
-    image: 'https://static.wixstatic.com/media/f30eee_725e61a60a9a4e8e91766fb2975411a2~mv2.png',
+    image: '/menu/parmignon.png',
+    imageWebp: '/menu/parmignon.webp',
+    width: 600,
+    height: 600,
   },
 ];
 
 export const reservationFaqs: FaqItem[] = [
   {
     question: 'Como faço minha reserva?',
-    answer: 'As reservas sao feitas no portal oficial reservas.cuiabar.com, com data, horario, quantidade de pessoas e preferencias em um unico fluxo.',
+    answer: 'No momento, o sistema automatico esta indisponivel. Para reservar, chame a equipe pelo WhatsApp oficial da loja: (19) 3305-8878.',
   },
   {
     question: 'Quais sao os horarios de servico da casa?',
@@ -52,7 +64,7 @@ export const reservationFaqs: FaqItem[] = [
   },
   {
     question: 'Onde faço a reserva da mesa?',
-    answer: 'Voce pode entrar pela pagina cuiabar.com/reservas e seguir para o portal oficial com o fluxo completo de reserva.',
+    answer: 'A solicitacao deve ser feita pelo WhatsApp da loja. Informe data, horario, quantidade de pessoas e observacoes importantes.',
   },
 ];
 

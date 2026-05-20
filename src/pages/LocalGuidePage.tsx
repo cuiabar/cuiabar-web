@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { localGuideList, localGuides, type LocalGuideKey } from '../data/localGuides';
 import { getRouteSeo } from '../data/seo';
-import { siteConfig } from '../data/siteConfig';
 import { useSeo } from '../hooks/useSeo';
 
 type LocalGuidePageProps = {
@@ -64,10 +63,9 @@ const LocalGuidePage = ({ pageKey }: LocalGuidePageProps) => {
             ))}
           </div>
           <div className="mt-6 rounded-2xl border border-sand/50 bg-butter p-5">
-            <p className="text-sm font-semibold text-cocoa">Endereco base</p>
-            <p className="mt-2 text-sm leading-relaxed text-steel">{siteConfig.address}</p>
-            <p className="mt-3 text-sm leading-relaxed text-steel">
-              Referencia forte para quem circula pelo <strong>{siteConfig.corridor}</strong> e procura restaurante, bar, reservas ou musica ao vivo perto do bairro.
+            <p className="text-sm font-semibold text-cocoa">Atendimento</p>
+            <p className="mt-2 text-sm leading-relaxed text-steel">
+              Para reservas, horários e orientação de atendimento, use os canais oficiais do Villa Cuiabar.
             </p>
           </div>
         </Reveal>

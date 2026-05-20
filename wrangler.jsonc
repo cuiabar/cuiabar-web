@@ -15,7 +15,15 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
     "html_handling": "auto-trailing-slash",
-    "run_worker_first": ["/", "/burger*", "/burguer*"]
+    "run_worker_first": [
+      "/",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/oauth/*",
+      "/api/*",
+      "/burger*",
+      "/burguer*"
+    ]
   },
   "routes": [
     {
@@ -56,6 +64,8 @@
     "GOOGLE_ALLOWED_EMAILS": "leonardo@cuiabar.net,cuiabar@cuiabar.net",
     "GOOGLE_MANAGER_EMAILS": "leonardo@cuiabar.net,cuiabar@cuiabar.net",
     "GOOGLE_CALENDAR_ID": "c_cb44b5a5c24377de0d7ec7a6bb840f4ed667ce355c9b4611a4b9d9e1ff7e5782@group.calendar.google.com",
+    "GMAIL_SENDER_EMAIL": "clientes@cuiabar.net",
+    "GMAIL_SENDER_NAME": "Cuiabar",
     "DEFAULT_FROM_EMAIL": "contato@cuiabar.com",
     "DEFAULT_FROM_NAME": "Cuiabar Restaurantes | Campinas",
     "DEFAULT_REPLY_TO": "contato@cuiabar.com",
@@ -70,7 +80,6 @@
     "WHATSAPP_AI_MODE": "binding",
     "WHATSAPP_AI_MODEL": "@cf/meta/llama-3.1-8b-instruct",
     "WHATSAPP_MENU_URL": "https://cuiabar.com/menu",
-    "WHATSAPP_BURGER_URL": "https://cuiabar.com/burguer",
     "WHATSAPP_DELIVERY_URL": "https://cuiabar.com/delivery",
     "WHATSAPP_EXPRESSO_URL": "https://expresso.cuiabar.com",
     "WHATSAPP_CHANNEL_URL": "https://whatsapp.com/channel/0029VbAcHLXFSAsxCt6lly0a",

@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "whatsapp-marketing-mcp",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "whatsapp-marketing-mcp.cuiabar.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "GHCO_COMMS_BRIDGE_URL": "https://ghco-comms-bridge-origin.cuiabar.com",
+    "MARKETING_MAX_BATCH_SIZE": "25",
+    "MARKETING_MIN_DELAY_SECONDS": "45",
+    "MARKETING_MAX_DAILY_RECIPIENTS": "200"
+  }
+}

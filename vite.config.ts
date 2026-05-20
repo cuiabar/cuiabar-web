@@ -4,6 +4,11 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    fs: {
+      deny: ['ops-artifacts/**', 'dist/**', '.ssr/**', 'KIT-PORTABILIDADE/**'],
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
