@@ -63,6 +63,7 @@ worker/
 services/
   whatsapp-baileys/ ponte local do WhatsApp Web
   whatsapp-marketing-mcp/ GPT Actions e MCP remoto para marketing WhatsApp consentido
+  google-business-mcp/ GPT Actions para Google Business Profile
 
 migrations/
   evolução de schema do D1
@@ -90,6 +91,9 @@ migrations/
 
 - `services/whatsapp-marketing-mcp/`
   Worker separado para GPT Actions e MCP remoto de campanhas WhatsApp consentidas, com validação de consentimento, opt-out, identificação do remetente e envio real apenas unitário/confirmado via bridge `GHCO Comunicacoes`. Suporta texto, texto formatado e envio de foto, vídeo, áudio e documento.
+
+- `services/google-business-mcp/`
+  Worker separado para GPT Actions do Google Business Profile, com leitura e escrita controlada por `validateOnly` para contas, locais, avaliações, posts, mídia e métricas.
 
 ## Domínios e hosts
 
@@ -122,6 +126,9 @@ migrations/
 
 - `https://whatsapp-marketing-mcp.cuiabar.com`
   Serviço técnico para GPT personalizado e MCP remoto de marketing WhatsApp consentido. Não é superfície pública de cliente final. Endpoints principais: `/openapi.json`, `/sse`, `/mcp`, `/actions/format-message`, `/actions/send-single` e `/actions/send-media`.
+
+- `https://google-business-mcp.cuiabar.com`
+  Serviço técnico para GPT personalizado operar Google Business Profile via Actions/OpenAPI. Não é superfície pública de cliente final. Endpoints principais: `/openapi.json`, `/health`, `/actions/accounts`, `/actions/locations`, `/actions/reviews`, `/actions/local-posts`, `/actions/media`, `/actions/performance` e `/actions/google-business-request`.
 
 ## Rotas públicas principais
 

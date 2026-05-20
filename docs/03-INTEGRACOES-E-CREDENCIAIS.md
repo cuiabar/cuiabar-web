@@ -65,6 +65,12 @@ Segredos recorrentes:
 - `DEFAULT_REPLY_TO`
 - `MCP_BEARER_TOKEN`
 - `GOOGLE_GEMINI_API_KEY`
+- `GOOGLE_BUSINESS_ACTIONS_BEARER_TOKEN`
+- `GOOGLE_BUSINESS_CLIENT_ID`
+- `GOOGLE_BUSINESS_CLIENT_SECRET`
+- `GOOGLE_BUSINESS_REFRESH_TOKEN`
+- `GOOGLE_BUSINESS_DEFAULT_ACCOUNT`
+- `GOOGLE_BUSINESS_DEFAULT_LOCATION`
 
 Observações:
 
@@ -72,6 +78,7 @@ Observações:
 - O Email MCP fica em `services/email-mcp/` e expõe Actions para GPT personalizado em `https://email-mcp.cuiabar.com/openapi.json`. Usa Gmail API oficial, `EMAIL_MCP_BEARER_TOKEN` para autorizar editores, `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`/`GOOGLE_REFRESH_TOKEN` para OAuth e `GMAIL_SENDER_EMAIL=clientes@cuiabar.net` como remetente real. O runbook fica em `docs/runbooks/email-mcp.md`.
 - O Google Search Console exige OAuth com escopo `https://www.googleapis.com/auth/webmasters` para listar propriedades e submeter sitemaps via API. Em 2026-05-05, o login local `cuiabar@cuiabar.net` no `gcloud` estava ativo, mas sem esse escopo, retornando `ACCESS_TOKEN_SCOPE_INSUFFICIENT`.
 - O Google Business Profile está autorizado para leitura operacional de perfis, métricas, avaliações, posts e mídia. A operação usa OAuth com escopos `business.manage` e, quando necessário para gestão de APIs do projeto, `cloud-platform`.
+- O Google Business MCP fica em `services/google-business-mcp/` e expõe Actions/OpenAPI para GPT personalizado em `https://google-business-mcp.cuiabar.com/openapi.json`. Usa Bearer interno `GOOGLE_BUSINESS_ACTIONS_BEARER_TOKEN` e OAuth Google com `GOOGLE_BUSINESS_CLIENT_ID`/`GOOGLE_BUSINESS_CLIENT_SECRET`/`GOOGLE_BUSINESS_REFRESH_TOKEN`, preferencialmente emitido com escopo `https://www.googleapis.com/auth/business.manage`. Escritas devem usar `validateOnly:true` por padrão e só enviar `validateOnly:false` após confirmação explícita.
 - O Google Ads tem um MCP remoto publicado em `https://google-ads-mcp.cuiabar.com/sse`, com código em `services/google-ads-mcp/` e runbook em `docs/runbooks/google-ads-mcp.md`. O serviço usa o escopo OAuth `https://www.googleapis.com/auth/adwords`, mantém relatórios por `googleAds:searchStream`, bloqueia GAQL fora de `SELECT`, retorna erros estruturados em `gaql-v2` e expõe escrita por `mutate-v2`/`create-search-ad-bundle-v2` para editores autenticados.
 - A integração com Gemini está apenas inventariada. Não há uso ativo dessa API no runtime do site, do CRM ou do Worker neste momento.
 

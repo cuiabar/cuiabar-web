@@ -17,6 +17,7 @@ Esta pasta agrupa runbooks e guias operacionais que antes ficavam soltos na raiz
 - `GOOGLE-CALENDAR-SETUP.md`
 - `google-ads-mcp.md`
 - `google-business-avaliacoes-com-foto.md`
+- `google-business-mcp.md`
 - `META-CAPI-SETUP.md`
 - `meta-ads-actions.md`
 - `README-RESERVAS.md`

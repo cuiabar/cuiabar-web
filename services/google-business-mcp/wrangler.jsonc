@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "google-business-mcp",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-05-20",
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "google-business-mcp.cuiabar.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "GOOGLE_BUSINESS_API_VERSION": "v4"
+  }
+}

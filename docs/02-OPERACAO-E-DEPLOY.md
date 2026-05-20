@@ -78,12 +78,14 @@ npm run d1:migrate:remote
 ### Workers auxiliares de MCP e Actions
 
 - `services/google-ads-mcp/` publica `google-ads-mcp.cuiabar.com`.
+- `services/google-business-mcp/` publica `google-business-mcp.cuiabar.com`.
 - `services/meta-ads-actions/` publica `meta-ads-actions.cuiabar.com`.
 - `services/email-mcp/` publica `email-mcp.cuiabar.com`.
 - `services/whatsapp-marketing-mcp/` publica `whatsapp-marketing-mcp.cuiabar.com`.
 - Cada serviço auxiliar tem `wrangler.jsonc` próprio e deve ser publicado a partir da sua pasta.
 - O `whatsapp-marketing-mcp` depende de `MCP_BEARER_TOKEN`, `GHCO_COMMS_BRIDGE_TOKEN` e de um `GHCO_COMMS_BRIDGE_URL` HTTPS acessível pelo Worker. Não usar `127.0.0.1` em produção. Para mídia, o GPT deve preferir `mediaUrl` HTTPS; `filePath` só funciona quando o arquivo existe no host do bridge.
 - O `email-mcp` depende de `EMAIL_MCP_BEARER_TOKEN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN` e `GMAIL_SENDER_EMAIL`; sem esses secrets o Worker publica o schema, mas o health fica `ok:false` e nenhuma Action autenticada consegue operar.
+- O `google-business-mcp` depende de `GOOGLE_BUSINESS_ACTIONS_BEARER_TOKEN`, `GOOGLE_BUSINESS_CLIENT_ID`, `GOOGLE_BUSINESS_CLIENT_SECRET` e `GOOGLE_BUSINESS_REFRESH_TOKEN`; `GOOGLE_BUSINESS_DEFAULT_ACCOUNT` e `GOOGLE_BUSINESS_DEFAULT_LOCATION` sao opcionais, mas recomendados para reduzir ambiguidade nas Actions do GPT.
 
 ## Regras importantes
 

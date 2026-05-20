@@ -65,6 +65,7 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 - base do WhatsApp Marketing MCP criada em 2026-05-15 em `services/whatsapp-marketing-mcp/`, com GPT Actions/OpenAPI e MCP remoto planejados para `whatsapp-marketing-mcp.cuiabar.com`; a implementação aplica consentimento, opt-out, identificação do remetente e validação por padrão no envio real, sem mecanismos de contorno de bloqueios. No mesmo dia, o serviço passou a expor formatação WhatsApp padronizada, envio unitário de foto, vídeo, áudio e documento, modo de treino/validação sem exigir consentimento no payload e `form` com opcoes numeradas e resposta automatica unica como alternativa de custo zero a botoes oficiais.
 - em 2026-05-16, o Burgers N' Smoke foi separado do ecossistema Cuiabar: o `GHCO OS` deixou de servir `burgersnsmoke.com` no Worker principal e passou a manter somente redirecionamentos legados de `/burger*`, `/burguer*`, `/burger-n-smoke`, páginas satélite antigas e `burger.cuiabar.com` para `https://burgersnsmoke.com/`. O site, assets, sitemap, robots, Schema.org e deploy do domínio ficam no projeto standalone `burgersnsmoke`.
 - em 2026-05-18, foi criada a primeira versão funcional da intranet privada `GHCO OS — Manual Operacional` em `/os`, com módulos de Atendimento, Delivery, POPs, Conversão de Vendas e Recomendações de Serviço. A versão inicial usa conteúdo versionado em `src/modules/os/`, busca local simples, layout mobile-first e anti-indexação por meta robots e `X-Robots-Tag`; autenticação definitiva ficou preparada no `ProtectedLayout`, mas ainda não implementada.
+- em 2026-05-20, foi criada a base do `google-business-mcp` em `services/google-business-mcp/`, com Actions/OpenAPI para GPT personalizado ler contas, locais, avaliações, posts, mídia, métricas e executar escritas controladas no Google Business Profile por `validateOnly`.
 
 ## Situação do Git
 
@@ -82,6 +83,7 @@ O repositório oficial é `GHCO-OS/cuiabar-web`.
 - criar a operação de SEO própria do `ProRefeição` no Search Console e acompanhar a indexação do novo host
 - reautorizar o acesso local ao Google Search Console com escopo `https://www.googleapis.com/auth/webmasters`; o token atual do `gcloud` para `cuiabar@cuiabar.net` retorna `ACCESS_TOKEN_SCOPE_INSUFFICIENT` para a API Search Console
 - evoluir os sprints de SEO local do Google Business Profile, incluindo posts semanais, mídia recente e respostas de avaliações pendentes
+- publicar e validar o `google-business-mcp` em `google-business-mcp.cuiabar.com`, configurar secrets OAuth/Bearer e conectar o schema `/openapi.json` ao GPT personalizado.
 - acompanhar limites, permissões e eventual aprovação do developer token do Google Ads caso seja necessário ampliar uso fora de leitura operacional própria
 - concluir a documentação institucional e o espelhamento no Wiki do GitHub
 - ativar o Wiki do repositório no GitHub para publicar as páginas já preparadas em `docs/wiki/`
